@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <a 
-                href="/resume.pdf" 
+                href="/BHARGAV_NATH.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:scale-105 shadow-lg"
@@ -53,6 +53,16 @@ const Hero: React.FC = () => {
               >
                 <Linkedin size={18} />
                 Connect on LinkedIn
+              </a>
+              <a 
+                href="https://github.com/code-red-Marshall" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-all duration-200 hover:scale-105"
+              >
+                {/* Using ExternalLink icon to represent GitHub for now */}
+                <ExternalLink size={18} />
+                GitHub
               </a>
             </div>
 
