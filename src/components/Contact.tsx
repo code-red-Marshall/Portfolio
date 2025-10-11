@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
               <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
               <div className="space-y-4">
                 <a
-                  href="mailto:bhargav@example.com"
+                  href="mailto:bhargavnth07@gmail.com?subject=Let's Connect&body=Hi Bhargav,%0D%0A%0D%0AI'd love to connect and discuss opportunities.%0D%0A%0D%0ABest regards,"
                   className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors group"
                 >
                   <div className="bg-slate-700 p-3 rounded-lg group-hover:bg-slate-600 transition-colors">
@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-sm">bhargav@example.com</p>
+                    <p className="text-sm">bhargavnth07@gmail.com</p>
                   </div>
                 </a>
 
@@ -60,14 +60,23 @@ const Contact: React.FC = () => {
             <div className="space-y-4">
               <h4 className="text-lg font-semibold">Quick Actions</h4>
               <div className="flex flex-wrap gap-4">
-                <button className="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition-all duration-200 hover:scale-105">
+                <a 
+                  href="/BHARGAV_NATH.pdf" 
+                  download="BHARGAV_NATH.pdf"
+                  className="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition-all duration-200 hover:scale-105"
+                >
                   <Download size={18} />
                   Download Resume
-                </button>
-                <button className="inline-flex items-center gap-2 bg-slate-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-600 transition-all duration-200 hover:scale-105">
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/bhargav-nath" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-slate-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-600 transition-all duration-200 hover:scale-105"
+                >
                   <ExternalLink size={18} />
                   Schedule Call
-                </button>
+                </a>
               </div>
             </div>
           </div>

@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
                 AI-native. Data-driven. User-obsessed.
               </p>
               <p className="text-lg text-slate-500 max-w-lg">
-                I design systems, connect the dots, and build with purpose.
+                I bring AI into products so users feel the Magic, not the Math.
               </p>
             </div>
 

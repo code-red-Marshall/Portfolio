@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import ProjectGallery from './components/ProjectGallery';
+import Blog from './components/Blog';
 import AILiteracy from './components/AILiteracy';
 import ProductThinking from './components/ProductThinking';
 import ProfessionalBackground from './components/ProfessionalBackground';
@@ -42,6 +43,7 @@ function App() {
         <Hero />
         <About />
         <ProjectGallery />
+        <Blog />
         <AILiteracy />
         <ProductThinking />
         <ProfessionalBackground />
