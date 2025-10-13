@@ -50,8 +50,8 @@ const AILiteracy: React.FC = () => {
               <p className="text-slate-600">AI Projects Delivered</p>
             </div>
             <div>
-              <div className="text-3xl font-bold text-emerald-600 mb-2">$50K+</div>
-              <p className="text-slate-600">ROI Generated</p>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">1K+</div>
+              <p className="text-slate-600">Users Impacted</p>
             </div>
             <div>
               <div className="text-3xl font-bold text-slate-700 mb-2">95%</div>
