@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <a 
-                href="/BHARGAV_NATH.pdf" 
+                href="/RESUME_BHARGAV_NATH.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:scale-105 shadow-lg"

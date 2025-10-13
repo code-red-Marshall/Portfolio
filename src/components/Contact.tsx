@@ -61,8 +61,8 @@ const Contact: React.FC = () => {
               <h4 className="text-lg font-semibold">Quick Actions</h4>
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="/BHARGAV_NATH.pdf" 
-                  download="BHARGAV_NATH.pdf"
+                  href="/RESUME_BHARGAV_NATH.pdf" 
+                  download="RESUME_BHARGAV_NATH.pdf"
                   className="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition-all duration-200 hover:scale-105"
                 >
                   <Download size={18} />
