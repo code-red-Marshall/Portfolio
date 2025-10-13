@@ -7,7 +7,7 @@ const ProfessionalBackground: React.FC = () => {
     {
       id: '1',
       company: 'Vantage Circle',
-      role: 'Associate Product Manager',
+      role: 'Associate Project Coordinator (Product Analytics & Product Management Focus)',
       period: '2023 - Present',
       description: 'APM-style coordination for SaaS AI features and product delivery',
       achievements: [
