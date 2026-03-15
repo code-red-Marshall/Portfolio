@@ -85,7 +85,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage, 
           >
             <div className="h-56 bg-white overflow-hidden text-center relative transition-transform border-b border-slate-100">
                <img 
-                 src="/ecg-biometric-thumbnail.png" 
+                 src="/ecg-case-study-thumbnail.png" 
                  alt="ECG Biometric Identification Thumbnail" 
                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                />
