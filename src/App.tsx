@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -6,6 +6,7 @@ import ProjectGallery from './components/ProjectGallery';
 import CaseStudy from './components/CaseStudy';
 import LeadQualityCaseStudy from './components/case-studies/LeadQualityCaseStudy';
 import BreakageIntelligenceCaseStudy from './components/case-studies/BreakageIntelligenceCaseStudy';
+import ECGIdentificationCaseStudy from './components/case-studies/ECGIdentificationCaseStudy';
 import Blog from './components/Blog';
 import AILiteracy from './components/AILiteracy';
 import ProductThinking from './components/ProductThinking';
@@ -14,7 +15,7 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 
 function App() {
-  const [activeView, setActiveView] = useState<'home' | 'case-study-lead-quality' | 'case-study-breakage'>('home');
+  const [activeView, setActiveView] = useState<'home' | 'case-study-lead-quality' | 'case-study-breakage' | 'case-study-ecg'>('home');
 
   useEffect(() => {
     if (activeView === 'home') {
@@ -52,6 +53,10 @@ function App() {
     return <BreakageIntelligenceCaseStudy onBack={() => setActiveView('home')} />;
   }
 
+  if (activeView === 'case-study-ecg') {
+    return <ECGIdentificationCaseStudy onBack={() => setActiveView('home')} />;
+  }
+
   return (
     <div className="font-inter bg-white">
       <Header />
@@ -62,6 +67,7 @@ function App() {
         <CaseStudy 
           onOpenCaseStudy={() => setActiveView('case-study-lead-quality')} 
           onOpenBreakage={() => setActiveView('case-study-breakage')}
+          onOpenECG={() => setActiveView('case-study-ecg')}
         />
         <Blog />
         <AILiteracy />

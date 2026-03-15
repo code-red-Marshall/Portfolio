@@ -143,7 +143,26 @@ const ProjectGallery: React.FC = () => {
       details: 'Built RedemptionIQ, a multi-layer analytics platform that ingests server dumps and serves an executive dashboard. Included an intent-parsing AI chat interface powered by a local Llama 3 model for secure, natural language analytics queries without raw SQL exposure.',
       metrics: '4 hrs saved/mo • <100ms load time • 65.8M points analyzed',
       role: 'AI & Analytics Developer building the frontend, backend, and deterministic AI pipeline.',
-      image: '/breakage-intelligence-final.png'
+      image: '/breakage-intelligence-final.png',
+      link: 'https://github.com/code-red-Marshall/Breakage-Intelligence-Lab'
+    },
+    {
+      id: '10',
+      title: 'ECG-based Biometric Identification',
+      description: 'Patient classification and biometric recognition using ANN models and the Pan-Tompkins algorithm on ECG signals.',
+      tools: ['Python', 'TensorFlow', 'Keras', 'Scikit-learn', 'Signal Processing'],
+      outcomes: [
+        '95%+ identification accuracy',
+        'Automated R-peak detection using Pan-Tompkins',
+        'High-precision ANN model for feature classification'
+      ],
+      details:
+        'Developed a deep learning pipeline for patient classification and biometric identification using the PTB Diagnostic ECG Database. Implemented the Pan-Tompkins algorithm for robust R-peak detection and built a multi-layer ANN using TensorFlow/Keras to classify subjects based on morphological heart patterns.',
+      metrics: '95%+ Accuracy • 310 Recordings • Real-time Extraction',
+      role:
+        'ML Research Engineer investigating feature selection and SVM performance on biomedical data.',
+      image: '/ecg-biometric-thumbnail.png',
+      link: 'https://github.com/code-red-Marshall/Biometric-Human-Identification-using-ECG.git'
     }
   ];
 

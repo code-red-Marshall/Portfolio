@@ -4,9 +4,10 @@ import { ArrowRight } from 'lucide-react';
 interface CaseStudyProps {
   onOpenCaseStudy: () => void;
   onOpenBreakage?: () => void;
+  onOpenECG?: () => void;
 }
 
-const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage }) => {
+const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage, onOpenECG }) => {
   return (
     <section id="case-study" className="px-6 py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto">
@@ -15,7 +16,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage }
           <p className="mt-3 text-slate-600">In-depth look at how I solve complex problems from end-to-end.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 w-full">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {/* Tile 1: Lead Quality Analysis */}
           <div 
             onClick={onOpenCaseStudy}
@@ -77,7 +78,35 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage }
               </div>
             </div>
           </div>
-          
+          {/* Tile 3: ECG Biometric Identification */}
+          <div 
+            onClick={onOpenECG}
+            className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer group flex flex-col w-full"
+          >
+            <div className="h-56 bg-white overflow-hidden text-center relative transition-transform border-b border-slate-100">
+               <img 
+                 src="/ecg-biometric-thumbnail.png" 
+                 alt="ECG Biometric Identification Thumbnail" 
+                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+               />
+            </div>
+            
+            <div className="p-8 flex-1 flex flex-col">
+              <div className="inline-block px-3 py-1 bg-blue-50 text-blue-700 font-semibold rounded-full w-fit mb-4 text-sm border border-blue-100">
+                Machine Learning Research
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                ECG-based Biometric Identification
+              </h3>
+              <p className="text-slate-600 mb-8 flex-1 leading-relaxed">
+                Developing a high-security biometric system using cardiac electrical patterns extracted from the Physionet ECG-ID database.
+              </p>
+              <div className="flex items-center gap-2 text-blue-600 font-bold group-hover:gap-4 transition-all mt-auto">
+                Read full case study
+                <ArrowRight size={20} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
