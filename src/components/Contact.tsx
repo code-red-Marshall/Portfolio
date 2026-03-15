@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
     <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Let's Connect</h2>
+          <h2 className="text-4xl font-bold mb-4">Contact</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             Ready to build something amazing together? Let's discuss how we can create products that matter.
           </p>
@@ -60,16 +60,16 @@ const Contact: React.FC = () => {
             <div className="space-y-4">
               <h4 className="text-lg font-semibold">Quick Actions</h4>
               <div className="flex flex-wrap gap-4">
-                <a 
-                  href="/RESUME_BHARGAV_NATH.pdf" 
-                  download="RESUME_BHARGAV_NATH.pdf"
+                <a
+                  href="/Bhargav_Resume.pdf"
+                  download="Bhargav_Resume.pdf"
                   className="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition-all duration-200 hover:scale-105"
                 >
                   <Download size={18} />
                   Download Resume
                 </a>
-                <a 
-                  href="https://www.linkedin.com/in/bhargav-nath" 
+                <a
+                  href="https://www.linkedin.com/in/bhargav-nath"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-slate-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-600 transition-all duration-200 hover:scale-105"
@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
                 'Product Analyst positions',
                 'AI/ML product opportunities',
                 'Consulting projects',
-                'Speaking engagements',
+                'Language Data Engineer Roles',
                 'Collaboration opportunities'
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-3">

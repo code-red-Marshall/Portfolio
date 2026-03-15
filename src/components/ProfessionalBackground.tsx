@@ -7,7 +7,7 @@ const ProfessionalBackground: React.FC = () => {
     {
       id: '1',
       company: 'Vantage Circle',
-      role: 'Associate Project Coordinator (Product Analytics & Product Management Focus)',
+      role: 'Product Analyst',
       period: '2023 - Present',
       description: 'APM-style coordination for SaaS AI features and product delivery',
       achievements: [
@@ -20,7 +20,7 @@ const ProfessionalBackground: React.FC = () => {
     {
       id: '2',
       company: 'Innodatatics',
-      role: 'LLM Developer',
+      role: 'Gen AI Intern',
       period: '2022 - 2023',
       description: 'Built pharmaceutical LLM chatbot and AI solutions',
       achievements: [
@@ -62,7 +62,7 @@ const ProfessionalBackground: React.FC = () => {
     <section id="experience" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Professional Background</h2>
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">Experience</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             A journey from electronics research to AI-powered product development, building systems that scale.
           </p>
@@ -74,16 +74,14 @@ const ProfessionalBackground: React.FC = () => {
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <div key={exp.id} className={`relative flex items-start ${
-                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}>
+              <div key={exp.id} className={`relative flex items-start ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                }`}>
                 {/* Timeline Dot */}
                 <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-slate-900 rounded-full border-4 border-white shadow-lg z-10"></div>
 
                 {/* Content Card */}
-                <div className={`ml-12 md:ml-0 md:w-1/2 ${
-                  index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
-                }`}>
+                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
+                  }`}>
                   <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="flex items-start gap-3 mb-4">
                       <div className="bg-slate-100 p-2 rounded-lg">

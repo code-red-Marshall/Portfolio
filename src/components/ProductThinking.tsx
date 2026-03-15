@@ -51,7 +51,7 @@ const ProductThinking: React.FC = () => {
           {frameworks.map((framework, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-[transform,box-shadow] duration-300 hover:-translate-y-1"
             >
               <div className="text-center">
                 <div className="bg-slate-100 p-4 rounded-full inline-flex mb-4">

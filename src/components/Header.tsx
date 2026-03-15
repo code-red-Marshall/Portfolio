@@ -6,11 +6,19 @@ const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -25,6 +33,7 @@ const Header: React.FC = () => {
   const navItems = [
     { label: 'About', id: 'about' },
     { label: 'Projects', id: 'projects' },
+    { label: 'Case Studies', id: 'case-study' },
     { label: 'Blog', id: 'blog' },
     { label: 'Experience', id: 'experience' },
     { label: 'Contact', id: 'contact' },
@@ -32,9 +41,9 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-lg border-b border-slate-200'
+          ? 'bg-white border-b border-slate-200 shadow-sm'
           : 'bg-transparent'
       }`}
     >

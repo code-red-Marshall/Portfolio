@@ -41,7 +41,7 @@ const Education: React.FC = () => {
           {education.map((edu, index) => {
             const icons = [GraduationCap, Award, BookOpen];
             const IconComponent = icons[index % icons.length];
-            
+
             return (
               <div
                 key={edu.id}
@@ -83,7 +83,7 @@ const Education: React.FC = () => {
                 <Award className="text-emerald-600" size={32} />
               </div>
               <h4 className="font-semibold text-slate-900 mb-2">Research Excellence</h4>
-              <p className="text-slate-600 text-sm">Published research and patent applications demonstrating innovation capability</p>
+              <p className="text-slate-600 text-sm"> Contributed in research and patent applications demonstrating innovation capability</p>
             </div>
             <div className="text-center">
               <div className="bg-slate-100 p-4 rounded-full inline-flex mb-4">

@@ -7,7 +7,7 @@ const About: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-slate-900">About Me</h2>
+            <h2 className="text-4xl font-bold text-slate-900">About</h2>
             <div className="space-y-4 text-slate-600 leading-relaxed">
               <p>
                 My journey began in electronics, evolved through data science, and now focuses on 

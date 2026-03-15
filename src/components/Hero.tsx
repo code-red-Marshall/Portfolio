@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <a 
-                href="/RESUME_BHARGAV_NATH.pdf" 
+                href="/Bhargav_Resume.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:scale-105 shadow-lg"
@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
                 href="https://www.linkedin.com/in/bhargav-nath" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-800 transition-all duration-200 hover:scale-105"
+                className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-800 transition-[transform,background-color] duration-200 hover:scale-105"
               >
                 <Linkedin size={18} />
                 Connect on LinkedIn

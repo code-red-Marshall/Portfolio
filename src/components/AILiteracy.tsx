@@ -4,10 +4,10 @@ import { Brain, Database, BarChart3, Zap, Code, Monitor } from 'lucide-react';
 const AILiteracy: React.FC = () => {
   const categories = [
     { title: 'AI Prototyping', subtitle: 'No/low‑code: Lovable, Bolt, Cursor AI', icon: Monitor },
-    { title: 'Agentic Frameworks', subtitle: 'LangChain • LlamaIndex • LangGraph', icon: Brain },
-    { title: 'Data & Insights', subtitle: 'SQL • Power BI • Data storytelling', icon: BarChart3 },
-    { title: 'AI Coding Assistants', subtitle: 'Cursor AI • Meku • Replit', icon: Code },
-    { title: 'User‑centric AI/UX', subtitle: 'Uizard • Gamma • Magic Patterns', icon: Zap },
+    { title: 'Agentic Frameworks', subtitle: 'RAG • COT • Responsible AI • LangChain • LlamaIndex • LangGraph', icon: Brain },
+    { title: 'Data & Insights', subtitle: 'SQL • Power BI • Data Preparation', icon: BarChart3 },
+    { title: 'AI Coding Assistants', subtitle: 'Cursor AI • Antigravity • Replit', icon: Code },
+    { title: 'User‑centric AI/UX', subtitle: 'G-Stitch • Gamma • Magic Patterns', icon: Zap },
     { title: 'AI Risk & Ethics', subtitle: 'Bias • Fairness • Explainability • Compliance', icon: Database },
     { title: 'Experimentation & Iteration', subtitle: 'Rapid prototyping • A/B testing • Feedback loops', icon: Monitor },
     { title: 'Strategic AI Integration', subtitle: 'Translate AI for business • Roadmap • XFN leadership', icon: Brain },
@@ -30,7 +30,7 @@ const AILiteracy: React.FC = () => {
           {categories.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-[transform,box-shadow] duration-300 hover:-translate-y-1 group"
             >
               <div className="flex flex-col items-center text-center">
                 <div className="bg-slate-100 group-hover:bg-slate-200 p-4 rounded-full mb-4 transition-colors">

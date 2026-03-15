@@ -61,24 +61,6 @@ const ProjectGallery: React.FC = () => {
       link: 'https://github.com/code-red-Marshall/herbtech-smart-cultivation'
     },
     {
-      id: '4',
-      title: 'InvestQuest',
-      description: 'Financial intelligence assistant prototype with AI insights and dashboards',
-      tools: ['ChatGPT', 'Perplexity AI', 'Cursor', 'Miro', 'Excalidraw'],
-      outcomes: [
-        'Clickable prototype with portfolio analytics and Q&A',
-        '50% faster MVP development speed',
-        'Early feedback validated feature priorities and usability'
-      ],
-      details:
-        'Ideated and prototyped an AI-powered assistant to simplify market analysis. Built high-fidelity concept flows, dashboards, and interactions to showcase insights and decision support.',
-      metrics: '~50% faster build • 80% of testers found insights clear & actionable',
-      role:
-        'AI Product Manager & Prototype Developer responsible for user flows and high-fidelity concept.',
-      image: '/Project 4.png',
-      link: 'https://github.com/code-red-Marshall/InvestQuest'
-    },
-    {
       id: '5',
       title: 'Sentiment Analysis: Social Buzz',
       description: 'Analytics + visualization to guide content strategy from engagement + sentiment',
@@ -96,6 +78,22 @@ const ProjectGallery: React.FC = () => {
         'Product strategist + data analyst defining goals, data model, and insight delivery.',
       image: '/Project 5.png',
       link: 'https://github.com/code-red-Marshall/Sentiment-Analysis-Social-Buzz'
+    },
+    {
+      id: '9',
+      title: "SMS/Email Spam Classifier",
+      description: "End-to-end machine learning pipeline for real-time spam detection using NLP techniques and Naive Bayes algorithm.",
+      tools: ["Python", "Scikit-learn", "NLTK", "Pandas", "Streamlit"],
+      image: "/spam-classifier-thumbnail.png",
+      outcomes: [
+        "Achieved 99%+ precision on test data",
+        "Built full EDA and preprocessing pipeline",
+        "Developed production-ready Streamlit app"
+      ],
+      details: "Developed a comprehensive machine learning application that identifies spam messages with high precision. The project implementation involved systematic data cleaning, exploratory data analysis of message patterns, and a multi-stage NLP preprocessing pipeline. The final model utilizes a Naive Bayes algorithm, optimized for high precision to minimize false positives.",
+      metrics: "99%+ Precision • 7-Step Pipeline • Real-time Detection",
+      role: "ML Engineer",
+      link: "https://email-sms-spam-classifier-erf7teejfi7xyzdy8ejsml.streamlit.app/"
     },
     {
       id: '6',
@@ -131,6 +129,21 @@ const ProjectGallery: React.FC = () => {
       role:
         'AI Research Developer designing, implementing, and evaluating the full system.',
       image: '/Project 7.png'
+    },
+    {
+      id: '8',
+      title: 'Breakage Intelligence Lab',
+      description: 'Privacy-first AI analytics platform for automated cohort analysis and QA',
+      tools: ['Next.js', 'FastAPI', 'DuckDB', 'Ollama', 'React', 'Tailwind CSS'],
+      outcomes: [
+        'Automated analytics saving 4 hours per month',
+        'Sub-100ms dashboard build via embedded DuckDB',
+        '100% on-premise execution ensuring data privacy'
+      ],
+      details: 'Built RedemptionIQ, a multi-layer analytics platform that ingests server dumps and serves an executive dashboard. Included an intent-parsing AI chat interface powered by a local Llama 3 model for secure, natural language analytics queries without raw SQL exposure.',
+      metrics: '4 hrs saved/mo • <100ms load time • 65.8M points analyzed',
+      role: 'AI & Analytics Developer building the frontend, backend, and deterministic AI pipeline.',
+      image: '/breakage-intelligence-final.png'
     }
   ];
 
@@ -150,7 +163,7 @@ const ProjectGallery: React.FC = () => {
     <section id="projects" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">My Work</h2>
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">Projects</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             A showcase of products and systems I've built, each solving real problems with measurable impact.
           </p>
@@ -160,7 +173,7 @@ const ProjectGallery: React.FC = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group hover:scale-105"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-[transform,box-shadow] duration-300 cursor-pointer group hover:-translate-y-1 contain-paint"
               onClick={() => openModal(project)}
             >
               {project.image && (
@@ -168,7 +181,9 @@ const ProjectGallery: React.FC = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
                   />
                 </div>
               )}
