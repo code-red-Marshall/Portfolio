@@ -44,21 +44,21 @@ const ProjectGallery: React.FC = () => {
     },
     {
       id: '3',
-      title: 'HerbTech Smart Cultivation System',
-      description: 'AI-driven smart farming prototype for monitoring and automated irrigation',
-      tools: ['ChatGPT', 'Perplexity AI', 'Cursor', 'Miro', 'Excalidraw'],
+      title: 'Drops: Smart Irrigation System',
+      description: 'A plug-and-play smart irrigation kit for urban plant owners featuring a single-unit water tank, electronics hub, and a coiled stretchable probe.',
+      tools: ['ESP32', 'Firebase', 'Flutter', 'Wi-Fi', 'Fusion 360', 'IoT'],
       outcomes: [
-        'Functional AI-generated MVP for automation + monitoring',
-        'Validated feasibility with iterative feedback',
-        'Up to 60% faster ideation-to-MVP using AI tools'
+        'Designed a single-unit hardware prototype integrating a 1.2L reservoir, ESP32, and a patentable magnetic coiled probe.',
+        'Created a three-stream business model yielding a 48% gross margin with clear path to profitability by Year 2.',
+        'Developed system automation logic via companion Flutter app for real-time soil moisture thresholds and Firebase sync.'
       ],
       details:
-        'Conceptualized and designed a smart cultivation system. Defined requirements, user journeys, and built a front-end simulation of the IoT interface using AI-assisted tools; produced architecture and flow diagrams for clarity.',
-      metrics: '60% faster prototype • 35% projected water savings • 25% efficiency gains',
+        'Led end-to-end development of Drops, a smart irrigation solution for urban gardeners. Designed the hardware layout integrating a 1.2L food-grade water tank with a submersible DC pump and ESP32 hub that connects via a magnetic port to a stretchable coiled soil probe. Drafted the commercial strategy, including unit economics (INR 1,299 COGS vs. INR 2,500 retail), supply chain sourcing across local manufacturing hubs, and prepared the financial model for an INR 60 Lakh seed round to fund the 500-unit pilot launch.',
+      metrics: '48% Gross Margin • 500-Unit Pilot • INR 87.5L Yr 2 Revenue Projection',
       role:
-        'AI Product Manager leading ideation and prototype design using generative AI tools.',
+        'Lead Product Manager directing product lifecycle, hardware-software integration, and business forecasting.',
       image: '/Project 3.webp',
-      link: 'https://github.com/code-red-Marshall/herbtech-smart-cultivation'
+      link: 'https://github.com/code-red-Marshall/drops-smart-irrigation'
     },
     {
       id: '5',
