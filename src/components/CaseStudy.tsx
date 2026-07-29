@@ -57,7 +57,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage, 
           >
             <div className="h-56 bg-white overflow-hidden text-center relative transition-transform border-b border-slate-100">
                <img 
-                 src="/lead-quality-thumbnail.png" 
+                 src="/lead-quality-thumbnail.webp" 
                  alt="Finding the Real Lever Behind Lead Quality Thumbnail" 
                  loading="lazy"
                  decoding="async"
@@ -89,7 +89,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage, 
           >
             <div className="h-56 bg-white overflow-hidden text-center relative transition-transform border-b border-slate-100">
                <img 
-                 src="/breakage-intelligence-thumbnail.png" 
+                 src="/breakage-intelligence-thumbnail.webp" 
                  alt="Breakage Intelligence Lab Thumbnail" 
                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                />
@@ -118,7 +118,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage, 
           >
             <div className="h-56 bg-white overflow-hidden text-center relative transition-transform border-b border-slate-100">
                <img 
-                 src="/ecg-case-study-thumbnail.png" 
+                 src="/ecg-case-study-thumbnail.webp" 
                  alt="ECG Biometric Identification Thumbnail" 
                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                />

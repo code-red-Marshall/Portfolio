@@ -23,7 +23,7 @@ const ProjectGallery: React.FC = () => {
       metrics: '$50K revenue • 133 clients • +14% MAU',
       role:
         'Associate Product Manager coordinating engineering, design, and business; managed API integration, QA, and go-live.',
-      image: '/Project 1.png'
+      image: '/Project 1.webp'
     },
     {
       id: '2',
@@ -40,7 +40,7 @@ const ProjectGallery: React.FC = () => {
       metrics: '$4K Q1 revenue • 30+ clients • record engagement growth',
       role:
         'Associate Product Manager driving lifecycle across research, integration, QA, and adoption tracking.',
-      image: '/Project 2.png'
+      image: '/Project 2.webp'
     },
     {
       id: '3',
@@ -57,7 +57,7 @@ const ProjectGallery: React.FC = () => {
       metrics: '60% faster prototype • 35% projected water savings • 25% efficiency gains',
       role:
         'AI Product Manager leading ideation and prototype design using generative AI tools.',
-      image: '/Project 3.png',
+      image: '/Project 3.webp',
       link: 'https://github.com/code-red-Marshall/herbtech-smart-cultivation'
     },
     {
@@ -76,7 +76,7 @@ const ProjectGallery: React.FC = () => {
         'Improved planning clarity • better scheduling • alignment to positive sentiment',
       role:
         'Product strategist + data analyst defining goals, data model, and insight delivery.',
-      image: '/Project 5.png',
+      image: '/Project 5.webp',
       link: 'https://github.com/code-red-Marshall/Sentiment-Analysis-Social-Buzz'
     },
     {
@@ -84,7 +84,7 @@ const ProjectGallery: React.FC = () => {
       title: "SMS/Email Spam Classifier",
       description: "End-to-end machine learning pipeline for real-time spam detection using NLP techniques and Naive Bayes algorithm.",
       tools: ["Python", "Scikit-learn", "NLTK", "Pandas", "Streamlit"],
-      image: "/spam-classifier-thumbnail.png",
+      image: "/spam-classifier-thumbnail.webp",
       outcomes: [
         "Achieved 99%+ precision on test data",
         "Built full EDA and preprocessing pipeline",
@@ -110,7 +110,7 @@ const ProjectGallery: React.FC = () => {
       metrics: '95% accurate classification • 40% faster responses • near-zero hallucinations',
       role:
         'LLM Developer Intern leading architecture, front end, and deployment.',
-      image: '/Project 6.png',
+      image: '/Project 6.webp',
       link: 'https://github.com/code-red-Marshall/Pharmabot--LLM-chatbot'
     },
     {
@@ -128,7 +128,7 @@ const ProjectGallery: React.FC = () => {
       metrics: '95% grounding • <3% hallucination • 100% automated ingestion',
       role:
         'AI Research Developer designing, implementing, and evaluating the full system.',
-      image: '/Project 7.png'
+      image: '/Project 7.webp'
     },
     {
       id: '8',
@@ -143,7 +143,7 @@ const ProjectGallery: React.FC = () => {
       details: 'Built RedemptionIQ, a multi-layer analytics platform that ingests server dumps and serves an executive dashboard. Included an intent-parsing AI chat interface powered by a local Llama 3 model for secure, natural language analytics queries without raw SQL exposure.',
       metrics: '4 hrs saved/mo • <100ms load time • 65.8M points analyzed',
       role: 'AI & Analytics Developer building the frontend, backend, and deterministic AI pipeline.',
-      image: '/breakage-intelligence-final.png',
+      image: '/breakage-intelligence-final.webp',
       link: 'https://github.com/code-red-Marshall/Breakage-Intelligence-Lab'
     },
     {
@@ -161,7 +161,7 @@ const ProjectGallery: React.FC = () => {
       metrics: '95%+ Accuracy • 310 Recordings • Real-time Extraction',
       role:
         'ML Research Engineer investigating feature selection and SVM performance on biomedical data.',
-      image: '/ecg-biometric-thumbnail.png',
+      image: '/ecg-biometric-thumbnail.webp',
       link: 'https://github.com/code-red-Marshall/Biometric-Human-Identification-using-ECG.git'
     }
   ];
