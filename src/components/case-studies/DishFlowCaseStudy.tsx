@@ -40,7 +40,7 @@ const DishFlowCaseStudy: React.FC<DishFlowCaseStudyProps> = ({ onBack }) => {
     dashboard: {
       title: 'Inventory Dashboard',
       subtitle: 'Real-Time Inventory Overview & AI Insights',
-      image: '/dishflow-inventory.png',
+      image: '/dishflow-inventory.webp',
       description: 'The core control center. Instead of just listing raw ingredients, it surfaces inventory valuation, wastage percentages, stockout risks, and immediate AI operations recommendations.',
       bullets: [
         'Real-time valuation metrics (e.g., total current inventory value and accuracy index).',
@@ -52,7 +52,7 @@ const DishFlowCaseStudy: React.FC<DishFlowCaseStudyProps> = ({ onBack }) => {
     recipes: {
       title: 'Recipe Builder',
       subtitle: 'Recipe-to-Ingredient Cost Intelligence',
-      image: '/dishflow-recipe-builder.png',
+      image: '/dishflow-recipe-builder.webp',
       description: 'Maps the kitchen to the supply chain. Converts menu items into a live Bill of Materials (BOM), enabling automated deduction on POS sales and real-time margin checking.',
       bullets: [
         'Dynamic ingredient list with customizable quantity and weight conversions.',
@@ -64,7 +64,7 @@ const DishFlowCaseStudy: React.FC<DishFlowCaseStudyProps> = ({ onBack }) => {
     sales: {
       title: 'Sales Tracker',
       subtitle: 'POS Sales Sync & Real-Time Depletion',
-      image: '/dishflow-sales-tracker.png',
+      image: '/dishflow-sales-tracker.webp',
       description: 'The bridge between front-of-house transactions and back-of-house storage. It ingests POS activity and immediately decrements corresponding ingredient volumes.',
       bullets: [
         'Live POS transaction feed showing individual items sold and estimated weights deducted.',
@@ -76,7 +76,7 @@ const DishFlowCaseStudy: React.FC<DishFlowCaseStudyProps> = ({ onBack }) => {
     procurement: {
       title: 'Procurement & Forecasting',
       subtitle: 'Demand Signals to Approved Purchase Orders',
-      image: '/dishflow-procurement.png',
+      image: '/dishflow-procurement.webp',
       description: 'Turns historical demand patterns and upcoming shifts into actionable orders. Reduces procurement overhead from hours of guesswork to a simple confirmation click.',
       bullets: [
         'Next-14-day demand forecast graphs mapping historical consumption against predictions.',

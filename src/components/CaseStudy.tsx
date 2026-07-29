@@ -25,7 +25,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage, 
           >
             <div className="h-56 bg-white overflow-hidden text-center relative transition-transform border-b border-slate-100">
                <img 
-                 src="/dishflow-thumbnail.png" 
+                 src="/dishflow-thumbnail.webp" 
                  alt="DishFlow Inventory Intelligence Platform Thumbnail" 
                  loading="lazy"
                  decoding="async"
