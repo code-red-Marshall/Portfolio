@@ -9,6 +9,7 @@ export interface Project {
   role: string;
   image?: string;
   link?: string;
+  category: 'Work' | 'Internship' | 'Academic' | 'Personal';
 }
 
 export interface Experience {

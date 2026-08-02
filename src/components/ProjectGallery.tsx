@@ -23,7 +23,8 @@ const ProjectGallery: React.FC = () => {
       metrics: '$50K revenue • 133 clients • +14% MAU',
       role:
         'Associate Product Manager coordinating engineering, design, and business; managed API integration, QA, and go-live.',
-      image: '/Project 1.webp'
+      image: '/Project 1.webp',
+      category: 'Work'
     },
     {
       id: '2',
@@ -40,7 +41,8 @@ const ProjectGallery: React.FC = () => {
       metrics: '$4K Q1 revenue • 30+ clients • record engagement growth',
       role:
         'Associate Product Manager driving lifecycle across research, integration, QA, and adoption tracking.',
-      image: '/Project 2.webp'
+      image: '/Project 2.webp',
+      category: 'Work'
     },
     {
       id: '3',
@@ -58,7 +60,8 @@ const ProjectGallery: React.FC = () => {
       role:
         'Lead Product Manager directing product lifecycle, hardware-software integration, and business forecasting.',
       image: '/Project 3.webp',
-      link: 'https://github.com/code-red-Marshall/drops-smart-irrigation'
+      link: 'https://github.com/code-red-Marshall/drops-smart-irrigation',
+      category: 'Personal'
     },
     {
       id: '5',
@@ -77,7 +80,8 @@ const ProjectGallery: React.FC = () => {
       role:
         'Product strategist + data analyst defining goals, data model, and insight delivery.',
       image: '/Project 5.webp',
-      link: 'https://github.com/code-red-Marshall/Sentiment-Analysis-Social-Buzz'
+      link: 'https://github.com/code-red-Marshall/Sentiment-Analysis-Social-Buzz',
+      category: 'Internship'
     },
     {
       id: '9',
@@ -93,7 +97,8 @@ const ProjectGallery: React.FC = () => {
       details: "Developed a comprehensive machine learning application that identifies spam messages with high precision. The project implementation involved systematic data cleaning, exploratory data analysis of message patterns, and a multi-stage NLP preprocessing pipeline. The final model utilizes a Naive Bayes algorithm, optimized for high precision to minimize false positives.",
       metrics: "99%+ Precision • 7-Step Pipeline • Real-time Detection",
       role: "ML Engineer",
-      link: "https://email-sms-spam-classifier-erf7teejfi7xyzdy8ejsml.streamlit.app/"
+      link: "https://email-sms-spam-classifier-erf7teejfi7xyzdy8ejsml.streamlit.app/",
+      category: 'Internship'
     },
     {
       id: '6',
@@ -111,7 +116,8 @@ const ProjectGallery: React.FC = () => {
       role:
         'LLM Developer Intern leading architecture, front end, and deployment.',
       image: '/Project 6.webp',
-      link: 'https://github.com/code-red-Marshall/Pharmabot--LLM-chatbot'
+      link: 'https://github.com/code-red-Marshall/Pharmabot--LLM-chatbot',
+      category: 'Internship'
     },
     {
       id: '7',
@@ -128,7 +134,8 @@ const ProjectGallery: React.FC = () => {
       metrics: '95% grounding • <3% hallucination • 100% automated ingestion',
       role:
         'AI Research Developer designing, implementing, and evaluating the full system.',
-      image: '/Project 7.webp'
+      image: '/Project 7.webp',
+      category: 'Personal'
     },
     {
       id: '8',
@@ -144,7 +151,8 @@ const ProjectGallery: React.FC = () => {
       metrics: '4 hrs saved/mo • <100ms load time • 65.8M points analyzed',
       role: 'AI & Analytics Developer building the frontend, backend, and deterministic AI pipeline.',
       image: '/breakage-intelligence-final.webp',
-      link: 'https://github.com/code-red-Marshall/Breakage-Intelligence-Lab'
+      link: 'https://github.com/code-red-Marshall/Breakage-Intelligence-Lab',
+      category: 'Work'
     },
     {
       id: '10',
@@ -162,9 +170,18 @@ const ProjectGallery: React.FC = () => {
       role:
         'ML Research Engineer investigating feature selection and SVM performance on biomedical data.',
       image: '/ecg-biometric-thumbnail.webp',
-      link: 'https://github.com/code-red-Marshall/Biometric-Human-Identification-using-ECG.git'
+      link: 'https://github.com/code-red-Marshall/Biometric-Human-Identification-using-ECG.git',
+      category: 'Academic'
     }
   ];
+
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+
+  const categories = ['All', 'Work', 'Internship', 'Academic', 'Personal'];
+
+  const filteredProjects = activeCategory === 'All'
+    ? projects
+    : projects.filter(project => project.category === activeCategory);
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
@@ -188,8 +205,25 @@ const ProjectGallery: React.FC = () => {
           </p>
         </div>
 
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                activeCategory === category
+                  ? 'bg-slate-900 text-white shadow-md scale-105'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
               className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-[transform,box-shadow] duration-300 cursor-pointer group hover:-translate-y-1 contain-paint"
