@@ -8,7 +8,7 @@ const ProfessionalBackground: React.FC = () => {
       id: '1',
       company: 'Vantage Circle',
       role: 'Product Analyst',
-      period: '2023 - Present',
+      period: '2024 - Present',
       description: 'APM-style coordination for SaaS AI features and product delivery',
       achievements: [
         'Coordinated cross-functional teams for AI feature development',
@@ -21,7 +21,7 @@ const ProfessionalBackground: React.FC = () => {
       id: '2',
       company: 'Innodatatics',
       role: 'Gen AI Intern',
-      period: '2022 - 2023',
+      period: '2023 - 2024',
       description: 'Built pharmaceutical LLM chatbot and AI solutions',
       achievements: [
         'Developed LLM chatbot with 40% faster query resolution',
@@ -34,7 +34,7 @@ const ProfessionalBackground: React.FC = () => {
       id: '3',
       company: 'Bharat Intern',
       role: 'Data Science Intern',
-      period: '2022',
+      period: '2023',
       description: 'Spam classifier project using NLP and machine learning',
       achievements: [
         'Built spam classifier with 95% accuracy',
@@ -47,7 +47,7 @@ const ProfessionalBackground: React.FC = () => {
       id: '4',
       company: 'Tezpur University',
       role: 'Research Assistant',
-      period: '2021 - 2022',
+      period: '2022 - 2023',
       description: 'ECG biometric identification system research',
       achievements: [
         'Achieved 100% identification accuracy',
