@@ -175,13 +175,11 @@ const ProjectGallery: React.FC = () => {
     }
   ];
 
-  const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [activeCategory, setActiveCategory] = useState<string>('Work');
 
-  const categories = ['All', 'Work', 'Internship', 'Academic', 'Personal'];
+  const categories = ['Work', 'Internship', 'Academic', 'Personal'];
 
-  const filteredProjects = activeCategory === 'All'
-    ? projects
-    : projects.filter(project => project.category === activeCategory);
+  const filteredProjects = projects.filter(project => project.category === activeCategory);
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
