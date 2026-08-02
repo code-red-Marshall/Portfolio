@@ -22,9 +22,6 @@ const Hero: React.FC = () => {
               <p className="text-xl lg:text-2xl text-slate-800 font-semibold">
                 Product Specialist, AI integrations, SaaS Automations, AI workflow Setup
               </p>
-              <p className="text-lg lg:text-xl text-gray-600 font-medium">
-                AI-native. Data-driven. User-obsessed.
-              </p>
               <p className="text-lg text-slate-500 max-w-lg">
                 I bring AI into products so users feel the Magic, not the Math.
               </p>
