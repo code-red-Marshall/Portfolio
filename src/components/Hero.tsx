@@ -19,7 +19,10 @@ const Hero: React.FC = () => {
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Hi, I'm <span className="text-slate-900">Bhargav</span>.
               </h1>
-              <p className="text-xl lg:text-2xl text-gray-600 font-medium">
+              <p className="text-xl lg:text-2xl text-slate-800 font-semibold">
+                Product Specialist, AI integrations, SaaS Automations, AI workflow Setup
+              </p>
+              <p className="text-lg lg:text-xl text-gray-600 font-medium">
                 AI-native. Data-driven. User-obsessed.
               </p>
               <p className="text-lg text-slate-500 max-w-lg">
