@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
                 Hi, I'm <span className="text-slate-900">Bhargav</span>.
               </h1>
               <p className="text-xl lg:text-2xl text-slate-800 font-semibold">
-                Product Specialist, AI integrations, SaaS Automations, AI workflow Setup
+                Product Specialist
               </p>
               <p className="text-lg text-slate-500 max-w-lg">
                 I bring AI into products so users feel the Magic, not the Math.
