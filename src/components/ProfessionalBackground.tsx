@@ -7,7 +7,7 @@ const ProfessionalBackground: React.FC = () => {
     {
       id: '1',
       company: 'Vantage Circle',
-      role: 'Product Analyst',
+      role: 'Solutions Engineer - I',
       period: '2024 - Present',
       description: 'APM-style coordination for SaaS AI features and product delivery',
       achievements: [
