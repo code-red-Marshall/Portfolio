@@ -8,6 +8,7 @@ import LeadQualityCaseStudy from './components/case-studies/LeadQualityCaseStudy
 import BreakageIntelligenceCaseStudy from './components/case-studies/BreakageIntelligenceCaseStudy';
 import ECGIdentificationCaseStudy from './components/case-studies/ECGIdentificationCaseStudy';
 import DishFlowCaseStudy from './components/case-studies/DishFlowCaseStudy';
+import SolutionsCentralCaseStudy from './components/case-studies/SolutionsCentralCaseStudy';
 import Blog from './components/Blog';
 import AILiteracy from './components/AILiteracy';
 import ProductThinking from './components/ProductThinking';
@@ -16,7 +17,7 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 
 function App() {
-  const [activeView, setActiveView] = useState<'home' | 'case-study-lead-quality' | 'case-study-breakage' | 'case-study-ecg' | 'case-study-dishflow'>('home');
+  const [activeView, setActiveView] = useState<'home' | 'case-study-lead-quality' | 'case-study-breakage' | 'case-study-ecg' | 'case-study-dishflow' | 'case-study-solutions-central'>('home');
 
   useEffect(() => {
     if (activeView === 'home') {
@@ -62,6 +63,10 @@ function App() {
     return <DishFlowCaseStudy onBack={() => setActiveView('home')} />;
   }
 
+  if (activeView === 'case-study-solutions-central') {
+    return <SolutionsCentralCaseStudy onBack={() => setActiveView('home')} />;
+  }
+
   return (
     <div className="font-inter bg-white">
       <Header />
@@ -74,6 +79,7 @@ function App() {
           onOpenBreakage={() => setActiveView('case-study-breakage')}
           onOpenECG={() => setActiveView('case-study-ecg')}
           onOpenDishFlow={() => setActiveView('case-study-dishflow')}
+          onOpenSolutionsCentral={() => setActiveView('case-study-solutions-central')}
         />
         <Blog />
         <AILiteracy />

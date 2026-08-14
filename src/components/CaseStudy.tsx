@@ -6,9 +6,16 @@ interface CaseStudyProps {
   onOpenBreakage?: () => void;
   onOpenECG?: () => void;
   onOpenDishFlow?: () => void;
+  onOpenSolutionsCentral?: () => void;
 }
 
-const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage, onOpenECG, onOpenDishFlow }) => {
+const CaseStudy: React.FC<CaseStudyProps> = ({ 
+  onOpenCaseStudy, 
+  onOpenBreakage, 
+  onOpenECG, 
+  onOpenDishFlow,
+  onOpenSolutionsCentral 
+}) => {
   return (
     <section id="case-study" className="px-6 py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto">
@@ -18,6 +25,38 @@ const CaseStudy: React.FC<CaseStudyProps> = ({ onOpenCaseStudy, onOpenBreakage, 
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 w-full">
+          {/* Tile 0: Solutions Central */}
+          <div 
+            onClick={onOpenSolutionsCentral}
+            className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer group flex flex-col w-full"
+          >
+            <div className="h-56 bg-white overflow-hidden text-center relative transition-transform border-b border-slate-100">
+               <img 
+                 src="/solutions-central-thumbnail.jpg" 
+                 alt="Solutions Central Case Study Thumbnail" 
+                 loading="lazy"
+                 decoding="async"
+                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
+               />
+            </div>
+            
+            <div className="p-8 flex-1 flex flex-col">
+              <div className="inline-block px-3 py-1 bg-purple-50 text-purple-700 font-semibold rounded-full w-fit mb-4 text-sm border border-purple-100">
+                Solutions Engineering
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
+                Solutions Central
+              </h3>
+              <p className="text-slate-600 mb-8 flex-1 leading-relaxed">
+                Turning a scattered solutions request intake process and Confluence tracker into a unified, self-serve internal platform and Chrome assistant.
+              </p>
+              <div className="flex items-center gap-2 text-purple-600 font-bold group-hover:gap-4 transition-all mt-auto">
+                Read full case study
+                <ArrowRight size={20} />
+              </div>
+            </div>
+          </div>
+
           {/* Tile 1: DishFlow */}
           <div 
             onClick={onOpenDishFlow}
