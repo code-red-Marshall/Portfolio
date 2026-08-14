@@ -9,6 +9,22 @@ const ProjectGallery: React.FC = () => {
 
   const projects: Project[] = [
     {
+      id: '11',
+      title: 'Solutions Central',
+      description: 'Self-serve internal platform designed to turn a scattered intake process into a unified dashboard, Confluence project tracker, and Chrome assistant.',
+      tools: ['Next.js', 'Python', 'GitHub API', 'Chrome Extension', 'Confluence API'],
+      outcomes: [
+        'Designed and built an end-to-end self-serve knowledge hub and Chrome assistant solo',
+        'Automated ingestion via Python & Graph API, diffing and committing changes every 15 minutes',
+        'Integrated BM25 search index over solution requests, RFPs, and docs with role-scoped auth'
+      ],
+      details: 'Designed, built, and shipped Solutions Central end-to-end. The platform programmatically pulls data from MS Forms/SharePoint Excel via a Python Graph API puller, writes them as versioned markdown and JSON files to a GitHub repository, and serves a live Next.js dashboard at request time. Built a Confluence-native project tracker that directly reads/writes pages to prevent drift, alongside a Chrome side-panel assistant for sales team queries featuring Okapi BM25 search indexing, source citations, and invite-code role authentication.',
+      metrics: '289 requests tracked • Solo 0 to 1 Delivery • Real-time BM25 search',
+      role: 'Solutions Engineer (Designed, built, and shipped end-to-end)',
+      image: '/Project 4.webp',
+      category: 'Work'
+    },
+    {
       id: '1',
       title: 'Switchfly API Integration',
       description: 'Integrated travel tech (hotels, cabs, experiences) into HR SaaS platform',
