@@ -21,7 +21,7 @@ const ProjectGallery: React.FC = () => {
       details: 'Designed, built, and shipped Solutions Central end-to-end. The platform programmatically pulls data from MS Forms/SharePoint Excel via a Python Graph API puller, writes them as versioned markdown and JSON files to a GitHub repository, and serves a live Next.js dashboard at request time. Built a Confluence-native project tracker that directly reads/writes pages to prevent drift, alongside a Chrome side-panel assistant for sales team queries featuring Okapi BM25 search indexing, source citations, and invite-code role authentication.',
       metrics: '289 requests tracked • Solo 0 to 1 Delivery • Real-time BM25 search',
       role: 'Solutions Engineer (Designed, built, and shipped end-to-end)',
-      image: '/Project 4.webp',
+      image: '/solutions-central-thumbnail.jpg',
       category: 'Work'
     },
     {
