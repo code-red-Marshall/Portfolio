@@ -4,6 +4,8 @@ import {
   ShoppingCart, ShieldCheck, Scale, Layers, Activity, Cpu, 
   BookOpen, Database, Sparkles, Clock, CheckCircle2, AlertTriangle, ArrowRight
 } from 'lucide-react';
+import ShareButton from '../ui/ShareButton';
+import { getCaseStudyUrl } from '../../utils/routes';
 
 interface DishFlowCaseStudyProps {
   onBack: () => void;
@@ -91,14 +93,20 @@ const DishFlowCaseStudy: React.FC<DishFlowCaseStudyProps> = ({ onBack }) => {
     <div className="bg-slate-50 min-h-screen font-inter pb-20 text-slate-600">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-b border-slate-200 z-50">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <button 
             onClick={onBack}
-            className="flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors font-medium"
+            className="flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors font-medium cursor-pointer"
           >
             <ArrowLeft size={20} />
             Back to Portfolio
           </button>
+          <ShareButton 
+            url={getCaseStudyUrl('case-study-dishflow')}
+            variant="ghost"
+            size="sm"
+            label="Share Case Study"
+          />
         </div>
       </nav>
 

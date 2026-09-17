@@ -1,5 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import ShareButton from './ui/ShareButton';
+import { getCaseStudyUrl } from '../utils/routes';
 
 interface CaseStudyProps {
   onOpenCaseStudy: () => void;
@@ -50,9 +52,17 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
               <p className="text-slate-600 mb-8 flex-1 leading-relaxed">
                 Turning a scattered solutions request intake process and Confluence tracker into a unified, self-serve internal platform and Chrome assistant.
               </p>
-              <div className="flex items-center gap-2 text-purple-600 font-bold group-hover:gap-4 transition-all mt-auto">
-                Read full case study
-                <ArrowRight size={20} />
+              <div className="flex items-center justify-between gap-2 pt-4 border-t border-slate-100 mt-auto">
+                <div className="flex items-center gap-2 text-purple-600 font-bold group-hover:gap-3 transition-all text-sm sm:text-base">
+                  Read full case study
+                  <ArrowRight size={18} />
+                </div>
+                <ShareButton 
+                  url={getCaseStudyUrl('case-study-solutions-central')}
+                  variant="card"
+                  size="sm"
+                  label="Copy Link"
+                />
               </div>
             </div>
           </div>
@@ -82,9 +92,17 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
               <p className="text-slate-600 mb-8 flex-1 leading-relaxed">
                 An AI-powered restaurant inventory intelligence platform that reduces waste, prevents stockouts, and introduces a predictive reasoning layer for kitchen operations.
               </p>
-              <div className="flex items-center gap-2 text-emerald-600 font-bold group-hover:gap-4 transition-all mt-auto">
-                Read full case study
-                <ArrowRight size={20} />
+              <div className="flex items-center justify-between gap-2 pt-4 border-t border-slate-100 mt-auto">
+                <div className="flex items-center gap-2 text-emerald-600 font-bold group-hover:gap-3 transition-all text-sm sm:text-base">
+                  Read full case study
+                  <ArrowRight size={18} />
+                </div>
+                <ShareButton 
+                  url={getCaseStudyUrl('case-study-dishflow')}
+                  variant="card"
+                  size="sm"
+                  label="Copy Link"
+                />
               </div>
             </div>
           </div>
@@ -114,9 +132,17 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
               <p className="text-slate-600 mb-8 flex-1 leading-relaxed">
                 An investigation into 3,000 leads generated for a debt reduction advertiser, exploring lead quality behavior, conversion drivers, and large-scale improvement opportunities.
               </p>
-              <div className="flex items-center gap-2 text-blue-600 font-bold group-hover:gap-4 transition-all mt-auto">
-                Read full case study
-                <ArrowRight size={20} />
+              <div className="flex items-center justify-between gap-2 pt-4 border-t border-slate-100 mt-auto">
+                <div className="flex items-center gap-2 text-blue-600 font-bold group-hover:gap-3 transition-all text-sm sm:text-base">
+                  Read full case study
+                  <ArrowRight size={18} />
+                </div>
+                <ShareButton 
+                  url={getCaseStudyUrl('case-study-lead-quality')}
+                  variant="card"
+                  size="sm"
+                  label="Copy Link"
+                />
               </div>
             </div>
           </div>
@@ -144,12 +170,21 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
               <p className="text-slate-600 mb-8 flex-1 leading-relaxed">
                 Building an embedded, privacy-first AI analytics platform (RedemptionIQ) using FastAPI, DuckDB, and local LLMs to replace manual workflows.
               </p>
-              <div className="flex items-center gap-2 text-teal-600 font-bold group-hover:gap-4 transition-all mt-auto">
-                Read full case study
-                <ArrowRight size={20} />
+              <div className="flex items-center justify-between gap-2 pt-4 border-t border-slate-100 mt-auto">
+                <div className="flex items-center gap-2 text-teal-600 font-bold group-hover:gap-3 transition-all text-sm sm:text-base">
+                  Read full case study
+                  <ArrowRight size={18} />
+                </div>
+                <ShareButton 
+                  url={getCaseStudyUrl('case-study-breakage')}
+                  variant="card"
+                  size="sm"
+                  label="Copy Link"
+                />
               </div>
             </div>
           </div>
+
           {/* Tile 4: ECG Biometric Identification */}
           <div 
             onClick={onOpenECG}
@@ -173,9 +208,17 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
               <p className="text-slate-600 mb-8 flex-1 leading-relaxed">
                 Developing a high-security biometric system using cardiac electrical patterns extracted from the Physionet ECG-ID database.
               </p>
-              <div className="flex items-center gap-2 text-blue-600 font-bold group-hover:gap-4 transition-all mt-auto">
-                Read full case study
-                <ArrowRight size={20} />
+              <div className="flex items-center justify-between gap-2 pt-4 border-t border-slate-100 mt-auto">
+                <div className="flex items-center gap-2 text-blue-600 font-bold group-hover:gap-3 transition-all text-sm sm:text-base">
+                  Read full case study
+                  <ArrowRight size={18} />
+                </div>
+                <ShareButton 
+                  url={getCaseStudyUrl('case-study-ecg')}
+                  variant="card"
+                  size="sm"
+                  label="Copy Link"
+                />
               </div>
             </div>
           </div>

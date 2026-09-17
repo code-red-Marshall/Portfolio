@@ -3,6 +3,8 @@ import {
   ArrowLeft, Lock, Database, Search, Cpu, Box, 
   CheckCircle, TrendingUp, Zap, Clock, Shield, Globe, Activity, FileText
 } from 'lucide-react';
+import ShareButton from '../ui/ShareButton';
+import { getCaseStudyUrl } from '../../utils/routes';
 
 const SolutionsCentralCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   useEffect(() => {
@@ -31,14 +33,20 @@ const SolutionsCentralCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
     <div className="bg-slate-950 min-h-screen font-inter pb-20 text-slate-300">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-slate-900/90 backdrop-blur-lg border-b border-slate-800 z-50">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <button 
             onClick={onBack}
-            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors font-medium"
+            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors font-medium cursor-pointer"
           >
             <ArrowLeft size={20} />
             Back to Portfolio
           </button>
+          <ShareButton 
+            url={getCaseStudyUrl('case-study-solutions-central')}
+            variant="dark"
+            size="sm"
+            label="Share Case Study"
+          />
         </div>
       </nav>
 

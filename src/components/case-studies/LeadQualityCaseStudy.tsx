@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft, BarChart3, TrendingUp, Target, Users, AlertCircle, CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
+import ShareButton from '../ui/ShareButton';
+import { getCaseStudyUrl } from '../../utils/routes';
 
 const LeadQualityCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   useEffect(() => {
@@ -28,14 +30,20 @@ const LeadQualityCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     <div className="bg-slate-50 min-h-screen font-inter pb-20">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-b border-slate-200 z-50">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <button 
             onClick={onBack}
-            className="flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors font-medium"
+            className="flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors font-medium cursor-pointer"
           >
             <ArrowLeft size={20} />
             Back to Portfolio
           </button>
+          <ShareButton 
+            url={getCaseStudyUrl('case-study-lead-quality')}
+            variant="ghost"
+            size="sm"
+            label="Share Case Study"
+          />
         </div>
       </nav>
 
