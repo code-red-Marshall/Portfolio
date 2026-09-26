@@ -9,6 +9,23 @@ const ProjectGallery: React.FC = () => {
 
   const projects: Project[] = [
     {
+      id: '12',
+      title: 'WhatsApp Campaign Manager',
+      description: 'Bringing a new messaging channel to a 2M-employee HR-tech platform without moving any client data.',
+      tools: ['Meta Graph API', 'Next.js', 'Play / Scala 3', 'MySQL', 'Supabase', 'Webhooks (HMAC)', 'Groq (LLM)'],
+      outcomes: [
+        'Eliminated client PII exports per campaign from 4 copies to zero',
+        'Architected single additive table with database-level double-send guards',
+        'Shipped working Next.js prototype and native Play/Scala production module in 8 weeks'
+      ],
+      details: 'Built Vantage Circle\'s WhatsApp campaign channel end to end. Started with a full Next.js/Supabase prototype directly integrated with Meta\'s WhatsApp Business Platform featuring template validation, CSV audience detection, 3-step wizard, and signed webhooks. When data governance showed third-party PII exposure was unacceptable for enterprise clients, redesigned and rebuilt the product natively inside the production Play/Scala Campaign Manager—moving the app to where the data lives with zero data exports and database-enforced safety rails.',
+      metrics: '0 PII Exports • 8-Week Solo Build • 2M-Employee Reach • Green Quality Rating',
+      role: 'Sole Builder (Product, Design, Engineering, Meta Integration and Rollout)',
+      image: '/whatsapp-campaign-thumbnail.svg',
+      link: 'https://whatsapp-campaign-manager-eta.vercel.app/',
+      category: 'Work'
+    },
+    {
       id: '11',
       title: 'Solutions Central',
       description: 'Self-serve internal platform designed to turn a scattered intake process into a unified dashboard, Confluence project tracker, and Chrome assistant.',
@@ -290,6 +307,22 @@ const ProjectGallery: React.FC = () => {
                     </div>
                   ))}
                 </div>
+
+                {project.link && (
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs font-medium text-slate-500">Live Application</span>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 px-3 py-1 rounded-md transition-all hover:scale-105 active:scale-95 shadow-sm"
+                    >
+                      <span>Try the app</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}

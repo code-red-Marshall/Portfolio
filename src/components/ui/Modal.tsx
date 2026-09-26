@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
 import { Project } from '../../types';
 
 interface ModalProps {
@@ -143,14 +143,15 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
             </div>
           )}
           {project.link && (
-            <div>
+            <div className="pt-2">
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold px-5 py-2.5 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 text-sm"
               >
-                View Project
+                <span>Try the App</span>
+                <ExternalLink size={16} />
               </a>
             </div>
           )}

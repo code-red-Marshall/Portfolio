@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { 
-  ArrowLeft, Utensils, ChefHat, LayoutDashboard, TrendingUp, 
-  ShoppingCart, ShieldCheck, Scale, Layers, Activity, Cpu, 
-  BookOpen, Database, Sparkles, Clock, CheckCircle2, AlertTriangle, ArrowRight
+  ArrowLeft, ChefHat, LayoutDashboard, TrendingUp, 
+  ShoppingCart, Layers, Activity, Cpu, 
+  BookOpen, Database, Sparkles, CheckCircle2, AlertTriangle
 } from 'lucide-react';
 import ShareButton from '../ui/ShareButton';
 import { getCaseStudyUrl } from '../../utils/routes';

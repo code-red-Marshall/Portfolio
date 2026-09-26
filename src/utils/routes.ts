@@ -1,4 +1,5 @@
 export type CaseStudyView = 
+  | 'case-study-whatsapp'
   | 'case-study-solutions-central'
   | 'case-study-dishflow'
   | 'case-study-lead-quality'
@@ -16,6 +17,13 @@ export interface CaseStudyRouteConfig {
 }
 
 export const CASE_STUDY_ROUTES: Record<CaseStudyView, CaseStudyRouteConfig> = {
+  'case-study-whatsapp': {
+    view: 'case-study-whatsapp',
+    slug: 'whatsapp-campaign-manager',
+    path: '/case-study/whatsapp-campaign-manager',
+    title: 'WhatsApp Campaign Manager Case Study | Bhargav Nath',
+    aliases: ['whatsapp', 'whatsapp-campaign', 'whatsapp-campaign-manager', 'vc-campaign-manager']
+  },
   'case-study-solutions-central': {
     view: 'case-study-solutions-central',
     slug: 'solutions-central',

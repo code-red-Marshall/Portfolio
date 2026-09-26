@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react';
-import { 
-  ArrowLeft, Lock, Database, Search, Cpu, Box, 
-  CheckCircle, TrendingUp, Zap, Clock, Shield, Globe, Activity, FileText
-} from 'lucide-react';
+import { ArrowLeft, Database, Shield } from 'lucide-react';
 import ShareButton from '../ui/ShareButton';
 import { getCaseStudyUrl } from '../../utils/routes';
 
