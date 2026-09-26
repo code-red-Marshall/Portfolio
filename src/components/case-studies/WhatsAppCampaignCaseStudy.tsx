@@ -117,6 +117,15 @@ const WhatsAppCampaignCaseStudy: React.FC<WhatsAppCampaignCaseStudyProps> = ({ o
             </a>
           </div>
 
+          {/* Hero Showcase Image */}
+          <div className="mb-10 overflow-hidden rounded-2xl border border-slate-800 shadow-2xl shadow-emerald-950/40 bg-slate-900 group">
+            <img 
+              src="/whatsapp-campaign-thumbnail.png" 
+              alt="WhatsApp Campaign Manager Platform Overview" 
+              className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-500"
+            />
+          </div>
+
           {/* Project Details Box */}
           <div className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-2xl grid md:grid-cols-2 gap-8 mb-10">
             <div>

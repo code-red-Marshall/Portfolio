@@ -36,7 +36,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
           >
             <div className="h-56 bg-slate-950 overflow-hidden text-center relative transition-transform border-b border-slate-100">
                <img 
-                 src="/whatsapp-campaign-thumbnail.svg" 
+                 src="/whatsapp-campaign-thumbnail.png" 
                  alt="WhatsApp Campaign Manager Case Study Thumbnail" 
                  loading="lazy"
                  decoding="async"
