@@ -148,9 +148,13 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold px-5 py-2.5 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 text-sm"
+                className={`inline-flex items-center gap-2 font-semibold px-5 py-2.5 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 text-sm ${
+                  project.link.includes('github.com')
+                    ? 'bg-slate-800 hover:bg-slate-700 text-white'
+                    : 'bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white'
+                }`}
               >
-                <span>Try the App</span>
+                <span>{project.link.includes('github.com') ? 'View on GitHub' : 'Try the App'}</span>
                 <ExternalLink size={16} />
               </a>
             </div>

@@ -184,7 +184,6 @@ const ProjectGallery: React.FC = () => {
       metrics: '4 hrs saved/mo • <100ms load time • 65.8M points analyzed',
       role: 'AI & Analytics Developer building the frontend, backend, and deterministic AI pipeline.',
       image: '/breakage-intelligence-final.webp',
-      link: 'https://github.com/code-red-Marshall/Breakage-Intelligence-Lab',
       category: 'Work'
     },
     {
@@ -308,7 +307,7 @@ const ProjectGallery: React.FC = () => {
                   ))}
                 </div>
 
-                {project.link && (
+                {project.link && !project.link.includes('github.com') && (
                   <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
                     <span className="text-xs font-medium text-slate-500">Live Application</span>
                     <a
