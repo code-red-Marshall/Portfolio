@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "WhatsApp Campaign Manager \u2014 Vercel Prototype",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "send-path",
+        "label": "Send path",
+        "focus": [
+          "operator",
+          "ui",
+          "api",
+          "fire",
+          "meta"
+        ],
+        "note": "An operator fires a campaign; the fire route fans out template sends to Meta."
+      },
+      {
+        "id": "status-loop",
+        "label": "Status loop",
+        "focus": [
+          "meta",
+          "webhook",
+          "db"
+        ],
+        "note": "Meta posts delivered / read / failed and template review events back; the webhook updates logs and counters."
+      },
+      {
+        "id": "platform",
+        "label": "Identity and data",
+        "focus": [
+          "ui",
+          "api",
+          "auth",
+          "db",
+          "groq"
+        ],
+        "note": "Supabase provides auth, Postgres and image storage; Groq drafts template copy."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "operator",
+      "type": "external",
+      "label": "Operator",
+      "sublabel": "browser",
+      "pos": [
+        40,
+        290
+      ],
+      "size": [
+        140,
+        64
+      ]
+    },
+    {
+      "id": "groq",
+      "type": "external",
+      "label": "Groq",
+      "sublabel": "gpt-oss-120b",
+      "pos": [
+        300,
+        70
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "Draft with AI"
+    },
+    {
+      "id": "meta",
+      "type": "external",
+      "label": "Meta WhatsApp Cloud API",
+      "sublabel": "Graph v19.0 \u00b7 templates + messages",
+      "pos": [
+        600,
+        70
+      ],
+      "size": [
+        320,
+        64
+      ],
+      "brand": "whatsapp"
+    },
+    {
+      "id": "ui",
+      "type": "frontend",
+      "label": "Next.js 16 UI",
+      "sublabel": "App Router pages",
+      "pos": [
+        240,
+        290
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "tag": "proxy.ts gate",
+      "brand": "next-js"
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "API Routes",
+      "sublabel": "/api/* + requireUser",
+      "pos": [
+        480,
+        290
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "fire",
+      "type": "backend",
+      "label": "Fire Route",
+      "sublabel": "after() \u00b7 8 workers",
+      "pos": [
+        760,
+        290
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "tag": "60s budget"
+    },
+    {
+      "id": "webhook",
+      "type": "backend",
+      "label": "Webhook Handler",
+      "sublabel": "/api/webhooks/whatsapp",
+      "pos": [
+        1040,
+        290
+      ],
+      "size": [
+        180,
+        64
+      ],
+      "tag": "HMAC sha256"
+    },
+    {
+      "id": "auth",
+      "type": "security",
+      "label": "Supabase Auth",
+      "sublabel": "email + password \u00b7 JWKS",
+      "pos": [
+        220,
+        520
+      ],
+      "size": [
+        200,
+        64
+      ]
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "Supabase Postgres + Storage",
+      "sublabel": "service-role client \u00b7 RLS bypassed",
+      "pos": [
+        480,
+        520
+      ],
+      "size": [
+        740,
+        64
+      ],
+      "brand": "supabase"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Vercel \u00b7 Next.js functions",
+      "wraps": [
+        "ui",
+        "api",
+        "fire",
+        "webhook"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Supabase project",
+      "wraps": [
+        "auth",
+        "db"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "operator-ui",
+      "from": "operator",
+      "to": "ui",
+      "label": "HTTPS",
+      "variant": "emphasis"
+    },
+    {
+      "id": "ui-api",
+      "from": "ui",
+      "to": "api",
+      "label": "fetch",
+      "variant": "emphasis"
+    },
+    {
+      "id": "api-fire",
+      "from": "api",
+      "to": "fire",
+      "label": "POST fire",
+      "variant": "emphasis"
+    },
+    {
+      "id": "fire-meta",
+      "from": "fire",
+      "to": "meta",
+      "label": "POST /messages",
+      "variant": "emphasis",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "api-meta",
+      "from": "api",
+      "to": "meta",
+      "label": "templates",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "meta-webhook",
+      "from": "meta",
+      "to": "webhook",
+      "label": "status events",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "webhook-db",
+      "from": "webhook",
+      "to": "db",
+      "label": "update logs",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "fire-db",
+      "from": "fire",
+      "to": "db",
+      "label": "batch logs",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDy": 60
+    },
+    {
+      "id": "api-db",
+      "from": "api",
+      "to": "db",
+      "label": "CRUD",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "api-groq",
+      "from": "api",
+      "to": "groq",
+      "label": "draft",
+      "variant": "dashed",
+      "fromSide": "top",
+      "toSide": "right"
+    },
+    {
+      "id": "ui-auth",
+      "from": "ui",
+      "to": "auth",
+      "label": "sign in",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDy": 60
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Runtime",
+      "items": [
+        "Next.js 16 on Vercel serverless",
+        "Send loop runs inside after(), maxDuration 60s"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Data",
+      "items": [
+        "Postgres + template-media bucket via service role",
+        "Audiences are frozen CSV uploads"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Trust",
+      "items": [
+        "JWT verified locally against JWKS",
+        "Fire re-validates the session with Auth"
+      ]
+    }
+  ]
+}

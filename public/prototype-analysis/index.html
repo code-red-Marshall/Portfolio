@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype Analysis</title>
+<style>
+:root{
+  --bg:#f7f7fb; --surface:#ffffff; --surface-2:#f0f0f7; --text:#171727; --muted:#5b5b73;
+  --border:#dcdce8; --brand:#5b3fd6; --crit:#c0263b; --high:#b45309; --med:#1d6fb8; --ok:#11805a;
+  --crit-bg:#fdecee; --high-bg:#fdf3e4; --med-bg:#e8f1fb; --ok-bg:#e6f5ee;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c0c16; --surface:#15152a; --surface-2:#1c1c34; --text:#ececf6; --muted:#a3a3bd;
+  --border:#2c2c48; --brand:#a896ff; --crit:#ff7085; --high:#f5a524; --med:#6cb4ff; --ok:#3ddc97;
+  --crit-bg:#3a1520; --high-bg:#35260c; --med-bg:#11263d; --ok-bg:#0f2c22;
+}}
+:root[data-theme="dark"]{
+  --bg:#0c0c16; --surface:#15152a; --surface-2:#1c1c34; --text:#ececf6; --muted:#a3a3bd;
+  --border:#2c2c48; --brand:#a896ff; --crit:#ff7085; --high:#f5a524; --med:#6cb4ff; --ok:#3ddc97;
+  --crit-bg:#3a1520; --high-bg:#35260c; --med-bg:#11263d; --ok-bg:#0f2c22;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 var(--sans)}
+header,main{padding:0 16px}
+@media(min-width:900px){header,main{padding:0 40px}}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding-top:24px;padding-bottom:8px}
+h1{font-size:1.6rem;margin:0}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.9rem}
+button.theme{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer;font:inherit;font-size:.85rem}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+nav.toc a{color:var(--brand);text-decoration:none;border:1px solid var(--border);background:var(--surface);border-radius:999px;padding:4px 12px;font-size:.85rem}
+section{margin:28px 0}
+h2{font-size:1.2rem;margin:0 0 12px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px}
+.stat b{display:block;font-size:1.4rem}
+.stat span{color:var(--muted);font-size:.8rem}
+.grid2{display:grid;gap:12px}
+@media(min-width:900px){.grid2{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.card h3{margin:0 0 6px;font-size:1rem}
+.card ul{margin:0;padding-left:18px}
+code{font-family:var(--mono);font-size:.82em;background:var(--surface-2);padding:1px 5px;border-radius:4px}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:.88rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+th{background:var(--surface-2);font-weight:600}
+.tablewrap{overflow-x:auto}
+.sev{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.crit{color:var(--crit);background:var(--crit-bg)} .high{color:var(--high);background:var(--high-bg)}
+.med{color:var(--med);background:var(--med-bg)} .ok{color:var(--ok);background:var(--ok-bg)}
+.diagram{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:18px}
+.diagram .bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border)}
+.diagram .bar a{color:var(--brand);font-size:.85rem}
+.diagram iframe{display:block;width:100%;height:78vh;min-height:520px;border:0}
+.note{color:var(--muted);font-size:.85rem}
+footer{padding:24px 16px 40px;color:var(--muted);font-size:.8rem}
+@media(min-width:900px){footer{padding:24px 40px 40px}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>WhatsApp Campaign Manager: Vercel prototype analysis</h1>
+    <p class="sub">Scope: <code>whatsapp_campaign_manager-main/prototype</code> at <code>origin/main fa84e9f</code> (the Scala module is out of scope). Deployed at whatsapp-campaign-manager-eta.vercel.app. Firing is enabled.</p>
+  </div>
+  <button class="theme" id="themeBtn" type="button" aria-label="Toggle colour theme">Toggle theme</button>
+</header>
+<main>
+<nav class="toc" aria-label="Sections">
+  <a href="#glance">At a glance</a><a href="#findings">Findings</a><a href="#strengths">What's solid</a>
+  <a href="#d-arch">Architecture</a><a href="#d-journey">Operator journey</a><a href="#d-seq">Fire sequence</a><a href="#d-life">Campaign lifecycle</a>
+</nav>
+
+<section id="glance">
+  <h2>At a glance</h2>
+  <div class="stats">
+    <div class="stat"><b>~7.9k</b><span>lines of TS/TSX (excluding ui/)</span></div>
+    <div class="stat"><b>16</b><span>route handlers (15 API + auth callback)</span></div>
+    <div class="stat"><b>9</b><span>pages incl. login</span></div>
+    <div class="stat"><b>~300</b><span>max recipients per fire (60s ceiling)</span></div>
+    <div class="stat"><b>4</b><span>external systems: Vercel, Supabase, Meta, Groq</span></div>
+  </div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="card"><h3>Stack</h3><ul>
+      <li>Next.js 16.2 App Router, React 19, Tailwind 4 + shadcn, running on Vercel serverless</li>
+      <li>Supabase: Postgres (service-role client), Auth (email + password, JWKS), Storage (<code>template-media</code>)</li>
+      <li>Meta WhatsApp Cloud API through <code>lib/meta-waba.ts</code>, pinned to Graph <code>v19.0</code></li>
+      <li>Groq <code>gpt-oss-120b</code> for "Draft with AI", with structured output and a single repair round</li>
+    </ul></div>
+    <div class="card"><h3>Core flows</h3><ul>
+      <li><b>Audience</b>: CSV parsed in the browser, field roles detected, rows uploaded in batches, then finalized (dedupe, sendable count)</li>
+      <li><b>Template</b>: compose or AI draft, server-side <code>validateDraft()</code>, submit to Meta; status comes back by webhook, with Sync as a fallback</li>
+      <li><b>Campaign</b>: wizard maps <code>{{vars}}</code> to CSV columns, fire runs the guards, sends in the background, and receipts come back by webhook</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="findings">
+  <h2>Findings, ranked</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Severity</th><th>Finding</th><th>Where</th><th>Failure scenario</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sev crit">Critical</span></td>
+        <td><b>Failed campaigns are invisible to the double-send guard.</b> <code>audience_messaged_phones</code> only counts campaigns whose status is <code>Sending</code> or <code>Completed</code>.</td>
+        <td><code>supabase-audience-selection.sql:44</code>, <code>fire/route.ts:132</code></td>
+        <td>A 1,000-row send hits the 48s budget after ~300 messages and is marked Failed. Re-firing it, firing a new campaign on the same audience, or using "Select unsent" all treat those ~300 people as never messaged, so they get the message again with no warning.</td></tr>
+      <tr><td><span class="sev crit">Critical</span></td>
+        <td><b>Webhook signature check fails open.</b> If <code>META_APP_SECRET</code> is unset, every POST is accepted. The comparison is also a plain <code>===</code>, not constant-time.</td>
+        <td><code>lib/meta-waba.ts:463,466</code></td>
+        <td>If the env var is missing on a Vercel project, anyone can POST fake delivered/read/failed events or template <code>APPROVED</code> events, which corrupts counters and template status.</td></tr>
+      <tr><td><span class="sev high">High</span></td>
+        <td><b>Silent simulation mode.</b> If any of the three <code>META_*</code> vars is missing, <code>sendMessage</code> returns <code>simulated</code> and the fire loop counts that as delivered <i>and</i> read.</td>
+        <td><code>lib/meta-waba.ts:405</code>, <code>fire/route.ts:332</code></td>
+        <td>On a misconfigured deployment (see the two-Vercel-projects gotcha), a campaign shows 100% delivered and read while nothing was sent.</td></tr>
+      <tr><td><span class="sev high">High</span></td>
+        <td><b>Throughput ceiling, no resume.</b> <code>maxDuration 60</code>, a 48s budget and 8 workers at ~1.1–1.5s per send cap one fire at roughly 260–350 recipients.</td>
+        <td><code>fire/route.ts:15,24,34</code></td>
+        <td>Any audience above ~300 always ends Failed and part-sent. Combined with the first finding, the only way to finish the send is one that re-messages people. This needs a cursor/queue (resume from logs), or a status like <code>Partial</code> that the guard counts.</td></tr>
+      <tr><td><span class="sev high">High</span></td>
+        <td><b>Webhook counters aren't idempotent.</b> Each status event runs <code>increment_campaign_counts(+1)</code> without checking the log's previous status.</td>
+        <td><code>webhooks/whatsapp/route.ts:69,75,104</code></td>
+        <td>Meta retries webhooks on slow or failed responses. A redelivered "delivered" event double-counts, so dashboards can show more than 100%. Also, a "failed" event after "delivered" increments failed without decrementing delivered.</td></tr>
+      <tr><td><span class="sev med">Medium</span></td>
+        <td><b>Blank personalization still sends.</b> An unmapped placeholder or blank cell resolves to <code>""</code>.</td>
+        <td><code>lib/audience-schema.ts resolveField</code></td>
+        <td>A row with an empty name goes out as "Hi ,". Approved in Phase 1 on 2026-08-11 but not built yet.</td></tr>
+      <tr><td><span class="sev med">Medium</span></td>
+        <td><b>Access control is flat.</b> Every route uses the service-role client (RLS bypassed), and the <code>@vantagecircle.com</code> signup rule is only enforced in the browser.</td>
+        <td><code>lib/supabase.ts</code>, <code>login/page.tsx:20</code></td>
+        <td>Anyone who calls Supabase <code>signUp</code> directly with any email gets full power, including firing to real employees.</td></tr>
+      <tr><td><span class="sev med">Medium</span></td>
+        <td><b>Template id churn.</b> Sync upserts <code>onConflict: "name"</code>. Rows keep their id when found, but a rename or delete-and-recreate at Meta can still orphan <code>campaigns.template_id</code>.</td>
+        <td><code>templates/sync/route.ts:58</code></td>
+        <td>A campaign's details page loses its template link, so joins fall back to matching on name.</td></tr>
+      <tr><td><span class="sev med">Medium</span></td>
+        <td><b>Graph API pinned to v19.0.</b> Meta retires versions about two years after release, and v19.0 shipped in January 2024.</td>
+        <td><code>lib/meta-waba.ts:5</code></td>
+        <td>Worth checking against Meta's changelog now. Calls to an expired version get auto-upgraded or rejected.</td></tr>
+      <tr><td><span class="sev ok">Accepted</span></td>
+        <td><b>Opt-outs recorded, not enforced.</b> STOP replies are written to <code>opt_outs</code>, but the fire route never reads it.</td>
+        <td><code>webhooks/whatsapp/route.ts:114</code></td>
+        <td>You declined this on 2026-08-19 because each send is a one-off from a fresh file. The Scala module now enforces STOP, so the prototype is the weaker of the two.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="strengths">
+  <h2>What's solid</h2>
+  <div class="grid2">
+    <div class="card"><h3>Send-path engineering</h3><ul>
+      <li><code>after()</code> keeps the invocation alive after the 202 (fixes the frozen-at-"Sending" bug)</li>
+      <li>The atomic claim is a conditional <code>UPDATE … NOT IN (Sending, Completed)</code>, so two tabs can't both fire</li>
+      <li><code>fetchWithRetry</code>: 15s timeout, jittered backoff, retries only on 429/5xx, and unwraps the error cause chain</li>
+      <li>Logs are batched per 50 and upserted on a pre-generated id, so a lost response can't duplicate rows</li>
+    </ul></div>
+    <div class="card"><h3>Safety &amp; resilience</h3><ul>
+      <li>The fire route re-checks the session with Supabase Auth (<code>getUser()</code>); other routes verify JWTs locally against JWKS</li>
+      <li>Overlap is checked per recipient and needs an explicit <code>allowDuplicate</code> to override (except for the Failed gap above)</li>
+      <li>Missing columns (<code>42703</code>) degrade gracefully instead of taking down the send path</li>
+      <li>Reads page past Supabase's 1,000-row select cap, and Meta's template rules are re-validated on the server</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="d-arch">
+  <h2>Architecture</h2>
+  <div class="diagram"><div class="bar"><span>Components, trust boundaries and data paths</span><a href="system.html" target="_blank" rel="noopener">Open full screen ↗</a></div>
+  <iframe src="system.html" title="System architecture diagram" loading="lazy"></iframe></div>
+</section>
+<section id="d-journey">
+  <h2>Operator journey</h2>
+  <div class="diagram"><div class="bar"><span>CSV → template approval → campaign → delivery</span><a href="operator-journey.html" target="_blank" rel="noopener">Open full screen ↗</a></div>
+  <iframe src="operator-journey.html" title="Operator journey workflow diagram" loading="lazy"></iframe></div>
+</section>
+<section id="d-seq">
+  <h2>Fire sequence</h2>
+  <div class="diagram"><div class="bar"><span>From the Fire click to the delivery receipt</span><a href="fire-campaign.html" target="_blank" rel="noopener">Open full screen ↗</a></div>
+  <iframe src="fire-campaign.html" title="Fire campaign sequence diagram" loading="lazy"></iframe></div>
+</section>
+<section id="d-life">
+  <h2>Campaign lifecycle</h2>
+  <div class="diagram"><div class="bar"><span>Draft → Sending → Completed, plus the refusal and failure branches</span><a href="campaign.html" target="_blank" rel="noopener">Open full screen ↗</a></div>
+  <iframe src="campaign.html" title="Campaign status lifecycle diagram" loading="lazy"></iframe></div>
+  <p class="note">Every diagram animates its flow: press <b>Play story</b> for the guided tour, or <b>Present</b> for full-screen mode. Hover a node to trace its connections.</p>
+</section>
+</main>
+<footer>Generated 2026-09-28 from a read-only code review. Nothing in the repository was changed.</footer>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  try{var saved=localStorage.getItem('pa-theme'); if(saved) root.setAttribute('data-theme',saved);}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark'; root.setAttribute('data-theme',next);
+    try{localStorage.setItem('pa-theme',next);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>

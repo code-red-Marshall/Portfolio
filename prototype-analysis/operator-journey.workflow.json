@@ -1,0 +1,314 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Operator Journey \u2014 CSV to WhatsApp Delivery",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "audience",
+        "label": "Audience intake",
+        "focus": [
+          "csv",
+          "detect",
+          "rows"
+        ],
+        "note": "The data team's CSV is parsed in the browser, roles detected, and uploaded in batches; bad numbers are separated with a reason."
+      },
+      {
+        "id": "template",
+        "label": "Template approval",
+        "focus": [
+          "compose",
+          "rules",
+          "review",
+          "rejected"
+        ],
+        "note": "Drafts are checked against Meta's authoring rules before submission, because a rejected name is locked for 30 days."
+      },
+      {
+        "id": "campaign",
+        "label": "Campaign send",
+        "focus": [
+          "wizard",
+          "fire",
+          "overlap",
+          "delivery",
+          "logs"
+        ],
+        "note": "The wizard maps variables to CSV columns; firing runs the guards, then sends and records receipts."
+      }
+    ],
+    "viewBox": [
+      1220,
+      652
+    ]
+  },
+  "lanes": [
+    {
+      "id": "operator",
+      "label": "Operator"
+    },
+    {
+      "id": "app",
+      "label": "Next.js on Vercel"
+    },
+    {
+      "id": "meta",
+      "label": "Meta WABA"
+    },
+    {
+      "id": "data",
+      "label": "Supabase"
+    }
+  ],
+  "phases": [
+    {
+      "id": "p-audience",
+      "label": "1 \u00b7 Audience",
+      "fromCol": 0,
+      "toCol": 1
+    },
+    {
+      "id": "p-template",
+      "label": "2 \u00b7 Template",
+      "fromCol": 2,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "p-campaign",
+      "label": "3 \u00b7 Campaign",
+      "fromCol": 4,
+      "toCol": 5,
+      "variant": "dashed"
+    }
+  ],
+  "mainPath": [
+    "csv",
+    "detect",
+    "rows",
+    "compose",
+    "rules",
+    "review",
+    "wizard",
+    "fire",
+    "delivery",
+    "logs"
+  ],
+  "nodes": [
+    {
+      "id": "csv",
+      "lane": "operator",
+      "col": 0,
+      "type": "external",
+      "label": "Upload CSV",
+      "sublabel": "data team export",
+      "width": 140
+    },
+    {
+      "id": "compose",
+      "lane": "operator",
+      "col": 2,
+      "type": "frontend",
+      "label": "Compose Template",
+      "sublabel": "manual or AI draft",
+      "width": 140
+    },
+    {
+      "id": "wizard",
+      "lane": "operator",
+      "col": 4,
+      "type": "frontend",
+      "label": "Campaign Wizard",
+      "sublabel": "map {{vars}} to columns",
+      "width": 140
+    },
+    {
+      "id": "detect",
+      "lane": "app",
+      "col": 1,
+      "type": "backend",
+      "label": "Field Detection",
+      "sublabel": "phone \u00b7 id \u00b7 name roles",
+      "width": 140
+    },
+    {
+      "id": "rules",
+      "lane": "app",
+      "col": 3,
+      "type": "security",
+      "label": "Rules Check",
+      "sublabel": "validateDraft()",
+      "width": 140
+    },
+    {
+      "id": "fire",
+      "lane": "app",
+      "col": 5,
+      "type": "backend",
+      "label": "Fire Route",
+      "sublabel": "guards, then send",
+      "width": 140
+    },
+    {
+      "id": "review",
+      "lane": "meta",
+      "col": 3,
+      "type": "cloud",
+      "label": "Meta Review",
+      "sublabel": "PENDING \u2192 APPROVED",
+      "width": 140
+    },
+    {
+      "id": "delivery",
+      "lane": "meta",
+      "col": 5,
+      "type": "cloud",
+      "label": "WhatsApp Delivery",
+      "sublabel": "per-recipient wamid",
+      "width": 140
+    },
+    {
+      "id": "rows",
+      "lane": "data",
+      "col": 1,
+      "type": "database",
+      "label": "Audience Rows",
+      "sublabel": "sendable + selected",
+      "width": 140
+    },
+    {
+      "id": "logs",
+      "lane": "data",
+      "col": 5,
+      "type": "database",
+      "label": "Message Logs",
+      "sublabel": "sent \u2192 delivered \u2192 read",
+      "width": 140
+    },
+    {
+      "id": "rejected",
+      "lane": "meta",
+      "col": 4,
+      "type": "security",
+      "label": "Rejected",
+      "sublabel": "name locked 30 days",
+      "width": 140
+    },
+    {
+      "id": "overlap",
+      "lane": "operator",
+      "col": 5,
+      "type": "security",
+      "label": "Overlap Refused",
+      "sublabel": "409 dialog \u00b7 override",
+      "width": 140
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-parse",
+      "from": "csv",
+      "to": "detect",
+      "label": "parse in browser",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e-upload",
+      "from": "detect",
+      "to": "rows",
+      "label": "batched upload"
+    },
+    {
+      "id": "e-ready",
+      "from": "rows",
+      "to": "compose",
+      "label": "finalized",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e-check",
+      "from": "compose",
+      "to": "rules"
+    },
+    {
+      "id": "e-submit",
+      "from": "rules",
+      "to": "review",
+      "label": "submit",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e-approved",
+      "from": "review",
+      "to": "wizard",
+      "label": "APPROVED",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e-fire",
+      "from": "wizard",
+      "to": "fire",
+      "label": "Fire",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e-send",
+      "from": "fire",
+      "to": "delivery",
+      "label": "send \u00d78",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e-status",
+      "from": "delivery",
+      "to": "logs",
+      "label": "status webhook",
+      "variant": "dashed"
+    },
+    {
+      "id": "e-rejected",
+      "from": "review",
+      "to": "rejected",
+      "label": "REJECTED",
+      "variant": "security",
+      "role": "error"
+    },
+    {
+      "id": "e-overlap",
+      "from": "fire",
+      "to": "overlap",
+      "label": "overlap > 0",
+      "variant": "security",
+      "role": "error"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Audience",
+      "items": [
+        "Frozen at upload; rows without a usable number are kept with a skip reason",
+        "Operator selects a subset per send"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Template",
+      "items": [
+        "Server re-runs Meta's rules before submitting",
+        "Status updates arrive by webhook, Sync is a fallback"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Campaign",
+      "items": [
+        "Overlap guard is per recipient, override needs allowDuplicate",
+        "Receipts land on message_logs by wamid"
+      ]
+    }
+  ]
+}

@@ -1,18 +1,187 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   ArrowLeft, ExternalLink, ShieldCheck, Database, Smartphone, 
-  AlertTriangle, CheckCircle2, Sparkles, RefreshCw, Layers, Cpu
+  AlertTriangle, CheckCircle2, Sparkles, RefreshCw, Layers, Cpu,
+  Workflow, Activity, Route, PlayCircle, ShieldAlert, Maximize2,
+  FileCode
 } from 'lucide-react';
 import ShareButton from '../ui/ShareButton';
 import { getCaseStudyUrl } from '../../utils/routes';
 
 const APP_URL = 'https://whatsapp-campaign-manager-eta.vercel.app/';
 
+interface FlowDiagram {
+  id: 'system' | 'journey' | 'fire' | 'lifecycle';
+  title: string;
+  badge: string;
+  file: string;
+  shortDesc: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  stories: string[];
+  takeaways: {
+    title: string;
+    description: string;
+  }[];
+}
+
+const FLOW_DIAGRAMS: FlowDiagram[] = [
+  {
+    id: 'system',
+    title: 'System Architecture & Trust Boundaries',
+    badge: 'Architecture',
+    file: 'system.html',
+    shortDesc: 'Components, trust boundaries and asynchronous data paths between Vercel serverless, Supabase, and Meta.',
+    icon: Layers,
+    stories: [
+      'Send path: Operator fires → API worker pool → Meta Graph API v19.0',
+      'Status loop: Meta sends delivery receipts → Webhook verification → DB logs',
+      'Platform services: Supabase Auth/Postgres & Groq AI draft generation'
+    ],
+    takeaways: [
+      {
+        title: 'Edge & Serverless Boundary',
+        description: 'Next.js App Router route handlers run as ephemeral serverless lambdas on Vercel, decoupled from Supabase persistence.'
+      },
+      {
+        title: 'Asynchronous Webhook Ingestion',
+        description: 'Status updates (sent → delivered → read / failed) flow exclusively through an HMAC-verified webhook callback endpoint.'
+      },
+      {
+        title: 'AI Drafting with Pre-Submission Validation',
+        description: 'Groq LLM generates template variations that pass through an automatic JSON repair loop before review.'
+      }
+    ]
+  },
+  {
+    id: 'journey',
+    title: 'Operator Journey Workflow',
+    badge: 'Operator Workflow',
+    file: 'operator-journey.html',
+    shortDesc: 'End-to-end user path: CSV upload & profiling → template authoring → wizard setup → live tracking.',
+    icon: Workflow,
+    stories: [
+      'CSV upload & profiling: Client file parsed, headers scored into phone/ID/name roles',
+      'Template creation & review: Dynamic preview, strict rules enforced, Meta approval wait',
+      'Campaign setup: 3-step wizard maps columns to variables with real row preview',
+      'Dispatch & delivery: Batch sending, progress indicator, and live webhook receipts'
+    ],
+    takeaways: [
+      {
+        title: 'Heuristic Column Scoring',
+        description: 'Analyzes messy CSV headers to infer phone numbers while penalizing secondary, landline, and emergency columns.'
+      },
+      {
+        title: '30-Day Lockout Prevention',
+        description: 'Client-side validator mirrors Meta\'s review heuristics in real time, preventing accidental rejections that burn template names.'
+      },
+      {
+        title: 'Real-Data Sample Preview',
+        description: 'Renders dynamic templates with authentic sample rows so operators verify formatting before firing.'
+      }
+    ]
+  },
+  {
+    id: 'fire',
+    title: 'Fire Execution Sequence',
+    badge: 'Execution Sequence',
+    file: 'fire-campaign.html',
+    shortDesc: 'Timeline from the "Fire Campaign" click through synchronous guards, worker loops, to webhook receipts.',
+    icon: Activity,
+    stories: [
+      'Pre-flight guards: Session revalidation, audience check, overlap guard, atomic lock claim',
+      'Background dispatch: after() keeps execution alive, 8 workers send with backoff, batch logging (50/batch)',
+      'Delivery receipts: Meta asynchronously calls webhook; campaign counters and logs update'
+    ],
+    takeaways: [
+      {
+        title: 'Synchronous Pre-Flight Safety',
+        description: 'Session authentication, audience readiness, and per-recipient overlap checks run synchronously before returning HTTP 202.'
+      },
+      {
+        title: 'Atomic Double-Send Lock',
+        description: 'A conditional database UPDATE claims the campaign row (NOT IN Sending, Completed) to eliminate race conditions.'
+      },
+      {
+        title: 'Background after() Worker Loop',
+        description: 'Next.js after() keeps the serverless lambda active past response return to drive parallel batch sending.'
+      }
+    ]
+  },
+  {
+    id: 'lifecycle',
+    title: 'Campaign Status Lifecycle (FSM)',
+    badge: 'Finite State Machine',
+    file: 'campaign.html',
+    shortDesc: 'Finite state machine: Draft → Preflight → Sending → Completed, plus refusal branches and 48s timeout recovery.',
+    icon: Route,
+    stories: [
+      'Happy path: Draft → requested → preflight pass → Sending claim → Completed',
+      'Refusal branches: Unapproved template, invalid audience, or overlap refusal (safely remains Draft)',
+      'Budget recovery: 48s runtime ceiling flush → marked Failed → eligible for safe retry'
+    ],
+    takeaways: [
+      {
+        title: 'Strict State Transitions',
+        description: 'Guarantees the campaign lifecycle has no ambiguous intermediate states between Draft, Sending, and Completed.'
+      },
+      {
+        title: 'Safe Pre-Flight Refusals',
+        description: 'If preflight validation or overlap detection fails, the campaign remains a Draft with actionable error reasons.'
+      },
+      {
+        title: 'Serverless Budget Recovery',
+        description: 'Approaching the 48s ceiling gracefully flushes logs and transitions status to Failed, enabling safe resumption.'
+      }
+    ]
+  }
+];
+
+interface PrototypeFinding {
+  severity: 'Critical' | 'High' | 'Medium';
+  title: string;
+  location: string;
+  scenario: string;
+  implication: string;
+}
+
+const PROTOTYPE_FINDINGS: PrototypeFinding[] = [
+  {
+    severity: 'Critical',
+    title: 'Failed campaigns were invisible to the double-send guard',
+    location: 'supabase-audience-selection.sql / fire/route.ts',
+    scenario: 'A 1,000-row send hits the 48s budget after ~300 messages and is marked Failed. Re-firing it or using "Select unsent" treated those 300 employees as never contacted.',
+    implication: 'Exposed recipients to duplicate promotional blasts unless custom database cursors were maintained.'
+  },
+  {
+    severity: 'Critical',
+    title: 'Webhook signature verification failed open',
+    location: 'lib/meta-waba.ts',
+    scenario: 'If META_APP_SECRET was missing or misconfigured in Vercel environment variables, every POST webhook was accepted, and comparisons used non-constant-time equality.',
+    implication: 'Could allow forged delivery/read receipts or counterfeit template approval callbacks.'
+  },
+  {
+    severity: 'High',
+    title: '48-second serverless execution ceiling with no native resume',
+    location: 'fire/route.ts (maxDuration: 60)',
+    scenario: 'With a 48s budget and 8 workers pacing at ~1.2s per dispatch, one single execution capped out at roughly 260–350 recipients before timing out.',
+    implication: 'Proved serverless lambdas are ill-suited for large batch dispatch without a persistent queue or native daemon.'
+  },
+  {
+    severity: 'High',
+    title: 'Webhook status counters lacked idempotency',
+    location: 'webhooks/whatsapp/route.ts',
+    scenario: 'Meta retries webhooks on network blips. Incrementing counters (+1) without checking prior log state meant retried deliveries pushed stats above 100%.',
+    implication: 'Required migrating to strict GROUP BY queries directly against message records.'
+  }
+];
+
 interface WhatsAppCampaignCaseStudyProps {
   onBack: () => void;
 }
 
 const WhatsAppCampaignCaseStudy: React.FC<WhatsAppCampaignCaseStudyProps> = ({ onBack }) => {
+  const [activeFlowId, setActiveFlowId] = useState<'system' | 'journey' | 'fire' | 'lifecycle'>('system');
+  const activeFlow = FLOW_DIAGRAMS.find((d) => d.id === activeFlowId) || FLOW_DIAGRAMS[0];
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -100,10 +269,10 @@ const WhatsAppCampaignCaseStudy: React.FC<WhatsAppCampaignCaseStudyProps> = ({ o
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-                <h2 className="text-base sm:text-lg font-bold text-white">Live Prototype Available</h2>
+                <h2 className="text-base sm:text-lg font-bold text-white">Live Prototype & Interactive Flows Available</h2>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
-                Test the prototype app directly: dynamic Meta template builder with validation engine, CSV audience detection scoring, 3-step wizard, and analytics.
+                Test the prototype app directly, or explore the 4 interactive animated flow diagrams below (system architecture, operator journey, background fire sequence, and finite state machine).
               </p>
             </div>
             <a
@@ -210,7 +379,7 @@ const WhatsAppCampaignCaseStudy: React.FC<WhatsAppCampaignCaseStudyProps> = ({ o
                   Act One: The Prototype
                 </div>
                 <p className="text-sm text-slate-400 leading-relaxed">
-                  A standalone Next.js, Supabase, and Vercel stack integrating directly with Meta's WhatsApp Business Platform. Covered template authoring against Meta's strict review rules, CSV audience upload with automatic field detection, a 3-step campaign wizard, real dispatches, and webhook analytics. It sent real campaigns to real employees.
+                  A standalone Next.js, Supabase, and Vercel stack integrating directly with Meta's WhatsApp Business Platform. Covered template authoring against Meta's strict review rules, CSV audience upload with automatic field detection, a 3-step campaign wizard, real dispatches, and webhook analytics. Explored below with 4 interactive animated flow diagrams.
                 </p>
               </div>
 
@@ -322,11 +491,146 @@ const WhatsAppCampaignCaseStudy: React.FC<WhatsAppCampaignCaseStudyProps> = ({ o
               I started with a standalone app because I needed to learn one thing fast: <strong>what does it actually take to get a message from our system onto an employee's phone through Meta?</strong> Most of the difficulty turned out to be in the parts no documentation warns you about.
             </p>
 
-            {/* 2.1 Architecture Diagram */}
+            {/* 2.1 Architecture & Interactive Flow Analysis */}
             <div>
-              <h3 className="text-xl font-bold text-white mb-4">2.1 Architecture</h3>
-              <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 font-mono text-xs sm:text-sm text-slate-300 overflow-x-auto leading-relaxed shadow-lg">
-                <pre>{`  Operator (browser)
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <span>2.1 Architecture & Interactive Flow Analysis</span>
+                </h3>
+                <a
+                  href="/prototype-analysis/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 font-medium px-3 py-1.5 bg-emerald-950/40 border border-emerald-800/60 rounded-lg transition-colors w-fit"
+                >
+                  <FileCode size={13} />
+                  <span>Open Full Prototype Analysis</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+
+              <p className="text-sm text-slate-300 mb-6 leading-relaxed">
+                Before rolling out to enterprise employees, I modeled the prototype's complete execution lifecycle through 4 interactive animated flow diagrams. Each diagram below visualizes live data paths, trust boundaries, state machines, and background worker concurrency.
+              </p>
+
+              {/* Interactive Animated Flow Explorer Container */}
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl mb-8">
+                {/* Tab Switcher */}
+                <div className="bg-slate-950/80 border-b border-slate-800 p-2 sm:p-3 flex items-center gap-2 overflow-x-auto scrollbar-none">
+                  {FLOW_DIAGRAMS.map((diagram) => {
+                    const Icon = diagram.icon;
+                    const isActive = activeFlow.id === diagram.id;
+                    return (
+                      <button
+                        key={diagram.id}
+                        type="button"
+                        onClick={() => setActiveFlowId(diagram.id)}
+                        className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
+                          isActive
+                            ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/40 shadow-sm shadow-emerald-950/50'
+                            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent'
+                        }`}
+                      >
+                        <Icon size={16} className={isActive ? 'text-emerald-400' : 'text-slate-400'} />
+                        <span>{diagram.badge}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Flow Metadata & Controls Bar */}
+                <div className="p-4 sm:p-5 bg-slate-900/90 border-b border-slate-800/80 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2.5 mb-1.5">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-800/60">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Live Interactive Flow
+                      </span>
+                      <h4 className="text-base sm:text-lg font-bold text-white">
+                        {activeFlow.title}
+                      </h4>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-400">
+                      {activeFlow.shortDesc}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <a
+                      href={`/prototype-analysis/${activeFlow.file}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium border border-slate-700 hover:border-slate-600 transition-all cursor-pointer shadow-sm"
+                      title="Open full screen in a new window"
+                    >
+                      <Maximize2 size={13} />
+                      <span>Full Window</span>
+                      <ExternalLink size={12} className="opacity-70" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Guided Tour Banner Hint */}
+                <div className="px-4 py-2.5 bg-emerald-950/30 border-b border-emerald-900/40 text-[11px] sm:text-xs text-emerald-300 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <PlayCircle size={15} className="text-emerald-400 flex-shrink-0 animate-bounce" />
+                    <span>
+                      <strong>Interactive Motion:</strong> Click <strong>"Play story"</strong> inside the diagram below for a guided step-by-step tour, or hover nodes to trace data connections.
+                    </span>
+                  </div>
+                </div>
+
+                {/* Iframe Viewport */}
+                <div className="relative w-full bg-slate-950">
+                  <iframe
+                    key={activeFlow.id}
+                    src={`/prototype-analysis/${activeFlow.file}?theme=dark`}
+                    title={activeFlow.title}
+                    className="w-full h-[520px] sm:h-[620px] lg:h-[680px] border-0 block"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Flow Breakdown & Architecture Highlights */}
+                <div className="p-5 sm:p-6 bg-slate-900/80 border-t border-slate-800 space-y-4">
+                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    Animation Chapters & Technical Guardrails
+                  </div>
+                  
+                  {/* Guided Story Beats */}
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    {activeFlow.stories.map((story, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2.5 py-1 bg-slate-800/90 text-slate-300 border border-slate-700/80 rounded-lg flex items-center gap-1.5"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        {story}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* 3 Key Engineering Takeaways */}
+                  <div className="grid sm:grid-cols-3 gap-3 pt-2">
+                    {activeFlow.takeaways.map((takeaway, idx) => (
+                      <div key={idx} className="p-3.5 bg-slate-950/60 border border-slate-800/80 rounded-xl space-y-1">
+                        <div className="text-xs font-bold text-emerald-400">{takeaway.title}</div>
+                        <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
+                          {takeaway.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Fast ASCII Data-Path Summary */}
+              <div className="space-y-2">
+                <div className="text-xs font-medium text-slate-400 flex items-center justify-between">
+                  <span>Fast Reference: Data Path & Component Contract</span>
+                </div>
+                <div className="bg-slate-900 p-5 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto leading-relaxed shadow-lg">
+                  <pre>{`  Operator (browser)
         │
         ▼
   Next.js app on Vercel ──────────────▶ Meta Graph API
@@ -342,6 +646,7 @@ const WhatsAppCampaignCaseStudy: React.FC<WhatsAppCampaignCaseStudyProps> = ({ o
         ▲                                        │
         └────────── /api/webhooks/whatsapp ◀─────┘
                     (HMAC-signed by Meta)`}</pre>
+                </div>
               </div>
             </div>
 
@@ -485,6 +790,63 @@ const WhatsAppCampaignCaseStudy: React.FC<WhatsAppCampaignCaseStudyProps> = ({ o
                     True transactional nudges (expiring points, redemption confirmations) should use <code className="text-teal-300">UTILITY</code> categorization, which is exempt from marketing caps.
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* 2.5 Prototype Technical Audit: Ranked Findings */}
+            <div className="bg-slate-900/80 p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                    <ShieldAlert className="text-rose-400" size={20} />
+                    <span>2.5 Prototype Technical Audit: Architectural Vulnerabilities</span>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                    Systematic code review of the Vercel/Supabase prototype identified critical operational failure modes that proved serverless was the wrong home for enterprise bulk messaging:
+                  </p>
+                </div>
+                <a
+                  href="/prototype-analysis/index.html#findings"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg border border-slate-700 transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer"
+                >
+                  <FileCode size={13} />
+                  <span>Full Findings Table</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                {PROTOTYPE_FINDINGS.map((finding, idx) => (
+                  <div key={idx} className="p-4 bg-slate-950/70 border border-slate-800/90 rounded-xl space-y-2">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${
+                        finding.severity === 'Critical'
+                          ? 'bg-rose-950 text-rose-400 border border-rose-800/60'
+                          : finding.severity === 'High'
+                          ? 'bg-amber-950 text-amber-400 border border-amber-800/60'
+                          : 'bg-blue-950 text-blue-400 border border-blue-800/60'
+                      }`}>
+                        {finding.severity}
+                      </span>
+                      <code className="text-[10px] text-slate-400 font-mono">{finding.location}</code>
+                    </div>
+                    <div className="font-bold text-sm text-slate-200">
+                      {finding.title}
+                    </div>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      <strong className="text-slate-300">Failure Scenario:</strong> {finding.scenario}
+                    </p>
+                    <p className="text-xs text-rose-300/90 leading-relaxed pt-1 border-t border-slate-900">
+                      <strong className="text-rose-400">Impact:</strong> {finding.implication}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-4 bg-rose-950/20 border border-rose-900/40 rounded-xl text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-400 font-semibold">The Architectural Reality:</strong> The 48-second serverless execution ceiling meant any send over ~300 contacts would automatically abort. Combined with the double-send guard bug on failed campaigns, resuming a large audience risked re-blasting the first 300 employees. This made moving the messaging engine directly to where data lives (Act Two) not just a compliance decision, but an engineering necessity.
               </div>
             </div>
           </div>

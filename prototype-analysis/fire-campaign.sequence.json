@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Firing a Campaign \u2014 Request to Delivery Receipt",
+    "viewBox": [
+      1060,
+      600
+    ],
+    "column_fit": "spread",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "guards",
+        "label": "Pre-flight guards",
+        "focus": [
+          "operator",
+          "ui",
+          "fire",
+          "auth",
+          "db"
+        ],
+        "note": "Session revalidation, template/audience checks, the per-recipient overlap guard and the atomic claim all run before any message leaves."
+      },
+      {
+        "id": "send",
+        "label": "Background send",
+        "focus": [
+          "fire",
+          "meta",
+          "db"
+        ],
+        "note": "after() keeps the invocation alive; 8 workers share a cursor and logs flush in batches of 50."
+      },
+      {
+        "id": "receipts",
+        "label": "Delivery receipts",
+        "focus": [
+          "meta",
+          "webhook",
+          "db"
+        ],
+        "note": "Meta reports delivered/read/failed asynchronously; the webhook patches message_logs and campaign counters."
+      }
+    ]
+  },
+  "participants": [
+    {
+      "id": "operator",
+      "type": "external",
+      "label": "Operator",
+      "sublabel": "campaign page"
+    },
+    {
+      "id": "ui",
+      "type": "frontend",
+      "label": "Next.js UI",
+      "sublabel": "client fetch"
+    },
+    {
+      "id": "fire",
+      "type": "backend",
+      "label": "Fire Route",
+      "sublabel": "POST \u2026/fire"
+    },
+    {
+      "id": "auth",
+      "type": "security",
+      "label": "Supabase Auth",
+      "sublabel": "getUser()"
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "Postgres",
+      "sublabel": "campaigns \u00b7 logs"
+    },
+    {
+      "id": "meta",
+      "type": "external",
+      "label": "Meta Cloud API",
+      "sublabel": "/messages"
+    },
+    {
+      "id": "webhook",
+      "type": "backend",
+      "label": "Webhook",
+      "sublabel": "status events"
+    }
+  ],
+  "segments": [
+    {
+      "from": 150,
+      "to": 340,
+      "label": "Pre-flight (sync)"
+    },
+    {
+      "from": 350,
+      "to": 462,
+      "label": "Send loop \u00b7 after()"
+    },
+    {
+      "from": 472,
+      "to": 530,
+      "label": "Receipts (async)"
+    }
+  ],
+  "messages": [
+    {
+      "id": "click-fire",
+      "from": "operator",
+      "to": "ui",
+      "y": 160,
+      "label": "Fire campaign"
+    },
+    {
+      "id": "post-fire",
+      "from": "ui",
+      "to": "fire",
+      "y": 188,
+      "label": "POST /api/campaigns/:id/fire",
+      "variant": "emphasis"
+    },
+    {
+      "id": "revalidate",
+      "from": "fire",
+      "to": "auth",
+      "y": 216,
+      "label": "revalidate session",
+      "variant": "security"
+    },
+    {
+      "id": "load-state",
+      "from": "fire",
+      "to": "db",
+      "y": 244,
+      "label": "template APPROVED? audience ready?"
+    },
+    {
+      "id": "overlap",
+      "from": "fire",
+      "to": "db",
+      "y": 272,
+      "label": "rpc overlap guard",
+      "variant": "security"
+    },
+    {
+      "id": "claim",
+      "from": "fire",
+      "to": "db",
+      "y": 300,
+      "label": "claim \u2192 Sending",
+      "variant": "emphasis"
+    },
+    {
+      "id": "accepted",
+      "from": "fire",
+      "to": "ui",
+      "y": 328,
+      "label": "202 Accepted",
+      "variant": "return"
+    },
+    {
+      "id": "send",
+      "from": "fire",
+      "to": "meta",
+      "y": 366,
+      "label": "template send \u00d78 in flight",
+      "variant": "emphasis"
+    },
+    {
+      "id": "wamid",
+      "from": "meta",
+      "to": "fire",
+      "y": 394,
+      "label": "wamid",
+      "variant": "return"
+    },
+    {
+      "id": "flush",
+      "from": "fire",
+      "to": "db",
+      "y": 422,
+      "label": "upsert logs per 50",
+      "variant": "dashed"
+    },
+    {
+      "id": "complete",
+      "from": "fire",
+      "to": "db",
+      "y": 450,
+      "label": "Completed or Failed"
+    },
+    {
+      "id": "status",
+      "from": "meta",
+      "to": "webhook",
+      "y": 488,
+      "label": "delivered / read / failed",
+      "variant": "dashed"
+    },
+    {
+      "id": "patch",
+      "from": "webhook",
+      "to": "db",
+      "y": 516,
+      "label": "patch log + counters"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "ui",
+      "from": 183,
+      "to": 334,
+      "type": "frontend"
+    },
+    {
+      "participant": "fire",
+      "from": 188,
+      "to": 456,
+      "type": "backend"
+    },
+    {
+      "participant": "auth",
+      "from": 211,
+      "to": 224,
+      "type": "security"
+    },
+    {
+      "participant": "meta",
+      "from": 361,
+      "to": 400,
+      "type": "external"
+    },
+    {
+      "participant": "webhook",
+      "from": 483,
+      "to": 522,
+      "type": "backend"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "Four guards before sending",
+      "items": [
+        "Session revalidated, template APPROVED, audience ready",
+        "Overlap RPC refuses re-messaging anyone"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Serverless send loop",
+      "items": [
+        "202 returned first; work continues in after()",
+        "8 concurrent workers, 48s budget, then Failed"
+      ]
+    },
+    {
+      "dot": "orange",
+      "title": "Receipts arrive later",
+      "items": [
+        "A send is 'sent'; delivered/read come by webhook",
+        "Failure codes (e.g. 131049) stored per log"
+      ]
+    }
+  ]
+}

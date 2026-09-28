@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "diagram_type": "lifecycle",
+  "meta": {
+    "title": "Campaign Status Lifecycle",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "happy",
+        "label": "Happy path",
+        "focus": [
+          "draft",
+          "requested",
+          "preflight",
+          "sending",
+          "completed"
+        ],
+        "note": "A Draft is fired, passes the guards, is claimed as Sending, and completes."
+      },
+      {
+        "id": "refusal",
+        "label": "Refusals",
+        "focus": [
+          "preflight",
+          "refused"
+        ],
+        "note": "Unapproved template, unfinished audience, empty selection or recipient overlap: an error is returned and nothing is sent."
+      },
+      {
+        "id": "failure",
+        "label": "Budget failure",
+        "focus": [
+          "sending",
+          "failed",
+          "requested"
+        ],
+        "note": "If the 48s send budget runs out, logs are flushed and the campaign is marked Failed; Failed can be fired again."
+      }
+    ],
+    "viewBox": [
+      1030,
+      600
+    ]
+  },
+  "lanes": [
+    {
+      "id": "main",
+      "label": "Campaign status"
+    },
+    {
+      "id": "waiting",
+      "label": "Refused, still Draft"
+    },
+    {
+      "id": "exceptions",
+      "label": "Recovery"
+    }
+  ],
+  "states": [
+    {
+      "id": "draft",
+      "type": "start",
+      "label": "Draft",
+      "sublabel": "created in wizard",
+      "lane": "main",
+      "col": 0,
+      "step": "01",
+      "tag": "editable"
+    },
+    {
+      "id": "requested",
+      "type": "active",
+      "label": "Fire requested",
+      "sublabel": "session revalidated",
+      "lane": "main",
+      "col": 1,
+      "step": "02",
+      "tag": "strict auth"
+    },
+    {
+      "id": "preflight",
+      "type": "decision",
+      "label": "Pre-flight",
+      "sublabel": "server-side checks",
+      "lane": "main",
+      "col": 2,
+      "step": "03",
+      "tag": "guards"
+    },
+    {
+      "id": "sending",
+      "type": "active",
+      "label": "Sending",
+      "sublabel": "claimed \u00b7 after()",
+      "lane": "main",
+      "col": 3,
+      "step": "04",
+      "tag": "8 workers"
+    },
+    {
+      "id": "completed",
+      "type": "success",
+      "label": "Completed",
+      "sublabel": "all recipients tried",
+      "lane": "main",
+      "col": 4,
+      "step": "05",
+      "tag": "final"
+    },
+    {
+      "id": "refused",
+      "type": "waiting",
+      "label": "Refused",
+      "sublabel": "400/409, still Draft",
+      "lane": "waiting",
+      "col": 0,
+      "tag": "nothing sent"
+    },
+    {
+      "id": "failed",
+      "type": "failure",
+      "label": "Failed",
+      "sublabel": "budget out or crash",
+      "lane": "exceptions",
+      "col": 1,
+      "yOffset": 78,
+      "tag": "re-fireable"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "refuse",
+      "from": "preflight",
+      "to": "refused",
+      "label": "guard fails",
+      "variant": "security",
+      "labelDy": 30
+    },
+    {
+      "id": "stop",
+      "from": "sending",
+      "to": "failed",
+      "label": "48s budget",
+      "variant": "security",
+      "labelDy": 30
+    },
+    {
+      "id": "refire",
+      "from": "failed",
+      "to": "requested",
+      "label": "re-fire",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "bottom",
+      "route": "bottom-channel"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "One-way happy path",
+      "items": [
+        "Sending and Completed cannot be fired again (409)",
+        "The claim is a conditional UPDATE, so two tabs cannot both win"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Failed is a double-send trap",
+      "items": [
+        "Budget exhaustion flushes logs, then marks Failed",
+        "Failed runs are invisible to the overlap guard, so re-fire resends"
+      ]
+    }
+  ]
+}
