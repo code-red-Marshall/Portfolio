@@ -13,15 +13,15 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
   const productionDecisions = [
     {
       title: 'Build inside the existing product',
-      description: 'The production experience belongs in the native Campaign Manager, built with the existing Play Framework and Scala stack. This keeps the workflow close to the platform capabilities it depends on.'
+      description: 'I chose a native Play Framework and Scala implementation for production instead of relying on the standalone prototype. This added rebuild effort, but kept the campaign workflow aligned with the existing platform architecture and capabilities.'
     },
     {
       title: 'Keep employee data within the platform',
-      description: 'Rather than making exported audience files the foundation of the production workflow, the design keeps audience selection and campaign execution within the existing product environment.'
+      description: 'I designed audience selection around the existing platform environment rather than making exported employee lists the primary production workflow. The trade-off was tighter integration work in exchange for fewer disconnected data handoffs.'
     },
     {
       title: 'Design for the full campaign lifecycle',
-      description: 'The experience needs to support more than sending a message: template preparation, audience selection, campaign setup, dispatch visibility and delivery-status updates all form one workflow.'
+      description: 'I treated template preparation, audience selection, setup, dispatch visibility and webhook-driven delivery updates as one operator journey. This increased scope beyond message sending, but made campaign execution and follow-up more usable.'
     }
   ];
 
@@ -72,13 +72,13 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
           <h2 className="mb-5 text-3xl font-bold text-white">A new channel, without creating a new data problem</h2>
           <div className="space-y-4 text-lg leading-relaxed text-slate-300">
             <p>WhatsApp offered a useful additional channel for employee communications and promotional campaigns. But introducing it into a multi-tenant HR technology platform raised a product question beyond the integration itself: how could campaign teams use the channel without creating unnecessary copies or movement of client employee data?</p>
-            <p>The challenge was to make the workflow straightforward for campaign operators while respecting the platform's existing data boundaries and operational model.</p>
+            <p>The challenge was to give campaign operators a usable end-to-end workflow while respecting the platform's existing data boundaries and operational model. A successful API connection alone would not solve template management, audience selection, campaign visibility or delivery feedback.</p>
           </div>
         </section>
 
         <section className="mb-16">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-400">02 · From prototype to production</p>
-          <h2 className="mb-5 text-3xl font-bold text-white">Use a prototype to explore; use the native platform to ship</h2>
+          <h2 className="mb-5 text-3xl font-bold text-white">Separate rapid workflow validation from production integration</h2>
           <div className="grid gap-5 md:grid-cols-2">
             <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
               <span className="mb-3 inline-flex items-center gap-2 text-sm font-semibold text-sky-300"><Layers size={17}/> Exploration prototype</span>
