@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ArrowLeft, ExternalLink, Share2, MessageCircle, ShieldCheck, Workflow, Database, Layers, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ExternalLink, MessageCircle, ShieldCheck, Workflow, Database, Layers, CheckCircle2 } from 'lucide-react';
 import ShareButton from '../ui/ShareButton';
 import { getCaseStudyUrl } from '../../utils/routes';
 
