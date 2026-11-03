@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
 import ProjectGallery from './components/ProjectGallery';
 import CaseStudy from './components/CaseStudy';
 import LeadQualityCaseStudy from './components/case-studies/LeadQualityCaseStudy';
@@ -12,8 +11,6 @@ import SolutionsCentralCaseStudy from './components/case-studies/SolutionsCentra
 import WhatsAppCampaignCaseStudy from './components/case-studies/WhatsAppCampaignCaseStudy';
 import SwitchflyCaseStudy from './components/case-studies/SwitchflyCaseStudy';
 import Blog from './components/Blog';
-import AILiteracy from './components/AILiteracy';
-import ProductThinking from './components/ProductThinking';
 import ProfessionalBackground from './components/ProfessionalBackground';
 import Education from './components/Education';
 import Contact from './components/Contact';
@@ -130,7 +127,6 @@ function App() {
       <main>
         <Hero />
         <ProjectGallery />
-        <About />
         <CaseStudy 
           onOpenSwitchfly={() => navigateTo('case-study-switchfly')}
           onOpenWhatsApp={() => navigateTo('case-study-whatsapp')}
@@ -140,11 +136,9 @@ function App() {
           onOpenDishFlow={() => navigateTo('case-study-dishflow')}
           onOpenSolutionsCentral={() => navigateTo('case-study-solutions-central')}
         />
-        <Blog />
-        <AILiteracy />
-        <ProductThinking />
         <ProfessionalBackground />
         <Education />
+        <Blog />
         <Contact />
       </main>
       
