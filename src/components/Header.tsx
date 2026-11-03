@@ -43,15 +43,15 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-300 ${
         isScrolled
-          ? 'bg-white border-b border-slate-200 shadow-sm'
-          : 'bg-transparent'
+          ? 'bg-[#f4f2ed]/95 border-b border-[#d3d5cc] shadow-sm backdrop-blur-md'
+          : 'bg-[#f4f2ed]/90 backdrop-blur-sm'
       }`}
     >
       <nav aria-label="Main navigation" className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-xl font-bold text-slate-900 hover:text-slate-700 transition-colors"
+            className="text-lg font-semibold tracking-[-0.04em] text-[#17221f] hover:text-[#587263] transition-colors"
           >
             Bhargav Nath
           </button>
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-slate-600 hover:text-slate-900 transition-colors font-medium"
+                className="text-xs uppercase tracking-[0.12em] text-[#66736c] hover:text-[#17221f] transition-colors font-semibold"
               >
                 {item.label}
               </button>
