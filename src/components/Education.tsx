@@ -35,16 +35,16 @@ const Education: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Education</h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+    <section id="education" className="bg-[#f4f2ed] px-6 py-20 text-[#17221f] lg:py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-10 border-t border-[#d3d5cc] pt-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#718077]">Foundation</p><h2 className="mt-3 text-4xl font-semibold tracking-[-0.05em] text-[#17221f]">Education & research</h2>
+          <p className="mt-3 max-w-2xl text-base text-[#68736c]">
             Academic foundation spanning electronics, data science, and machine learning.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-5 md:grid-cols-2">
           {education.map((edu, index) => {
             const icons = [GraduationCap, Award, BookOpen];
             const IconComponent = icons[index % icons.length];
@@ -52,20 +52,20 @@ const Education: React.FC = () => {
             return (
               <div
                 key={edu.id}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="border-t border-[#cbd0c7] bg-transparent py-5 transition-colors hover:border-[#718777]"
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-slate-100 p-3 rounded-lg flex-shrink-0">
+                  <div className="hidden">
                     <IconComponent className="text-slate-700" size={24} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-slate-900 mb-2 leading-tight">
+                    <h3 className="mb-2 text-lg font-semibold leading-tight tracking-tight text-[#17221f]">
                       {edu.degree}
                     </h3>
-                    <p className="text-slate-700 font-medium mb-1">{edu.institution}</p>
-                    <p className="text-slate-500 text-sm mb-3">{edu.period && edu.period}</p>
+                    <p className="mb-1 font-medium text-[#536158]">{edu.institution}</p>
+                    <p className="mb-3 text-sm text-[#818b83]">{edu.period && edu.period}</p>
                     {edu.details && (
-                      <p className="text-slate-600 text-sm">{edu.details}</p>
+                      <p className="text-sm leading-6 text-[#68736c]">{edu.details}</p>
                     )}
                   </div>
                 </div>
@@ -74,33 +74,6 @@ const Education: React.FC = () => {
           })}
         </div>
 
-        {/* Skills Summary */}
-        <div className="mt-16 bg-white p-8 rounded-2xl shadow-lg">
-          <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Core Competencies</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-slate-100 p-4 rounded-full inline-flex mb-4">
-                <GraduationCap className="text-slate-700" size={32} />
-              </div>
-              <h4 className="font-semibold text-slate-900 mb-2">Technical Foundation</h4>
-              <p className="text-slate-600 text-sm">Strong engineering background with deep understanding of systems and algorithms</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-emerald-100 p-4 rounded-full inline-flex mb-4">
-                <Award className="text-emerald-600" size={32} />
-              </div>
-              <h4 className="font-semibold text-slate-900 mb-2">Research & Analysis</h4>
-              <p className="text-slate-600 text-sm"> Applied signal processing and machine learning methods to an ECG-based biometric identification research problem</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-slate-100 p-4 rounded-full inline-flex mb-4">
-                <BookOpen className="text-slate-700" size={32} />
-              </div>
-              <h4 className="font-semibold text-slate-900 mb-2">Continuous Learning</h4>
-              <p className="text-slate-600 text-sm">Committed to staying current with emerging technologies and methodologies</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
