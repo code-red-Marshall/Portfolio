@@ -11,16 +11,16 @@ const ProjectGallery: React.FC = () => {
     {
       id: '12',
       title: 'WhatsApp Campaign Manager',
-      description: 'Bringing a new messaging channel to a 2M-employee HR-tech platform without moving any client data.',
-      tools: ['Meta Graph API', 'Next.js', 'Play / Scala 3', 'MySQL', 'Supabase', 'Webhooks (HMAC)', 'Groq (LLM)'],
+      description: 'A WhatsApp campaign workflow built as a native module within the existing enterprise Campaign Manager.',
+      tools: ['Meta WhatsApp Business Platform', 'Play Framework', 'Scala', 'MySQL', 'Webhooks'],
       outcomes: [
         'Eliminated client PII exports per campaign from 4 copies to zero',
         'Architected single additive table with database-level double-send guards',
         'Shipped working Next.js prototype and native Play/Scala production module in 8 weeks'
       ],
       details: 'Built Vantage Circle\'s WhatsApp campaign channel end to end. Started with a full Next.js/Supabase prototype directly integrated with Meta\'s WhatsApp Business Platform featuring template validation, CSV audience detection, 3-step wizard, and signed webhooks. When data governance showed third-party PII exposure was unacceptable for enterprise clients, redesigned and rebuilt the product natively inside the production Play/Scala Campaign Manager—moving the app to where the data lives with zero data exports and database-enforced safety rails.',
-      metrics: '0 PII Exports • 8-Week Solo Build • 2M-Employee Reach • Green Quality Rating',
-      role: 'Sole Builder (Product, Design, Engineering, Meta Integration and Rollout)',
+      metrics: 'Verified product and delivery metrics to be added.',
+      role: 'Product and technical implementation, including workflow design and integration coordination',
       image: '/whatsapp-campaign-thumbnail.png',
       link: 'https://whatsapp-campaign-manager-eta.vercel.app/',
       category: 'Work'
@@ -53,7 +53,7 @@ const ProjectGallery: React.FC = () => {
       ],
       details:
         'Led the integration of Switchfly into our HR Tech SaaS platform to enable travel and experience redemptions. Drove end-to-end delivery: requirements, API validation with Switchfly, stakeholder comms, launch planning, and analytics tracking to measure adoption.',
-      metrics: '$50K revenue • 133 clients • +14% MAU',
+      metrics: 'Verified adoption and commercial metrics to be added.',
       role:
         'Associate Product Manager coordinating engineering, design, and business; managed API integration, QA, and go-live.',
       image: '/Project 1.webp',
@@ -71,7 +71,7 @@ const ProjectGallery: React.FC = () => {
       ],
       details:
         'Delivered end-to-end Snappy integration as an e-commerce redemption channel. Scoped requirements, validated logistics parameters, coordinated with engineering during backend renovation, led QA and post-launch feedback tracking.',
-      metrics: '$4K Q1 revenue • 30+ clients • record engagement growth',
+      metrics: 'Verified adoption and commercial metrics to be added.',
       role:
         'Associate Product Manager driving lifecycle across research, integration, QA, and adoption tracking.',
       image: '/Project 2.webp',
@@ -181,7 +181,7 @@ const ProjectGallery: React.FC = () => {
         '100% on-premise execution ensuring data privacy'
       ],
       details: 'Built RedemptionIQ, a multi-layer analytics platform that ingests server dumps and serves an executive dashboard. Included an intent-parsing AI chat interface powered by a local Llama 3 model for secure, natural language analytics queries without raw SQL exposure.',
-      metrics: '4 hrs saved/mo • <100ms load time • 65.8M points analyzed',
+      metrics: 'Performance and usage metrics to be added after verification.',
       role: 'AI & Analytics Developer building the frontend, backend, and deterministic AI pipeline.',
       image: '/breakage-intelligence-final.webp',
       category: 'Work'
