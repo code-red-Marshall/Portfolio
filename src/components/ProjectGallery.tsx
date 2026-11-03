@@ -14,9 +14,9 @@ const ProjectGallery: React.FC = () => {
       description: 'A WhatsApp campaign workflow built as a native module within the existing enterprise Campaign Manager.',
       tools: ['Meta WhatsApp Business Platform', 'Play Framework', 'Scala', 'MySQL', 'Webhooks'],
       outcomes: [
-        'Eliminated client PII exports per campaign from 4 copies to zero',
-        'Architected single additive table with database-level double-send guards',
-        'Shipped working Next.js prototype and native Play/Scala production module in 8 weeks'
+        'Designed the production workflow around the platform’s existing data boundaries',
+        'Worked through campaign execution and operational safety requirements',
+        'Used a standalone prototype to explore the workflow before the native production implementation'
       ],
       details: 'Built Vantage Circle\'s WhatsApp campaign channel end to end. Started with a full Next.js/Supabase prototype directly integrated with Meta\'s WhatsApp Business Platform featuring template validation, CSV audience detection, 3-step wizard, and signed webhooks. When data governance showed third-party PII exposure was unacceptable for enterprise clients, redesigned and rebuilt the product natively inside the production Play/Scala Campaign Manager—moving the app to where the data lives with zero data exports and database-enforced safety rails.',
       metrics: 'Verified product and delivery metrics to be added.',
@@ -47,9 +47,9 @@ const ProjectGallery: React.FC = () => {
       description: 'Integrated travel tech (hotels, cabs, experiences) into HR SaaS platform',
       tools: ['Postman', 'Miro', 'Google Analytics', 'JIRA', 'Confluence'],
       outcomes: [
-        'Rolled out for 133 global clients across 37 countries',
-        '$50K new revenue in first quarter',
-        '+14% Monthly Active Users post-integration'
+        'Integrated travel inventory into the existing employee rewards experience',
+        'Coordinated API validation, requirements, QA and release preparation',
+        'Supported rollout and post-launch feedback tracking'
       ],
       details:
         'Led the integration of Switchfly into our HR Tech SaaS platform to enable travel and experience redemptions. Drove end-to-end delivery: requirements, API validation with Switchfly, stakeholder comms, launch planning, and analytics tracking to measure adoption.',
@@ -65,9 +65,9 @@ const ProjectGallery: React.FC = () => {
       description: 'Swag Store upgrade: merchandise redemption with customizable branding',
       tools: ['Postman', 'Miro', 'JIRA', 'Google Analytics', 'Confluence'],
       outcomes: [
-        'Launched across 30+ global clients with positive feedback',
-        '$4K in first-quarter revenue (best-ever Swag Store performance)',
-        'Boosted global engagement metrics'
+        'Integrated a merchandise redemption partner into the Swag Store experience',
+        'Coordinated requirements, logistics validation, engineering and QA',
+        'Supported launch feedback and adoption tracking'
       ],
       details:
         'Delivered end-to-end Snappy integration as an e-commerce redemption channel. Scoped requirements, validated logistics parameters, coordinated with engineering during backend renovation, led QA and post-launch feedback tracking.',
@@ -176,9 +176,9 @@ const ProjectGallery: React.FC = () => {
       description: 'Privacy-first AI analytics platform for automated cohort analysis and QA',
       tools: ['Next.js', 'FastAPI', 'DuckDB', 'Ollama', 'React', 'Tailwind CSS'],
       outcomes: [
-        'Automated analytics saving 4 hours per month',
-        'Sub-100ms dashboard build via embedded DuckDB',
-        '100% on-premise execution ensuring data privacy'
+        'Combined transaction data preparation with cohort analytics and reporting',
+        'Explored natural-language access to analytics using a local LLM',
+        'Designed the workflow to keep analytical calculations grounded in structured data'
       ],
       details: 'Built RedemptionIQ, a multi-layer analytics platform that ingests server dumps and serves an executive dashboard. Included an intent-parsing AI chat interface powered by a local Llama 3 model for secure, natural language analytics queries without raw SQL exposure.',
       metrics: 'Performance and usage metrics to be added after verification.',
