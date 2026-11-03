@@ -40,8 +40,8 @@ const SwitchflyCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-sky-400">01 · The opportunity</p>
           <h2 className="mb-5 text-3xl font-bold text-white">Make travel part of the rewards experience</h2>
           <div className="space-y-4 text-lg leading-relaxed text-slate-300">
-            <p>The integration brought travel inventory — including hotels, car rentals and activities — into the employee rewards experience. The product challenge was not simply connecting an API; it was making an external travel experience fit naturally into an existing platform and redemption journey.</p>
-            <p>That meant understanding provider capabilities, clarifying the experience and data requirements, and coordinating the work needed to move from integration discovery to a tested release.</p>
+            <p>The integration aimed to bring travel inventory — including hotels, car rentals and activities — into the employee rewards experience. The product challenge was not simply connecting an API; it was making an external travel experience fit naturally into an existing platform and redemption journey.</p>
+            <p>My contribution was to connect provider capabilities to requirements, API validation, QA and release coordination. I worked within a cross-functional delivery team rather than claiming sole ownership of the implementation.</p>
           </div>
         </section>
 
@@ -71,7 +71,7 @@ const SwitchflyCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
         <section className="rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:p-8">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-sky-400">04 · What this work demonstrates</p>
-          <h2 className="mb-5 text-3xl font-bold text-white">Technical product management is often about managing the seams</h2>
+          <h2 className="mb-5 text-3xl font-bold text-white">Making a partner integration usable within an existing product</h2>
           <p className="max-w-3xl leading-relaxed text-slate-300">Third-party integrations sit between systems, teams and user expectations. This work demonstrates the importance of translating provider capabilities into product requirements, making dependencies visible and keeping delivery focused on the complete customer experience — not just a successful API call.</p>
           <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-300">
             <span className="rounded-full bg-slate-800 px-3 py-2"><Plug size={14} className="mr-2 inline"/>API integration</span>
