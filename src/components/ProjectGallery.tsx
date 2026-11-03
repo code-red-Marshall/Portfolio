@@ -211,7 +211,12 @@ const ProjectGallery: React.FC = () => {
 
   const categories = ['Work', 'Internship', 'Academic', 'Personal'];
 
-  const filteredProjects = projects.filter(project => project.category === activeCategory);
+  const workPriority = ['12', '11', '8', '1', '2'];
+  const filteredProjects = projects
+    .filter(project => project.category === activeCategory)
+    .sort((a, b) => activeCategory === 'Work'
+      ? workPriority.indexOf(a.id) - workPriority.indexOf(b.id)
+      : 0);
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
@@ -229,9 +234,9 @@ const ProjectGallery: React.FC = () => {
     <section id="projects" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Projects</h2>
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">Selected Projects</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            A showcase of products and systems I've built, each solving real problems with measurable impact.
+            A focused selection of enterprise products, applied AI work and technical projects. Start with the work closest to my AI Product Management experience.
           </p>
         </div>
 
