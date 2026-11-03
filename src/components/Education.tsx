@@ -8,7 +8,7 @@ const Education: React.FC = () => {
       id: '1',
       degree: 'M.Tech - Electronics Design & Technology',
       institution: 'Tezpur University',
-      period: '2020 - 2022',
+      period: 'Oct 2021 - Oct 2023',
       details: 'Specialized in signal processing and biometric systems. Thesis on ECG-based identification systems.'
     },
     {
@@ -22,7 +22,7 @@ const Education: React.FC = () => {
       id: '3',
       degree: 'Data Science & Machine Learning Certification',
       institution: 'SUNY + 360DigiTMG',
-      period: '2021 - 2022',
+      period: 'Aug 2023 - Aug 2024',
       details: 'Comprehensive program covering ML algorithms, data analysis, and AI applications.'
     }
   ];
