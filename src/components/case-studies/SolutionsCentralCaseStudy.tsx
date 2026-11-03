@@ -38,9 +38,9 @@ const SolutionsCentralCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
             <span className="rounded-full border border-slate-700 bg-slate-900 px-3 py-1">Knowledge discovery</span>
           </div>
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">Solutions Central</h1>
-          <p className="max-w-3xl border-l-4 border-violet-500 pl-5 text-xl leading-relaxed text-slate-300 sm:text-2xl">Making a team's scattered requests, project context and past solutions easier to manage and find.</p>
+          <p className="max-w-3xl border-l-4 border-violet-500 pl-5 text-xl leading-relaxed text-slate-300 sm:text-2xl">An internal product built for the Solutions Engineering team to make scattered requests, project context and past solutions easier to manage and find.</p>
           <div className="mt-8 grid gap-4 rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:grid-cols-3">
-            <div><p className="text-xs uppercase tracking-wider text-slate-500">Context</p><p className="mt-1 font-semibold text-white">Enterprise solutions team</p></div>
+            <div><p className="text-xs uppercase tracking-wider text-slate-500">Users</p><p className="mt-1 font-semibold text-white">Solutions Engineering team</p></div>
             <div><p className="text-xs uppercase tracking-wider text-slate-500">My role</p><p className="mt-1 font-semibold text-white">Product design and implementation</p></div>
             <div><p className="text-xs uppercase tracking-wider text-slate-500">Product scope</p><p className="mt-1 font-semibold text-white">Intake · Tracking · Search</p></div>
           </div>
@@ -54,7 +54,7 @@ const SolutionsCentralCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
           <h2 className="mb-5 text-3xl font-bold text-white">Useful information was spread across too many places</h2>
           <div className="space-y-4 text-lg leading-relaxed text-slate-300">
             <p>Requests, project updates and previously delivered solutions lived across forms, spreadsheets, documentation and conversations. Moving between those sources created manual work and made it difficult to maintain a reliable view of what was happening.</p>
-            <p>Finding out whether a similar request had been solved before often depended on knowing who to ask. The underlying knowledge existed, but it was not easy for the wider team to discover and reuse.</p>
+            <p>Finding out whether a similar request had been solved before often depended on knowing who to ask. The underlying knowledge existed, but it was not easy for the team to discover and reuse. I built Solutions Central for actual internal use by the Solutions Engineering team, grounding the product in the workflows and information needs of its intended users.</p>
           </div>
         </section>
 
@@ -108,7 +108,7 @@ const SolutionsCentralCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
         <section className="mb-16 rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:p-8">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-violet-400">05 · What this work demonstrates</p>
           <h2 className="mb-5 text-3xl font-bold text-white">A workflow problem is often a product problem</h2>
-          <p className="mb-6 max-w-3xl leading-relaxed text-slate-300">Solutions Central brought together workflow mapping, information architecture, internal user needs and technical implementation. The key product move was to make existing information easier to maintain and reuse, rather than adding another disconnected place to store it.</p>
+          <p className="mb-6 max-w-3xl leading-relaxed text-slate-300">Built for the Solutions Engineering team's real internal workflows, Solutions Central brought together workflow mapping, information architecture, user needs and technical implementation. The key product move was to make existing information easier to maintain and reuse, rather than adding another disconnected place to store it.</p>
           <div className="grid gap-4 sm:grid-cols-3">
             <div><Workflow className="mb-2 text-violet-300" size={22}/><h3 className="font-semibold text-white">Workflow design</h3><p className="mt-1 text-sm text-slate-400">Connecting steps that previously relied on manual handoffs.</p></div>
             <div><Search className="mb-2 text-violet-300" size={22}/><h3 className="font-semibold text-white">Information discovery</h3><p className="mt-1 text-sm text-slate-400">Making prior work easier to search and reuse.</p></div>
