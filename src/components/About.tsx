@@ -1,61 +1,24 @@
 import React from 'react';
-import { Brain, Target, TrendingUp } from 'lucide-react';
 
-const About: React.FC = () => {
-  return (
-    <section id="about" className="py-20 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-slate-900">A little about me</h2>
-            <div className="space-y-6 text-slate-600 leading-relaxed text-base">
-              <p>
-                I’m an AI Product Manager with an engineering and data background. I work at the intersection of user problems, business priorities and technical execution — shaping product workflows, building prototypes and taking solutions into production.
-              </p>
-              <p>
-                My approach is hands-on: understand the problem, define the right experience, test assumptions quickly and work through the technical trade-offs required to ship. I’m particularly interested in applied AI, LLM-enabled workflows and enterprise products where reliability and usefulness matter as much as the model itself.
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-slate-900">Where I focus</h2>
-            <div className="grid gap-6">
-              {[
-                {
-                  icon: Brain,
-                  title: 'AI & Intelligent Products',
-                  description: 'Explore practical uses of AI and LLMs, with attention to usefulness, reliability and the experience around the model.'
-                },
-                {
-                  icon: Target,
-                  title: 'Product Strategy & Delivery',
-                  description: 'Turn business and user problems into clear requirements, priorities and product experiences — then work with teams to ship them.'
-                },
-                {
-                  icon: TrendingUp,
-                  title: 'Technical Product Thinking',
-                  description: 'Work comfortably across APIs, integrations, data and software architecture to make informed product decisions with engineering.'
-                }
-              ].map((item, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-slate-100 p-3 rounded-lg flex-shrink-0">
-                      <item.icon className="text-slate-700" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-slate-900 mb-1">{item.title}</h3>
-                      <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+const About: React.FC = () => (
+  <section id="about" className="bg-[#f4f2ed] px-6 py-20 text-[#17221f] lg:py-28">
+    <div className="mx-auto grid max-w-7xl gap-12 border-t border-[#d3d5cc] pt-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-24">
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#718077]">A little context</p>
+        <h2 className="mt-5 max-w-sm text-4xl font-semibold leading-tight tracking-[-0.05em]">Product thinking with an engineer’s instinct.</h2>
+      </div>
+      <div>
+        <p className="max-w-3xl text-2xl leading-[1.45] tracking-[-0.035em] text-[#35443c]">
+          My background spans electronics engineering, data science and enterprise software. Today, I focus on turning messy operational problems into clear product experiences—especially where AI can make work more useful, not just more automated.
+        </p>
+        <div className="mt-10 grid gap-8 border-t border-[#d3d5cc] pt-6 sm:grid-cols-3">
+          <div><p className="text-xs uppercase tracking-[0.18em] text-[#718077]">01 / Discover</p><p className="mt-3 text-sm leading-6 text-[#59665f]">Understand users, workflows and the actual problem before reaching for a feature or model.</p></div>
+          <div><p className="text-xs uppercase tracking-[0.18em] text-[#718077]">02 / Shape</p><p className="mt-3 text-sm leading-6 text-[#59665f]">Translate ambiguity into product flows, priorities, requirements and testable assumptions.</p></div>
+          <div><p className="text-xs uppercase tracking-[0.18em] text-[#718077]">03 / Deliver</p><p className="mt-3 text-sm leading-6 text-[#59665f]">Work with engineering across APIs, data, AI and release details to get useful products into users’ hands.</p></div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;
