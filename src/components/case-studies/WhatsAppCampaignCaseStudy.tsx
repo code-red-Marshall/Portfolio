@@ -123,7 +123,7 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
         </section>
 
         <section className="mb-16">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-400">04 · The product experience</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-400">05 · The product experience</p>
           <h2 className="mb-5 text-3xl font-bold text-white">A connected campaign workflow</h2>
           <p className="mb-6 max-w-3xl text-lg leading-relaxed text-slate-300">The product brings the main steps of campaign operations into one flow, from preparing an approved message to understanding what happened after dispatch.</p>
           <div className="grid gap-3 sm:grid-cols-2">
