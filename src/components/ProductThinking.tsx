@@ -3,10 +3,10 @@ import { Target, Users, TrendingUp, Lightbulb } from 'lucide-react';
 
 const ProductThinking: React.FC = () => {
   const frameworks = [
-    { name: 'Product-Market Fit', icon: Target, description: 'Understanding the overlap between user needs, business value and market demand.' },
-    { name: 'Product Metrics', icon: TrendingUp, description: 'Using activation, retention, engagement and revenue signals to evaluate outcomes.' },
-    { name: 'Jobs-to-be-Done', icon: Lightbulb, description: 'Understanding the progress users are trying to make before deciding what to build.' },
-    { name: 'User-Centred Design', icon: Users, description: 'Learning from users and improving the experience through feedback and iteration.' }
+    { name: 'Frame the problem', icon: Target, description: 'Start with a user problem and the business outcome it affects—not a feature request or a technology looking for a use case.' },
+    { name: 'Understand the workflow', icon: Users, description: 'Map how work happens today, where users lose time and where software, automation or AI can make a meaningful difference.' },
+    { name: 'Define how to evaluate', icon: TrendingUp, description: 'Agree on success measures and quality criteria before building, including reliability, adoption, cost and user trust.' },
+    { name: 'Ship, learn and iterate', icon: Lightbulb, description: 'Use prototypes and feedback to reduce uncertainty, deliver in stages and learn from real usage after release.' }
   ];
 
   return (
