@@ -1,92 +1,54 @@
 import React from 'react';
-import { Download, ExternalLink, Linkedin, Mail } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Linkedin, Mail } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const scrollToSection = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Hi, I'm <span className="text-slate-900">Bhargav</span>.
-              </h1>
-              <p className="text-xl lg:text-2xl text-slate-800 font-semibold">
-                AI Product Manager <span className="text-slate-400">·</span> Technical Product Manager
+    <section id="hero" className="relative overflow-hidden bg-[#f4f2ed] px-6 pb-16 pt-32 text-[#17221f] lg:pb-24 lg:pt-40">
+      <div className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full border border-[#d8d8cf] opacity-70" />
+      <div className="pointer-events-none absolute -right-16 -top-16 h-[22rem] w-[22rem] rounded-full border border-[#d8d8cf] opacity-70" />
+      <div className="relative mx-auto max-w-7xl">
+        <div className="mb-10 flex flex-wrap items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#65716b]">
+          <span>Independent product portfolio</span>
+          <span>India · Open to Europe</span>
+        </div>
+        <div className="grid items-end gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+          <div>
+            <p className="mb-6 flex items-center gap-3 text-sm font-medium text-[#68756e]">
+              <span className="h-px w-10 bg-[#8a9b8e]" /> AI Product Manager · Technical Product
+            </p>
+            <h1 className="max-w-4xl text-[clamp(3.5rem,8vw,7.7rem)] font-semibold leading-[0.91] tracking-[-0.075em]">
+              I turn complex problems into <span className="font-serif font-normal italic text-[#5f796b]">useful products.</span>
+            </h1>
+            <div className="mt-10 flex flex-col gap-8 border-t border-[#d3d5cc] pt-7 sm:flex-row sm:items-end sm:justify-between">
+              <p className="max-w-md text-base leading-7 text-[#56635d]">
+                I work across product discovery, UX, AI, data and engineering to take enterprise workflows from an unclear problem to a product people can use.
               </p>
-              <p className="text-2xl lg:text-3xl text-slate-700 font-semibold leading-snug max-w-2xl">
-                Turning complex business problems into useful AI-powered products.
-              </p>
-              <p className="text-lg text-slate-500 max-w-xl leading-relaxed">
-                I’m an AI Product Manager with hands-on experience taking enterprise workflows from problem discovery and UX/UI through prototyping, integrations and production delivery. I work across AI, data, APIs and engineering to turn practical opportunities into products people can use.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="/Bhargav_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:scale-105 shadow-lg"
-              >
-                <Download size={18} />
-                View Resume
-              </a>
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-200 hover:scale-105"
-              >
-                <ExternalLink size={18} />
-                Explore Projects
+              <button onClick={() => scrollToSection('projects')} className="group inline-flex shrink-0 items-center gap-3 text-sm font-semibold text-[#17221f]">
+                Explore selected work <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#9aa69c] transition-all group-hover:bg-[#17221f] group-hover:text-white"><ArrowDownRight size={19}/></span>
               </button>
-              <a
-                href="https://www.linkedin.com/in/bhargav-nath"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-800 transition-[transform,background-color] duration-200 hover:scale-105"
-              >
-                <Linkedin size={18} />
-                Connect on LinkedIn
-              </a>
-              <a
-                href="https://github.com/code-red-Marshall"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-all duration-200 hover:scale-105"
-              >
-                <ExternalLink size={18} />
-                GitHub
-              </a>
-            </div>
-
-            <div className="flex items-center gap-4 pt-4">
-              <a
-                href="mailto:bhargavnth07@gmail.com"
-                className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors"
-              >
-                <Mail size={18} />
-                <span className="text-sm">bhargavnth07@gmail.com</span>
-              </a>
             </div>
           </div>
-
-          <div className="flex justify-center lg:justify-end animate-fade-in-delayed">
-            <div className="relative">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                <img
-                  src="https://i.postimg.cc/021ZLmb2/505802200-17866137195403794-942808867213714615-n.jpg"
-                  alt="Bhargav Nath"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <div className="relative">
+            <div className="overflow-hidden bg-[#dce4dd]">
+              <img src="/whatsapp-campaign-thumbnail.png" alt="WhatsApp Campaign Manager product interface" className="aspect-[5/4] w-full object-cover object-top" />
             </div>
+            <div className="mt-4 flex items-start justify-between gap-4 border-b border-[#d3d5cc] pb-4">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#718077]">Featured work · 01</p>
+                <p className="mt-1 text-lg font-medium tracking-tight">WhatsApp Campaign Manager</p>
+                <p className="mt-1 text-sm text-[#69756f]">From prototype to native production module</p>
+              </div>
+              <a href="/case-study/whatsapp-campaign-manager" className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#17221f] text-white transition-transform hover:-translate-y-1" aria-label="Open WhatsApp Campaign Manager case study"><ArrowUpRight size={18}/></a>
+            </div>
+          </div>
+        </div>
+        <div className="mt-16 flex flex-wrap items-center justify-between gap-5 border-t border-[#d3d5cc] pt-5 text-xs text-[#6b7770]">
+          <span>Product strategy / Applied AI / Enterprise SaaS</span>
+          <div className="flex items-center gap-5">
+            <a className="inline-flex items-center gap-2 hover:text-[#17221f]" href="mailto:bhargavnth07@gmail.com"><Mail size={14}/> Email</a>
+            <a className="inline-flex items-center gap-2 hover:text-[#17221f]" href="https://www.linkedin.com/in/bhargav-nath" target="_blank" rel="noopener noreferrer"><Linkedin size={14}/> LinkedIn</a>
           </div>
         </div>
       </div>
