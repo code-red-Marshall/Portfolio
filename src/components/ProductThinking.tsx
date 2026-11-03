@@ -3,56 +3,24 @@ import { Target, Users, TrendingUp, Lightbulb } from 'lucide-react';
 
 const ProductThinking: React.FC = () => {
   const frameworks = [
-    {
-      name: 'Product-Market Fit',
-      icon: Target,
-      description: 'Finding the sweet spot between user needs and market demand'
-    },
-    {
-      name: 'AARRR Metrics',
-      icon: TrendingUp,
-      description: 'Acquisition, Activation, Retention, Referral, Revenue optimization'
-    },
-    {
-      name: 'Jobs-to-be-Done',
-      icon: Lightbulb,
-      description: 'Understanding the job users hire your product to do'
-    },
-    {
-      name: 'User-Centric Design',
-      icon: Users,
-      description: 'Building with empathy and continuous user feedback'
-    }
-  ];
-
-  const philosophies = [
-    {
-      quote: "PMF is like brewing the perfect chai.",
-      explanation: "Too weak and nobody wants it. Too strong and it's overwhelming. Just right, and everyone comes back for more."
-    },
-    {
-      quote: "Great products aren't talked into existence — they're listened into clarity.",
-      explanation: "The best insights come from understanding user pain points, not pushing features."
-    }
+    { name: 'Product-Market Fit', icon: Target, description: 'Understanding the overlap between user needs, business value and market demand.' },
+    { name: 'Product Metrics', icon: TrendingUp, description: 'Using activation, retention, engagement and revenue signals to evaluate outcomes.' },
+    { name: 'Jobs-to-be-Done', icon: Lightbulb, description: 'Understanding the progress users are trying to make before deciding what to build.' },
+    { name: 'User-Centred Design', icon: Users, description: 'Learning from users and improving the experience through feedback and iteration.' }
   ];
 
   return (
     <section className="py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Product Thinking</h2>
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">How I approach product work</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Frameworks and philosophy that drive product decisions and create meaningful user experiences.
+            A few principles guide how I understand problems, make trade-offs and decide what is worth building.
           </p>
         </div>
-
-        {/* Frameworks */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {frameworks.map((framework, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-[transform,box-shadow] duration-300 hover:-translate-y-1"
-            >
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {frameworks.map((framework) => (
+            <div key={framework.name} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-[transform,box-shadow] duration-300 hover:-translate-y-1">
               <div className="text-center">
                 <div className="bg-slate-100 p-4 rounded-full inline-flex mb-4">
                   <framework.icon className="text-slate-700" size={32} />
@@ -63,39 +31,10 @@ const ProductThinking: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Philosophy Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {philosophies.map((philosophy, index) => (
-            <div key={index} className="bg-white p-8 rounded-2xl shadow-lg">
-              <blockquote className="text-xl font-semibold text-slate-900 mb-4 italic">
-                "{philosophy.quote}"
-              </blockquote>
-              <p className="text-slate-600 leading-relaxed">{philosophy.explanation}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Product Metrics */}
-        <div className="mt-16 bg-gradient-to-r from-slate-800 to-slate-900 p-8 rounded-2xl text-white">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-2">Product Impact</h3>
-            <p className="text-slate-300">Measurable outcomes from product-focused initiatives</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold mb-2">40%</div>
-              <p className="text-slate-300">Faster Time-to-Market</p>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2">25%</div>
-              <p className="text-slate-300">User Engagement Increase</p>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2">60%</div>
-              <p className="text-slate-300">Support Ticket Reduction</p>
-            </div>
-          </div>
+        <div className="mt-12 max-w-3xl mx-auto text-center">
+          <p className="text-lg text-slate-700 leading-relaxed">
+            Good product work is not just about shipping features. It is about understanding what matters, making clear decisions and learning from what happens after launch.
+          </p>
         </div>
       </div>
     </section>
