@@ -28,7 +28,7 @@ const BreakageIntelligenceCaseStudy: React.FC<{ onBack: () => void }> = ({ onBac
             <span className="rounded-full border border-slate-200 bg-white px-3 py-1">Analytics product</span>
           </div>
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-slate-950 sm:text-6xl">Breakage Intelligence Lab</h1>
-          <p className="max-w-3xl border-l-4 border-teal-500 pl-5 text-xl leading-relaxed text-slate-600 sm:text-2xl">Exploring how product teams can make better use of redemption data through accessible analytics and AI-assisted exploration.</p>
+          <p className="max-w-3xl border-l-4 border-teal-500 pl-5 text-xl leading-relaxed text-slate-600 sm:text-2xl">An applied AI analytics prototype exploring how redemption data can support clearer product and business decisions.</p>
           <div className="mt-8 grid gap-4 rounded-2xl border border-slate-200 bg-white p-6 sm:grid-cols-3">
             <div><p className="text-xs uppercase tracking-wider text-slate-500">Product context</p><p className="mt-1 font-semibold text-slate-900">Redemption analytics</p></div>
             <div><p className="text-xs uppercase tracking-wider text-slate-500">My focus</p><p className="mt-1 font-semibold text-slate-900">Analytics and AI implementation</p></div>
@@ -44,7 +44,7 @@ const BreakageIntelligenceCaseStudy: React.FC<{ onBack: () => void }> = ({ onBac
           <h2 className="mb-5 text-3xl font-bold text-slate-950">Making redemption behaviour easier to understand</h2>
           <div className="space-y-4 text-lg leading-relaxed text-slate-600">
             <p>Redemption and activation data can contain useful signals about customer behaviour, operational performance and product opportunities. But extracting those signals from raw exports often requires data preparation, spreadsheet work and repeated analytical queries.</p>
-            <p>The product opportunity was to bring the data preparation, analysis and interpretation experience closer together, so users could investigate questions without needing to assemble every report manually.</p>
+            <p>I framed this as a product workflow problem: bring preparation, cohort analysis, reporting and question-answering closer together, while making the provenance of analytical results clear. The work demonstrates a technical product approach, not a verified production rollout.</p>
           </div>
         </section>
 
@@ -64,7 +64,7 @@ const BreakageIntelligenceCaseStudy: React.FC<{ onBack: () => void }> = ({ onBac
         <section className="mb-16">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-700">03 · Technical design</p>
           <h2 className="mb-5 text-3xl font-bold text-slate-950">Keep the analytical path structured</h2>
-          <p className="mb-6 max-w-3xl text-lg leading-relaxed text-slate-600">The solution combines a data-processing layer, an embedded analytical engine, a dashboard and a local LLM interface. The important product principle is to keep calculations and data operations grounded in deterministic logic, rather than asking a language model to invent analytical results.</p>
+          <p className="mb-6 max-w-3xl text-lg leading-relaxed text-slate-600">I separated deterministic calculations in the data and query layers from the language-model interface used to interpret user questions. That choice limits the model's authority over numerical results: the LLM helps navigate analysis, while structured operations remain responsible for calculations.</p>
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-xl border border-slate-200 bg-white p-5"><Database className="mb-3 text-teal-700" size={24}/><h3 className="font-semibold text-slate-950">Data layer</h3><p className="mt-1 text-sm text-slate-600">Preparation and analytical querying.</p></div>
             <div className="rounded-xl border border-slate-200 bg-white p-5"><BarChart3 className="mb-3 text-teal-700" size={24}/><h3 className="font-semibold text-slate-950">Visual layer</h3><p className="mt-1 text-sm text-slate-600">Dashboards and cohort views.</p></div>
@@ -86,7 +86,7 @@ const BreakageIntelligenceCaseStudy: React.FC<{ onBack: () => void }> = ({ onBac
         <section className="border-t border-slate-200 pt-10">
           <p className="text-sm font-semibold uppercase tracking-widest text-teal-700">Measurement</p>
           <h2 className="mt-2 text-2xl font-bold text-slate-950">Outcomes to validate</h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-slate-600">Performance, time saved and dataset scale should be published only after the baseline, measurement method and deployment context are confirmed.</p>
+          <p className="mt-3 max-w-3xl leading-relaxed text-slate-600">This is presented as an applied AI analytics build, not as a deployed product with proven adoption or productivity gains. Dataset scale, latency and time-saved results can be added with their evaluation context once those details are confirmed.</p>
         </section>
       </main>
     </div>
