@@ -15,7 +15,7 @@ const Education: React.FC = () => {
       id: '2',
       degree: 'B.Tech - Electronics & Communication Engineering',
       institution: 'Gauhati University',
-      period: '2016 - 2020',
+      period: 'Jun 2016 - Jul 2020',
       details: 'Foundation in electronics, communication systems, and embedded programming.'
     },
     {
