@@ -9,12 +9,13 @@ const ProfessionalBackground: React.FC = () => {
       company: 'Vantage Circle',
       role: 'Solutions Engineer I',
       period: 'Feb 2026 - Present',
-      description: 'Promoted from Associate Project Coordinator after joining as an intern; now working across enterprise SaaS product delivery, integrations and AI-enabled solutions.',
+      description: 'Work across product discovery, solution design and delivery for enterprise SaaS, with hands-on ownership of AI-enabled workflows, integrations and internal products.',
       achievements: [
-        'Translate business and user needs into product requirements and delivery plans',
-        'Coordinate with product, design, engineering and business stakeholders',
-        'Contribute to the design and delivery of workflow, analytics and AI-powered capabilities',
-        'Work across APIs, data flows and integrations to support reliable product experiences'
+        'Owned WhatsApp Campaign Manager from product workflow and UX/UI through a working prototype and a from-scratch production implementation in Play Framework and Scala',
+        'Designed and built Solutions Central, an internal knowledge and workflow platform to make solution information easier to find and maintain',
+        'Translate operational and user problems into product requirements, user flows, acceptance criteria and delivery plans',
+        'Work across APIs, data flows, analytics and AI-assisted development to validate solutions and deliver usable product experiences',
+        'Coordinate with engineering, design and business stakeholders through implementation, QA and release'
       ]
     },
     {
