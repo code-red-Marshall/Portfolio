@@ -92,7 +92,7 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
             <div className="rounded-2xl border border-emerald-900 bg-emerald-950/30 p-6">
               <span className="mb-3 inline-flex items-center gap-2 text-sm font-semibold text-emerald-300"><Database size={17}/> Production product</span>
               <h3 className="mb-3 text-xl font-semibold text-white">Native Play / Scala module</h3>
-              <p className="text-sm leading-relaxed text-slate-300">I then carried the product into production by implementing the native Play/Scala version, including the user experience and application logic, within the existing Campaign Manager environment.</p>
+              <p className="text-sm leading-relaxed text-slate-300">I rebuilt the production application from scratch for the existing Campaign Manager environment, implementing the UX/UI, frontend and backend to fit its Play Framework and Scala architecture. This was not a direct code port of the Next.js prototype; I recreated the product in the native production stack.</p>
               <p className="mt-5 text-xs text-emerald-300">Production architecture</p>
             </div>
           </div>
@@ -146,10 +146,20 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
           </div>
         </section>
 
+        <section className="mb-16 rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:p-8">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-400">07 · Production adoption</p>
+          <h2 className="mb-5 text-3xl font-bold text-white">Early usage across client campaigns</h2>
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div><p className="text-4xl font-bold text-white">8</p><p className="mt-1 text-sm text-slate-400">Campaigns launched</p></div>
+            <div><p className="text-4xl font-bold text-white">110,000+</p><p className="mt-1 text-sm text-slate-400">Distinct users represented in aggregate campaign audiences</p></div>
+          </div>
+          <p className="mt-5 text-xs leading-relaxed text-slate-500">Aggregated production figures across client campaigns. Client-level and campaign-level data is withheld for confidentiality. Audience size does not represent messages delivered, read or engaged with.</p>
+        </section>
+
         <section className="border-t border-slate-800 pt-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-400">Next</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-400">Further measurement</p>
           <h2 className="mt-2 text-2xl font-bold text-white">What I would measure next</h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-slate-400">The next layer of this case study will include verified adoption, delivery and operational metrics, with clear measurement periods and attribution. Those figures will be added after the evidence is reviewed.</p>
+          <p className="mt-3 max-w-3xl leading-relaxed text-slate-400">As adoption grows, the next measures to evaluate are delivery rate, read rate, campaign completion, repeat usage and operational reliability, reported only where the underlying data can be shared.</p>
         </section>
       </main>
     </div>
