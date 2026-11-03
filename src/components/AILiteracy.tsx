@@ -3,14 +3,12 @@ import { Brain, Database, BarChart3, Zap, Code, Monitor } from 'lucide-react';
 
 const AILiteracy: React.FC = () => {
   const categories = [
-    { title: 'AI Prototyping', subtitle: 'Rapid prototyping with AI-assisted development tools', icon: Monitor },
-    { title: 'LLM Applications', subtitle: 'RAG, prompt design, LangChain, LlamaIndex and LangGraph', icon: Brain },
-    { title: 'Data & Insights', subtitle: 'SQL, analytics, data preparation and visualisation', icon: BarChart3 },
-    { title: 'Technical Collaboration', subtitle: 'APIs, integrations, data flows and software delivery', icon: Code },
-    { title: 'AI Product Thinking', subtitle: 'Use-case selection, evaluation and user experience', icon: Zap },
-    { title: 'Responsible AI', subtitle: 'Reliability, privacy, bias and human oversight', icon: Database },
-    { title: 'Experimentation', subtitle: 'Prototyping, testing, feedback and iteration', icon: Monitor },
-    { title: 'Product Strategy', subtitle: 'Roadmaps, prioritisation and cross-functional leadership', icon: Brain },
+    { title: 'AI Product Discovery', subtitle: 'Identifying workflows where AI solves a real user or business problem', icon: Monitor },
+    { title: 'LLM Application Design', subtitle: 'RAG patterns, prompt design, retrieval and orchestration fundamentals', icon: Brain },
+    { title: 'Prototyping & Validation', subtitle: 'Using AI-assisted development to test workflows and product assumptions', icon: Zap },
+    { title: 'Data & Measurement', subtitle: 'SQL, analytics, evaluation datasets and outcome measurement', icon: BarChart3 },
+    { title: 'Technical Integration', subtitle: 'APIs, data flows, system constraints and cross-functional delivery', icon: Code },
+    { title: 'Reliability & Trust', subtitle: 'Considering privacy, grounding, failure modes and human oversight', icon: Database },
   ];
 
   return (
