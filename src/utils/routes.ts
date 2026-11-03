@@ -4,7 +4,8 @@ export type CaseStudyView =
   | 'case-study-dishflow'
   | 'case-study-lead-quality'
   | 'case-study-breakage'
-  | 'case-study-ecg';
+  | 'case-study-ecg'
+  | 'case-study-switchfly';
 
 export type AppView = 'home' | CaseStudyView;
 
@@ -51,6 +52,13 @@ export const CASE_STUDY_ROUTES: Record<CaseStudyView, CaseStudyRouteConfig> = {
     path: '/case-study/breakage-intelligence',
     title: 'Breakage Intelligence | Product Case Study | Bhargav Nath',
     aliases: ['breakage', 'breakage-intelligence', 'redemptioniq']
+  },
+  'case-study-switchfly': {
+    view: 'case-study-switchfly',
+    slug: 'switchfly-integration',
+    path: '/case-study/switchfly-integration',
+    title: 'Switchfly Integration | Product Case Study | Bhargav Nath',
+    aliases: ['switchfly', 'travel-integration']
   },
   'case-study-ecg': {
     view: 'case-study-ecg',
