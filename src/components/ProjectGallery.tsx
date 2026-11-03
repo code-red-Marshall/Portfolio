@@ -18,7 +18,7 @@ const ProjectGallery: React.FC = () => {
         'Worked through campaign execution and operational safety requirements',
         'Used a standalone prototype to explore the workflow before the native production implementation'
       ],
-      details: 'Built Vantage Circle\'s WhatsApp campaign channel end to end. Started with a full Next.js/Supabase prototype directly integrated with Meta\'s WhatsApp Business Platform featuring template validation, CSV audience detection, 3-step wizard, and signed webhooks. When data governance showed third-party PII exposure was unacceptable for enterprise clients, redesigned and rebuilt the product natively inside the production Play/Scala Campaign Manager—moving the app to where the data lives with zero data exports and database-enforced safety rails.',
+      details: 'Independently owned the WhatsApp campaign product from prototype through production. Designed the UX/UI and built the frontend, backend and Meta WhatsApp Business Platform integration for a Vercel-hosted Next.js/Supabase prototype, then implemented the production version natively in the existing Play/Scala Campaign Manager. Used Claude Code as an AI-assisted development tool while retaining responsibility for product decisions, implementation, integration and delivery.',
       metrics: 'Verified product and delivery metrics to be added.',
       role: 'Solo end-to-end builder — product, UX/UI, frontend, backend and production implementation; AI-assisted with Claude Code',
       image: '/whatsapp-campaign-thumbnail.png',
