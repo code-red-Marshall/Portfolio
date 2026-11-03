@@ -7,9 +7,9 @@ const ProfessionalBackground: React.FC = () => {
     {
       id: '1',
       company: 'Vantage Circle',
-      role: 'Solutions Engineer - I',
-      period: '2024 - Present',
-      description: 'Working across enterprise SaaS product delivery, integrations and AI-enabled solutions.',
+      role: 'Solutions Engineer I',
+      period: 'Feb 2026 - Present',
+      description: 'Promoted from Associate Project Coordinator after joining as an intern; now working across enterprise SaaS product delivery, integrations and AI-enabled solutions.',
       achievements: [
         'Translate business and user needs into product requirements and delivery plans',
         'Coordinate with product, design, engineering and business stakeholders',
@@ -18,10 +18,33 @@ const ProfessionalBackground: React.FC = () => {
       ]
     },
     {
+      id: '5',
+      company: 'Vantage Circle',
+      role: 'Associate Project Coordinator',
+      period: 'Feb 2025 - Jan 2026',
+      description: 'Transitioned from an internship into a full-time role supporting enterprise product and project delivery.',
+      achievements: [
+        'Supported product coordination across engineering, design and business stakeholders',
+        'Translated requirements into actionable delivery tasks and tracked execution',
+        'Contributed to API integrations, workflow improvements and product releases'
+      ]
+    },
+    {
+      id: '6',
+      company: 'Vantage Circle',
+      role: 'Intern',
+      period: 'Nov 2024 - Jan 2025',
+      description: 'Internship experience within an enterprise HR technology and rewards platform.',
+      achievements: [
+        'Supported product and project coordination activities',
+        'Built familiarity with enterprise SaaS workflows and cross-functional delivery'
+      ]
+    },
+    {
       id: '2',
       company: 'Innodatatics',
       role: 'Gen AI Intern',
-      period: '2023 - 2024',
+      period: 'Feb 2024 - Aug 2024',
       description: 'Worked on generative AI and retrieval-augmented applications.',
       achievements: [
         'Explored LLM-based solutions for domain-specific information retrieval',
@@ -33,7 +56,7 @@ const ProfessionalBackground: React.FC = () => {
       id: '3',
       company: 'Bharat Intern',
       role: 'Data Science Intern',
-      period: '2023',
+      period: 'May 2024 - Jun 2024',
       description: 'Applied data science and natural language processing to classification problems.',
       achievements: [
         'Built a text classification project using Python and machine learning',
@@ -45,7 +68,7 @@ const ProfessionalBackground: React.FC = () => {
       id: '4',
       company: 'Tezpur University',
       role: 'Research Assistant',
-      period: '2022 - 2023',
+      period: 'Jan 2022 - Jun 2023',
       description: 'Research work involving ECG signals and biometric identification.',
       achievements: [
         'Worked on signal processing and machine learning approaches for ECG-based identification',
