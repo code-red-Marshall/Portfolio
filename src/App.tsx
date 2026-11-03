@@ -96,7 +96,11 @@ function App() {
     }
   };
 
-  if (activeView === 'case-study-switchfly') {\n    return <SwitchflyCaseStudy onBack={() => navigateTo('home')} />;\n  }\n\n  if (activeView === 'case-study-whatsapp') {
+  if (activeView === 'case-study-switchfly') {
+    return <SwitchflyCaseStudy onBack={() => navigateTo('home')} />;
+  }
+
+  if (activeView === 'case-study-whatsapp') {
     return <WhatsAppCampaignCaseStudy onBack={() => navigateTo('home')} />;
   }
 
@@ -128,7 +132,8 @@ function App() {
         <About />
         <ProjectGallery />
         <CaseStudy 
-          onOpenSwitchfly={() => navigateTo('case-study-switchfly')}\n          onOpenWhatsApp={() => navigateTo('case-study-whatsapp')}
+          onOpenSwitchfly={() => navigateTo('case-study-switchfly')}
+          onOpenWhatsApp={() => navigateTo('case-study-whatsapp')}
           onOpenCaseStudy={() => navigateTo('case-study-lead-quality')} 
           onOpenBreakage={() => navigateTo('case-study-breakage')}
           onOpenECG={() => navigateTo('case-study-ecg')}
