@@ -64,10 +64,10 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold px-3.5 py-1.5 rounded-lg text-xs sm:text-sm shadow-md shadow-emerald-600/20 hover:scale-105 active:scale-95 transition-all ring-1 ring-emerald-400/40"
-                  title="Try the live WhatsApp Campaign Manager app"
+                  title="Explore the WhatsApp Campaign Manager prototype"
                 >
                   <Smartphone size={14} className="text-emerald-100" />
-                  <span>Try the app</span>
+                  <span>Explore prototype</span>
                   <ExternalLink size={12} className="opacity-90" />
                 </a>
               </div>
