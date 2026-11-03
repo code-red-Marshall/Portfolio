@@ -45,7 +45,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                <div className="absolute top-3 right-3">
                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/90 text-white text-xs font-semibold rounded-full shadow-md backdrop-blur-sm">
                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                   Live Prototype
+                   Production module
                  </span>
                </div>
             </div>
@@ -75,18 +75,18 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                 WhatsApp Campaign Manager
               </h3>
               <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
-                Bringing a new messaging channel to a 2M-employee HR-tech platform without moving any client data—from standalone Next.js prototype to native production architecture.
+                Adding a WhatsApp campaign workflow to an enterprise HR-tech platform, from early prototype to native production module.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6">
                 <span className="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md text-xs font-medium">
-                  0 PII exports
+                  Native production module
                 </span>
                 <span className="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md text-xs font-medium">
                   Meta Graph API
                 </span>
                 <span className="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md text-xs font-medium">
-                  GREEN rating
+                  Meta integration
                 </span>
               </div>
 
