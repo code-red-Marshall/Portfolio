@@ -33,11 +33,11 @@ const posts: BlogPost[] = [
 
 const Blog: React.FC = () => {
   return (
-    <section id="blog" className="px-6 py-20">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Blog</h2>
-          <p className="mt-3 text-slate-600">Writing about data, AI, and building useful systems.</p>
+    <section id="blog" className="bg-[#f4f2ed] px-6 py-20 text-[#17221f]">
+      <div className="mx-auto max-w-6xl border-t border-[#d3d5cc] pt-8">
+        <div className="mb-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#718077]">Beyond product delivery</p><h2 className="mt-3 text-4xl font-semibold tracking-[-0.05em] text-[#17221f]">Writing & research</h2>
+          <p className="mt-3 text-[#68736c]">A few notes from earlier data, engineering and research work.</p>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -47,7 +47,7 @@ const Blog: React.FC = () => {
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all"
+              className="group block overflow-hidden border-t border-[#cbd0c7] transition-colors hover:border-[#718777]"
             >
               <div className={`aspect-video overflow-hidden bg-gradient-to-br ${post.bgClass} relative`}>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_45%),radial-gradient(circle_at_70%_60%,rgba(255,255,255,0.2),transparent_45%)]" />
@@ -55,11 +55,11 @@ const Blog: React.FC = () => {
                   <post.Icon className="text-white/90 drop-shadow-lg" size={56} />
                 </div>
               </div>
-              <div className="p-5">
-                <h3 className="text-lg font-semibold text-slate-900 leading-snug">
+              <div className="py-5">
+                <h3 className="text-base font-semibold leading-snug text-[#17221f]">
                   {post.title}
                 </h3>
-                <p className="mt-2 text-sm text-slate-500 inline-flex items-center gap-1">
+                <p className="mt-2 inline-flex items-center gap-1 text-xs text-[#78847c]">
                   medium.com <ExternalLink size={14} className="text-slate-400" />
                 </p>
               </div>
