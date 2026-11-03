@@ -1,4 +1,4 @@
-export type CaseStudyView = 
+export type CaseStudyView =
   | 'case-study-whatsapp'
   | 'case-study-solutions-central'
   | 'case-study-dishflow'
@@ -21,14 +21,14 @@ export const CASE_STUDY_ROUTES: Record<CaseStudyView, CaseStudyRouteConfig> = {
     view: 'case-study-whatsapp',
     slug: 'whatsapp-campaign-manager',
     path: '/case-study/whatsapp-campaign-manager',
-    title: 'WhatsApp Campaign Manager Case Study | Bhargav Nath',
+    title: 'WhatsApp Campaign Manager | Product Case Study | Bhargav Nath',
     aliases: ['whatsapp', 'whatsapp-campaign', 'whatsapp-campaign-manager', 'vc-campaign-manager']
   },
   'case-study-solutions-central': {
     view: 'case-study-solutions-central',
     slug: 'solutions-central',
     path: '/case-study/solutions-central',
-    title: 'Solutions Central Case Study | Bhargav Nath',
+    title: 'Solutions Central | Product Case Study | Bhargav Nath',
     aliases: ['solutions-central', 'solutions']
   },
   'case-study-dishflow': {
@@ -42,72 +42,59 @@ export const CASE_STUDY_ROUTES: Record<CaseStudyView, CaseStudyRouteConfig> = {
     view: 'case-study-lead-quality',
     slug: 'lead-quality',
     path: '/case-study/lead-quality',
-    title: 'Lead Quality Analysis Case Study | Bhargav Nath',
+    title: 'Lead Quality Analysis | Product Case Study | Bhargav Nath',
     aliases: ['lead-quality', 'lead-quality-analysis']
   },
   'case-study-breakage': {
     view: 'case-study-breakage',
     slug: 'breakage-intelligence',
     path: '/case-study/breakage-intelligence',
-    title: 'Breakage Intelligence Lab Case Study | Bhargav Nath',
+    title: 'Breakage Intelligence | Product Case Study | Bhargav Nath',
     aliases: ['breakage', 'breakage-intelligence', 'redemptioniq']
   },
   'case-study-ecg': {
     view: 'case-study-ecg',
     slug: 'ecg-identification',
     path: '/case-study/ecg-identification',
-    title: 'ECG Biometric Identification Case Study | Bhargav Nath',
+    title: 'ECG Biometric Identification | Bhargav Nath',
     aliases: ['ecg', 'ecg-identification']
   }
 };
 
-export const DEFAULT_PAGE_TITLE = 'Bhargav Nath - AI-Native Product Professional';
+export const DEFAULT_PAGE_TITLE = 'Bhargav Nath | AI & Technical Product Manager';
 
 /**
- * Resolves current path or search/hash to an AppView
+ * Resolves current path or search/hash to an AppView.
  */
 export function resolveViewFromUrl(
-  pathname: string = window.location.pathname, 
-  search: string = window.location.search, 
+  pathname: string = window.location.pathname,
+  search: string = window.location.search,
   hash: string = window.location.hash
 ): AppView {
   const normalizedPath = pathname.toLowerCase().replace(/\/+$/, '');
-  
-  // Check URL query parameters (e.g., ?case-study=dishflow)
   const params = new URLSearchParams(search);
   const queryParam = params.get('case-study') || params.get('study') || params.get('p');
-  
+
   for (const config of Object.values(CASE_STUDY_ROUTES)) {
-    // Check primary path: /case-study/<slug> or /case-studies/<slug>
     if (
-      normalizedPath === config.path || 
+      normalizedPath === config.path ||
       normalizedPath === `/case-studies/${config.slug}` ||
-      (config.aliases && config.aliases.some(alias => 
-        normalizedPath === `/case-study/${alias}` || 
+      (config.aliases && config.aliases.some(alias =>
+        normalizedPath === `/case-study/${alias}` ||
         normalizedPath === `/case-studies/${alias}`
       ))
-    ) {
-      return config.view;
-    }
+    ) return config.view;
 
-    // Check query params if any
-    if (queryParam && (queryParam.toLowerCase() === config.slug || (config.aliases && config.aliases.includes(queryParam.toLowerCase())))) {
-      return config.view;
-    }
+    if (queryParam && (queryParam.toLowerCase() === config.slug ||
+      (config.aliases && config.aliases.includes(queryParam.toLowerCase())))) return config.view;
 
-    // Check hash fallback (#case-study-dishflow or #dishflow)
     const cleanHash = hash.replace(/^#/, '').toLowerCase();
-    if (cleanHash === config.view || cleanHash === config.slug || (config.aliases && config.aliases.includes(cleanHash))) {
-      return config.view;
-    }
+    if (cleanHash === config.view || cleanHash === config.slug ||
+      (config.aliases && config.aliases.includes(cleanHash))) return config.view;
   }
-
   return 'home';
 }
 
-/**
- * Returns the full shareable URL for a given case study view
- */
 export function getCaseStudyUrl(view: CaseStudyView): string {
   const config = CASE_STUDY_ROUTES[view];
   if (!config) return typeof window !== 'undefined' ? window.location.origin : '';
@@ -115,9 +102,6 @@ export function getCaseStudyUrl(view: CaseStudyView): string {
   return `${origin}${config.path}`;
 }
 
-/**
- * Utility to copy text to clipboard with fallback
- */
 export async function copyToClipboard(text: string): Promise<boolean> {
   try {
     if (navigator.clipboard && window.isSecureContext) {
