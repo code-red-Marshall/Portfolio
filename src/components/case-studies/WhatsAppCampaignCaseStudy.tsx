@@ -392,6 +392,45 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
         </section>
 
         <section className="mb-16">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-400">03 · Production architecture</p>
+          <h2 className="mb-5 text-3xl font-bold text-white">A native module inside the existing Campaign Manager</h2>
+          <p className="mb-6 max-w-3xl text-lg leading-relaxed text-slate-300">The production implementation was designed around the host platform's existing data and operational boundaries. Rather than moving employee records into a separate application database, the module resolves saved audience definitions against production data when a campaign is sent.</p>
+          <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7">
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="rounded-xl border border-slate-700 bg-slate-950 p-4">
+                <Database className="mb-3 text-emerald-400" size={22}/>
+                <h3 className="font-semibold text-white">Existing platform data</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">Saved audience queries resolve against the production MySQL environment at send time.</p>
+              </div>
+              <div className="rounded-xl border border-slate-700 bg-slate-950 p-4">
+                <Workflow className="mb-3 text-emerald-400" size={22}/>
+                <h3 className="font-semibold text-white">Native campaign module</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">The Play Framework / Scala implementation handles audience resolution, campaign execution, recipient checks and message records.</p>
+              </div>
+              <div className="rounded-xl border border-slate-700 bg-slate-950 p-4">
+                <MessageCircle className="mb-3 text-emerald-400" size={22}/>
+                <h3 className="font-semibold text-white">Meta + webhook feedback</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">Meta handles message delivery; webhook callbacks update message states for operational tracking.</p>
+              </div>
+            </div>
+            <div className="mt-4 rounded-xl border border-emerald-900/70 bg-emerald-950/30 p-4">
+              <p className="text-sm font-semibold text-emerald-300">Key design principle</p>
+              <p className="mt-1 text-sm leading-relaxed text-slate-300">Keep employee data in the existing production environment; pass only the required message payload to Meta and retain operational records in the host application.</p>
+            </div>
+          </div>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+              <h3 className="mb-2 font-semibold text-white">Reliability and duplicate prevention</h3>
+              <p className="text-sm leading-relaxed text-slate-400">The production workflow uses backend checks and database-level safeguards to reduce duplicate sends and keep dispatch state consistent beyond the browser interface.</p>
+            </div>
+            <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+              <h3 className="mb-2 font-semibold text-white">Opt-out and delivery lifecycle</h3>
+              <p className="text-sm leading-relaxed text-slate-400">Inbound STOP handling and webhook-driven delivery updates are part of the campaign lifecycle, not afterthoughts added to the dashboard.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-400">04 · How I built it</p>
           <h2 className="mb-5 text-3xl font-bold text-white">One person owning the product from concept through production</h2>
           <p className="mb-5 max-w-3xl text-lg leading-relaxed text-slate-300">I owned the end-to-end build across product definition, UX/UI, frontend, backend and third-party integration. I used Claude Code as an AI-assisted development tool to accelerate implementation, explore solutions and work through technical problems; I remained responsible for the architecture, product decisions, integration behaviour, testing and delivered experience.</p>
