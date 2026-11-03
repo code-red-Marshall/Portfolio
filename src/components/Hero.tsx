@@ -13,25 +13,26 @@ const Hero: React.FC = () => {
     <section id="hero" className="min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Hi, I'm <span className="text-slate-900">Bhargav</span>.
               </h1>
               <p className="text-xl lg:text-2xl text-slate-800 font-semibold">
-                Product Specialist
+                AI Product Manager <span className="text-slate-400">·</span> Technical Product Manager
               </p>
-              <p className="text-lg text-slate-500 max-w-lg">
-                I bring AI into products so users feel the Magic, not the Math.
+              <p className="text-2xl lg:text-3xl text-slate-700 font-semibold leading-snug max-w-2xl">
+                Building better products at the intersection of business and technology.
+              </p>
+              <p className="text-lg text-slate-500 max-w-xl leading-relaxed">
+                I work across AI, enterprise SaaS and technology — understanding business problems, shaping product solutions and working with engineering teams to bring them to life.
               </p>
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
-              <a 
-                href="/Bhargav_Resume.pdf" 
-                target="_blank" 
+              <a
+                href="/Bhargav_Resume.pdf"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:scale-105 shadow-lg"
               >
@@ -45,28 +46,26 @@ const Hero: React.FC = () => {
                 <ExternalLink size={18} />
                 Explore Projects
               </button>
-              <a 
-                href="https://www.linkedin.com/in/bhargav-nath" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/bhargav-nath"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-800 transition-[transform,background-color] duration-200 hover:scale-105"
               >
                 <Linkedin size={18} />
                 Connect on LinkedIn
               </a>
-              <a 
-                href="https://github.com/code-red-Marshall" 
-                target="_blank" 
+              <a
+                href="https://github.com/code-red-Marshall"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-all duration-200 hover:scale-105"
               >
-                {/* Using ExternalLink icon to represent GitHub for now */}
                 <ExternalLink size={18} />
                 GitHub
               </a>
             </div>
 
-            {/* Quick Contact */}
             <div className="flex items-center gap-4 pt-4">
               <a
                 href="mailto:bhargavnth07@gmail.com"
@@ -78,7 +77,6 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Profile Image */}
           <div className="flex justify-center lg:justify-end animate-fade-in-delayed">
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
