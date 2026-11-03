@@ -314,7 +314,7 @@ const ProjectGallery: React.FC = () => {
 
                 {project.link && !project.link.includes('github.com') && (
                   <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs font-medium text-slate-500">Live Application</span>
+                    <span className="text-xs font-medium text-slate-500">Prototype Preview</span>
                     <a
                       href={project.link}
                       target="_blank"
@@ -322,7 +322,7 @@ const ProjectGallery: React.FC = () => {
                       onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 px-3 py-1 rounded-md transition-all hover:scale-105 active:scale-95 shadow-sm"
                     >
-                      <span>Try the app</span>
+                      <span>Explore prototype</span>
                       <ExternalLink size={12} />
                     </a>
                   </div>
