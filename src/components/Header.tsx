@@ -47,7 +47,7 @@ const Header: React.FC = () => {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4">
+      <nav aria-label="Main navigation" className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <button
             onClick={() => scrollToSection('hero')}
@@ -72,6 +72,9 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
             className="md:hidden p-2 text-gray-600 hover:text-gray-900"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,7 +83,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-lg border">
+          <div id="mobile-navigation" role="region" aria-label="Mobile navigation" className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-lg border">
             {navItems.map((item) => (
               <button
                 key={item.id}
