@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProjectGallery from './components/ProjectGallery';
@@ -31,7 +31,7 @@ function App() {
   });
 
   // Keep page title in sync
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (activeView === 'home') {
       document.title = DEFAULT_PAGE_TITLE;
     } else if (CASE_STUDY_ROUTES[activeView]) {
@@ -79,7 +79,7 @@ function App() {
         observer.disconnect();
       };
     } else {
-      scrollInstantly(0);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
     }
   }, [activeView]);
 
