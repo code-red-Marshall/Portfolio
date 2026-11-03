@@ -56,9 +56,10 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
           <p className="max-w-3xl border-l-4 border-emerald-500 pl-5 text-xl leading-relaxed text-slate-300 sm:text-2xl">
             Bringing WhatsApp campaigns into an enterprise platform while keeping the experience connected to the systems that already manage employee data.
           </p>
-          <div className="mt-8 grid gap-4 rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:grid-cols-3">
+          <div className="mt-8 grid gap-4 rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:grid-cols-2 lg:grid-cols-4">
             <div><p className="text-xs uppercase tracking-wider text-slate-500">Company</p><p className="mt-1 font-semibold text-white">Vantage Circle</p></div>
-            <div><p className="text-xs uppercase tracking-wider text-slate-500">Production technology</p><p className="mt-1 font-semibold text-white">Play Framework · Scala</p></div>
+            <div><p className="text-xs uppercase tracking-wider text-slate-500">My role</p><p className="mt-1 font-semibold text-white">Solo end-to-end builder</p></div>
+            <div><p className="text-xs uppercase tracking-wider text-slate-500">Production stack</p><p className="mt-1 font-semibold text-white">Play Framework · Scala</p></div>
             <div><p className="text-xs uppercase tracking-wider text-slate-500">Integration</p><p className="mt-1 font-semibold text-white">Meta WhatsApp Business Platform</p></div>
           </div>
           <div className="mt-8 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
@@ -82,7 +83,7 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
             <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
               <span className="mb-3 inline-flex items-center gap-2 text-sm font-semibold text-sky-300"><Layers size={17}/> Exploration prototype</span>
               <h3 className="mb-3 text-xl font-semibold text-white">Next.js + Supabase</h3>
-              <p className="mb-5 text-sm leading-relaxed text-slate-400">A standalone prototype helped explore the operator journey, Meta integration, template workflows, audience setup and delivery feedback.</p>
+              <p className="mb-5 text-sm leading-relaxed text-slate-400">I independently designed and built the Vercel-hosted prototype, including the UX/UI, frontend, backend, Meta integration, template workflow, audience setup and delivery feedback.</p>
               <a href={PROTOTYPE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-sky-200">
                 Explore prototype <ExternalLink size={15}/>
               </a>
@@ -91,14 +92,25 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
             <div className="rounded-2xl border border-emerald-900 bg-emerald-950/30 p-6">
               <span className="mb-3 inline-flex items-center gap-2 text-sm font-semibold text-emerald-300"><Database size={17}/> Production product</span>
               <h3 className="mb-3 text-xl font-semibold text-white">Native Play / Scala module</h3>
-              <p className="text-sm leading-relaxed text-slate-300">The production product was built natively inside the existing Campaign Manager environment. This kept the workflow aligned with the platform's established data and application architecture.</p>
+              <p className="text-sm leading-relaxed text-slate-300">I then carried the product into production by implementing the native Play/Scala version, including the user experience and application logic, within the existing Campaign Manager environment.</p>
               <p className="mt-5 text-xs text-emerald-300">Production architecture</p>
             </div>
           </div>
         </section>
 
         <section className="mb-16">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-400">03 · Product decisions</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-400">03 · How I built it</p>
+          <h2 className="mb-5 text-3xl font-bold text-white">One person owning the product from concept through production</h2>
+          <p className="mb-5 max-w-3xl text-lg leading-relaxed text-slate-300">I owned the end-to-end build across product definition, UX/UI, frontend, backend and third-party integration. I used Claude Code as an AI-assisted development tool to accelerate implementation, explore solutions and work through technical problems; I remained responsible for the architecture, product decisions, integration behaviour, testing and delivered experience.</p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {['Product workflow and requirements','UX/UI design and interaction flows','Frontend implementation','Backend and data integration','Meta WhatsApp Business Platform integration','Native Play/Scala production implementation'].map((item) => (
+              <div key={item} className="rounded-lg border border-slate-800 bg-slate-900 p-4 text-sm text-slate-300"><CheckCircle2 size={17} className="mr-2 inline text-emerald-400"/>{item}</div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-400">04 · Product decisions</p>
           <h2 className="mb-6 text-3xl font-bold text-white">The decisions that shaped the solution</h2>
           <div className="space-y-4">
             {productionDecisions.map((item, index) => (
@@ -124,7 +136,7 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
         </section>
 
         <section className="mb-16 rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:p-8">
-          <div className="mb-3 flex items-center gap-2 text-emerald-400"><ShieldCheck size={19}/><span className="text-sm font-semibold uppercase tracking-widest">05 · What this work demonstrates</span></div>
+          <div className="mb-3 flex items-center gap-2 text-emerald-400"><ShieldCheck size={19}/><span className="text-sm font-semibold uppercase tracking-widest">06 · What this work demonstrates</span></div>
           <h2 className="mb-5 text-3xl font-bold text-white">Product thinking grounded in technical constraints</h2>
           <p className="mb-6 max-w-3xl leading-relaxed text-slate-300">This project brought together product workflow design, third-party platform integration, data governance considerations and a transition from a fast prototype to a production implementation within an established technology stack.</p>
           <div className="grid gap-4 sm:grid-cols-3">
