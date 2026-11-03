@@ -9,21 +9,28 @@ const Education: React.FC = () => {
       degree: 'M.Tech - Electronics Design & Technology',
       institution: 'Tezpur University',
       period: 'Oct 2021 - Oct 2023',
-      details: 'Specialized in signal processing and biometric systems. Thesis on ECG-based identification systems.'
+      details: 'CGPA: 8.49/10 · Graduated with distinction · Ranked 3rd in the postgraduate batch. Thesis focused on ECG-based biometric identification.'
     },
     {
       id: '2',
       degree: 'B.Tech - Electronics & Communication Engineering',
       institution: 'Gauhati University',
       period: 'Jun 2016 - Jul 2020',
-      details: 'Foundation in electronics, communication systems, and embedded programming.'
+      details: 'Foundation in electronics, communication systems and embedded programming.'
     },
     {
       id: '3',
-      degree: 'Data Science & Machine Learning Certification',
-      institution: 'SUNY + 360DigiTMG',
-      period: 'Aug 2023 - Aug 2024',
-      details: 'Comprehensive program covering ML algorithms, data analysis, and AI applications.'
+      degree: 'Data Science & Generative AI',
+      institution: 'SUNY Potsdam',
+      period: '2024',
+      details: 'Coursework in data science and generative AI.'
+    },
+    {
+      id: '4',
+      degree: 'Diploma in Data Science & Analytics',
+      institution: '360DigiTMG',
+      period: '',
+      details: 'Training in data science and analytics.'
     }
   ];
 
@@ -56,7 +63,7 @@ const Education: React.FC = () => {
                       {edu.degree}
                     </h3>
                     <p className="text-slate-700 font-medium mb-1">{edu.institution}</p>
-                    <p className="text-slate-500 text-sm mb-3">{edu.period}</p>
+                    <p className="text-slate-500 text-sm mb-3">{edu.period && edu.period}</p>
                     {edu.details && (
                       <p className="text-slate-600 text-sm">{edu.details}</p>
                     )}
@@ -82,8 +89,8 @@ const Education: React.FC = () => {
               <div className="bg-emerald-100 p-4 rounded-full inline-flex mb-4">
                 <Award className="text-emerald-600" size={32} />
               </div>
-              <h4 className="font-semibold text-slate-900 mb-2">Research Excellence</h4>
-              <p className="text-slate-600 text-sm"> Contributed in research and patent applications demonstrating innovation capability</p>
+              <h4 className="font-semibold text-slate-900 mb-2">Research & Analysis</h4>
+              <p className="text-slate-600 text-sm"> Applied signal processing and machine learning methods to an ECG-based biometric identification research problem</p>
             </div>
             <div className="text-center">
               <div className="bg-slate-100 p-4 rounded-full inline-flex mb-4">
