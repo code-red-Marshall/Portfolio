@@ -18,7 +18,7 @@ const SolutionsCentralCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
   const decisions = [
     ['Start with the workflow, not the interface', 'The problem crossed intake, tracking and knowledge retrieval. Treating each as a separate screen would preserve the handoffs that made the process difficult.'],
     ['Make existing knowledge easier to find', 'The team already had useful experience and documentation. Improving access to that material was more practical than asking people to create a parallel knowledge base.'],
-    ['Meet users where they work', 'Different teams needed different entry points. The dashboard supported the internal team, while a browser assistant reduced context switching for sales users.']
+    ['Meet users where they work', 'Different workflows benefited from different entry points: a dashboard for the internal team and a browser-based assistant for retrieving relevant knowledge closer to the point of work. The trade-off was maintaining multiple surfaces while drawing from connected information sources.']
   ];
 
   return (
@@ -107,7 +107,7 @@ const SolutionsCentralCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
 
         <section className="mb-16 rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:p-8">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-violet-400">05 · What this work demonstrates</p>
-          <h2 className="mb-5 text-3xl font-bold text-white">A workflow problem is often a product problem</h2>
+          <h2 className="mb-5 text-3xl font-bold text-white">Designing for real internal users, not just a demo</h2>
           <p className="mb-6 max-w-3xl leading-relaxed text-slate-300">Built for the Solutions Engineering team's real internal workflows, Solutions Central brought together workflow mapping, information architecture, user needs and technical implementation. The key product move was to make existing information easier to maintain and reuse, rather than adding another disconnected place to store it.</p>
           <div className="grid gap-4 sm:grid-cols-3">
             <div><Workflow className="mb-2 text-violet-300" size={22}/><h3 className="font-semibold text-white">Workflow design</h3><p className="mt-1 text-sm text-slate-400">Connecting steps that previously relied on manual handoffs.</p></div>
@@ -119,7 +119,7 @@ const SolutionsCentralCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
         <section className="border-t border-slate-800 pt-10">
           <p className="text-sm font-semibold uppercase tracking-widest text-violet-400">Next</p>
           <h2 className="mt-2 text-2xl font-bold text-white">Measuring the difference</h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-slate-400">Usage, request volume, search success and time saved will be added once the measurement definitions and evidence are confirmed.</p>
+          <p className="mt-3 max-w-3xl leading-relaxed text-slate-400">The product was built for actual internal use by the Solutions Engineering team. Quantitative adoption, search success and time-saved claims are intentionally not stated without a defined measurement method; team use is not the same as measured productivity improvement.</p>
         </section>
       </main>
     </div>
