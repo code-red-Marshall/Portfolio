@@ -9,12 +9,12 @@ const ProfessionalBackground: React.FC = () => {
       company: 'Vantage Circle',
       role: 'Solutions Engineer - I',
       period: '2024 - Present',
-      description: 'APM-style coordination for SaaS AI features and product delivery',
+      description: 'Working across enterprise SaaS product delivery, integrations and AI-enabled solutions.',
       achievements: [
-        'Coordinated cross-functional teams for AI feature development',
-        'Improved feature delivery timeline by 30%',
-        'Led stakeholder management and requirement gathering',
-        'Implemented data-driven decision making processes'
+        'Translate business and user needs into product requirements and delivery plans',
+        'Coordinate with product, design, engineering and business stakeholders',
+        'Contribute to the design and delivery of workflow, analytics and AI-powered capabilities',
+        'Work across APIs, data flows and integrations to support reliable product experiences'
       ]
     },
     {
@@ -22,12 +22,11 @@ const ProfessionalBackground: React.FC = () => {
       company: 'Innodatatics',
       role: 'Gen AI Intern',
       period: '2023 - 2024',
-      description: 'Built pharmaceutical LLM chatbot and AI solutions',
+      description: 'Worked on generative AI and retrieval-augmented applications.',
       achievements: [
-        'Developed LLM chatbot with 40% faster query resolution',
-        'Generated $20K ROI in first quarter',
-        'Implemented RAG architecture for accurate responses',
-        'Designed user-friendly interfaces for technical solutions'
+        'Explored LLM-based solutions for domain-specific information retrieval',
+        'Worked with retrieval-augmented generation, prompt design and application workflows',
+        'Connected technical implementation choices with the needs of end users'
       ]
     },
     {
@@ -35,12 +34,11 @@ const ProfessionalBackground: React.FC = () => {
       company: 'Bharat Intern',
       role: 'Data Science Intern',
       period: '2023',
-      description: 'Spam classifier project using NLP and machine learning',
+      description: 'Applied data science and natural language processing to classification problems.',
       achievements: [
-        'Built spam classifier with 95% accuracy',
-        'Deployed real-time processing system',
-        'Created intuitive Streamlit interface',
-        'Processed 1000+ user interactions successfully'
+        'Built a text classification project using Python and machine learning',
+        'Worked through data preparation, model training and evaluation',
+        'Presented model outputs through an accessible application interface'
       ]
     },
     {
@@ -48,12 +46,11 @@ const ProfessionalBackground: React.FC = () => {
       company: 'Tezpur University',
       role: 'Research Assistant',
       period: '2022 - 2023',
-      description: 'ECG biometric identification system research',
+      description: 'Research work involving ECG signals and biometric identification.',
       achievements: [
-        'Achieved 100% identification accuracy',
-        'Published research paper in peer-reviewed journal',
-        'Filed patent application for novel approach',
-        'Developed anti-spoofing mechanisms'
+        'Worked on signal processing and machine learning approaches for ECG-based identification',
+        'Applied feature extraction and model evaluation techniques',
+        'Developed research experience in analytical problem solving'
       ]
     }
   ];
@@ -64,24 +61,17 @@ const ProfessionalBackground: React.FC = () => {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">Experience</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            A journey from electronics research to AI-powered product development, building systems that scale.
+            A background spanning engineering, data and AI — now focused on building useful enterprise products.
           </p>
         </div>
 
         <div className="relative">
-          {/* Timeline Line */}
           <div className="absolute left-4 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-slate-200"></div>
-
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <div key={exp.id} className={`relative flex items-start ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}>
-                {/* Timeline Dot */}
+              <div key={exp.id} className={`relative flex items-start ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-slate-900 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-                {/* Content Card */}
-                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
-                  }`}>
+                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                   <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="flex items-start gap-3 mb-4">
                       <div className="bg-slate-100 p-2 rounded-lg">
@@ -96,9 +86,7 @@ const ProfessionalBackground: React.FC = () => {
                         </div>
                       </div>
                     </div>
-
                     <p className="text-slate-600 mb-4">{exp.description}</p>
-
                     <div className="space-y-2">
                       {exp.achievements.map((achievement, achievementIndex) => (
                         <div key={achievementIndex} className="flex items-start gap-2">
