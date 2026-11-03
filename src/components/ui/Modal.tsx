@@ -11,64 +11,34 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
   useEffect(() => {
-    if (isOpen) {
-      // Prevent background scroll without jumping the page position
-      const scrollY = window.scrollY;
-      const root = document.documentElement;
-      // Disable smooth scroll to avoid weird jumps during open/close
-      const previousScrollBehavior = root.style.scrollBehavior;
-      root.setAttribute('data-prev-scroll-behavior', previousScrollBehavior || '');
-      root.style.scrollBehavior = 'auto';
-
-      // Lock scroll on both html and body
-      root.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-
-      // Fix body position to prevent layout shift
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
-    } else {
-      // Restore scroll position and body styles on close
-      const top = document.body.style.top;
-      const root = document.documentElement;
-      const prev = root.getAttribute('data-prev-scroll-behavior') || '';
-      root.style.scrollBehavior = prev;
-      root.removeAttribute('data-prev-scroll-behavior');
-
-      root.style.overflow = '';
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      document.body.style.width = '';
-      if (top) {
-        const y = parseInt(top || '0', 10);
-        window.scrollTo(0, -y);
-      }
-    }
-
+    if (!isOpen) return;
+    const scrollY = window.scrollY;
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+    const previousBodyPosition = document.body.style.position;
+    const previousBodyTop = document.body.style.top;
+    const previousBodyWidth = document.body.style.width;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousRootOverflow = root.style.overflow;
+    root.style.scrollBehavior = 'auto';
+    root.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
     return () => {
-      const top = document.body.style.top;
-      const root = document.documentElement;
-      const prev = root.getAttribute('data-prev-scroll-behavior') || '';
-      root.style.scrollBehavior = prev;
-      root.removeAttribute('data-prev-scroll-behavior');
-
-      root.style.overflow = '';
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
+      root.style.scrollBehavior = 'auto';
+      root.style.overflow = previousRootOverflow;
+      document.body.style.position = previousBodyPosition;
+      document.body.style.top = previousBodyTop;
       document.body.style.left = '';
       document.body.style.right = '';
-      document.body.style.width = '';
-      if (top) {
-        const y = parseInt(top || '0', 10);
-        window.scrollTo(0, -y);
-      }
+      document.body.style.width = previousBodyWidth;
+      document.body.style.overflow = previousBodyOverflow;
+      window.scrollTo({ top: scrollY, left: 0, behavior: 'auto' });
+      root.style.scrollBehavior = previousScrollBehavior;
     };
   }, [isOpen]);
 
@@ -78,15 +48,15 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#17221f]/18 backdrop-blur-[2px]"
     >
-      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in">
-        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl">
+      <div className="bg-[#f4f2ed] text-[#17221f] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#d3d5cc] shadow-[0_24px_80px_rgba(23,34,31,0.16)]">
+        <div className="sticky top-0 bg-[#f4f2ed] border-b border-[#d3d5cc] p-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold text-slate-900">{project.title}</h2>
             <button
               onClick={onClose}
-              className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
+              className="p-2 text-[#718077] hover:text-[#17221f] hover:bg-[#e9ebe4] rounded-lg transition-colors"
             >
               <X size={24} />
             </button>
@@ -116,7 +86,7 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
               {project.tools.map((tool, index) => (
                 <span
                   key={index}
-                  className="bg-slate-100 text-slate-800 px-3 py-1 rounded-full text-sm font-medium"
+                  className="bg-[#e9ebe4] text-[#46564c] px-3 py-1 rounded-full text-sm font-medium"
                 >
                   {tool}
                 </span>
@@ -137,7 +107,7 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
           </div>
 
           {project.metrics && (
-            <div className="bg-emerald-50 p-4 rounded-lg">
+            <div className="bg-[#e8eee7] p-4 rounded-lg">
               <h3 className="font-semibold text-emerald-800 mb-2">Impact Metrics</h3>
               <p className="text-emerald-700">{project.metrics}</p>
             </div>
