@@ -52,10 +52,10 @@ const ProjectGallery: React.FC = () => {
         'Supported rollout and post-launch feedback tracking'
       ],
       details:
-        'Led the integration of Switchfly into our HR Tech SaaS platform to enable travel and experience redemptions. Drove end-to-end delivery: requirements, API validation with Switchfly, stakeholder comms, launch planning, and analytics tracking to measure adoption.',
-      metrics: 'Verified adoption and commercial metrics to be added.',
+        'Coordinated the Switchfly integration into the HR Tech SaaS platform to add travel and experience redemptions. Worked across requirements, API validation with Switchfly, stakeholder communication, QA coordination, launch planning and post-launch feedback.',
+      metrics: 'Adoption and commercial outcomes not yet quantified.',
       role:
-        'Associate Product Manager coordinating engineering, design, and business; managed API integration, QA, and go-live.',
+        'Associate Project Coordinator — coordinating engineering, design and business stakeholders through API integration, QA and go-live.',
       image: '/Project 1.webp',
       category: 'Work'
     },
@@ -70,10 +70,10 @@ const ProjectGallery: React.FC = () => {
         'Supported launch feedback and adoption tracking'
       ],
       details:
-        'Delivered end-to-end Snappy integration as an e-commerce redemption channel. Scoped requirements, validated logistics parameters, coordinated with engineering during backend renovation, led QA and post-launch feedback tracking.',
-      metrics: 'Verified adoption and commercial metrics to be added.',
+        'Supported delivery of the Snappy integration as an e-commerce redemption channel. Worked on requirements, logistics validation, engineering coordination during the backend changes, QA and post-launch feedback tracking.',
+      metrics: 'Adoption and commercial outcomes not yet quantified.',
       role:
-        'Associate Product Manager driving lifecycle across research, integration, QA, and adoption tracking.',
+        'Associate Project Coordinator — supporting requirements, partner integration, engineering coordination, QA and launch follow-through.',
       image: '/Project 2.webp',
       category: 'Work'
     },
