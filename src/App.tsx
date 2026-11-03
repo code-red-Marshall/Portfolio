@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProjectGallery from './components/ProjectGallery';
@@ -17,6 +17,15 @@ import Contact from './components/Contact';
 import { AppView, CASE_STUDY_ROUTES, DEFAULT_PAGE_TITLE, resolveViewFromUrl } from './utils/routes';
 
 function App() {
+  const returnScrollY = useRef(0);
+  const restoreHomeScroll = useRef(false);
+  const scrollInstantly = (top: number) => {
+    const root = document.documentElement;
+    const previous = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo({ top, left: 0, behavior: 'auto' });
+    root.style.scrollBehavior = previous;
+  };
   const [activeView, setActiveView] = useState<AppView>(() => {
     return typeof window !== 'undefined' ? resolveViewFromUrl() : 'home';
   });
@@ -34,6 +43,7 @@ function App() {
   useEffect(() => {
     const handlePopState = () => {
       const resolved = resolveViewFromUrl();
+      if (resolved === 'home') restoreHomeScroll.current = true;
       setActiveView(resolved);
     };
 
@@ -43,6 +53,10 @@ function App() {
 
   useEffect(() => {
     if (activeView === 'home') {
+      if (restoreHomeScroll.current) {
+        scrollInstantly(returnScrollY.current);
+        restoreHomeScroll.current = false;
+      }
       // Add intersection observer for animations
       const observerOptions = {
         threshold: 0.1,
@@ -65,31 +79,21 @@ function App() {
         observer.disconnect();
       };
     } else {
-      window.scrollTo(0, 0);
+      scrollInstantly(0);
     }
   }, [activeView]);
 
   const navigateTo = (view: AppView) => {
     if (view === 'home') {
-      if (window.location.pathname !== '/') {
-        window.history.pushState({}, '', '/');
-      }
+      if (window.location.pathname !== '/') window.history.pushState({}, '', '/');
+      restoreHomeScroll.current = true;
       setActiveView('home');
-      setTimeout(() => {
-        const caseStudySection = document.getElementById('case-study');
-        if (caseStudySection) {
-          caseStudySection.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }, 50);
     } else {
+      returnScrollY.current = window.scrollY;
       const route = CASE_STUDY_ROUTES[view];
-      if (route && window.location.pathname !== route.path) {
-        window.history.pushState({}, '', route.path);
-      }
+      if (route && window.location.pathname !== route.path) window.history.pushState({}, '', route.path);
       setActiveView(view);
-      window.scrollTo(0, 0);
+      scrollInstantly(0);
     }
   };
 
@@ -143,12 +147,12 @@ function App() {
       </main>
       
       {/* Footer */}
-      <footer className="bg-[#17221f] px-6 py-10 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/15 pt-6 text-left sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-[#c2ccc4]">
+      <footer className="bg-[#f4f2ed] px-6 py-10 text-[#17221f]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-[#d3d5cc] pt-6 text-left sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-[#66736c]">
             © 2026 Bhargav Nath
           </p>
-          <p className="text-xs text-[#9eada2]">
+          <p className="text-xs text-[#718077]">
             "Build what matters. Measure what moves. Learn what lasts."
           </p>
         </div>
