@@ -10,6 +10,7 @@ import ECGIdentificationCaseStudy from './components/case-studies/ECGIdentificat
 import DishFlowCaseStudy from './components/case-studies/DishFlowCaseStudy';
 import SolutionsCentralCaseStudy from './components/case-studies/SolutionsCentralCaseStudy';
 import WhatsAppCampaignCaseStudy from './components/case-studies/WhatsAppCampaignCaseStudy';
+import SwitchflyCaseStudy from './components/case-studies/SwitchflyCaseStudy';
 import Blog from './components/Blog';
 import AILiteracy from './components/AILiteracy';
 import ProductThinking from './components/ProductThinking';
@@ -95,7 +96,7 @@ function App() {
     }
   };
 
-  if (activeView === 'case-study-whatsapp') {
+  if (activeView === 'case-study-switchfly') {\n    return <SwitchflyCaseStudy onBack={() => navigateTo('home')} />;\n  }\n\n  if (activeView === 'case-study-whatsapp') {
     return <WhatsAppCampaignCaseStudy onBack={() => navigateTo('home')} />;
   }
 
@@ -127,7 +128,7 @@ function App() {
         <About />
         <ProjectGallery />
         <CaseStudy 
-          onOpenWhatsApp={() => navigateTo('case-study-whatsapp')}
+          onOpenSwitchfly={() => navigateTo('case-study-switchfly')}\n          onOpenWhatsApp={() => navigateTo('case-study-whatsapp')}
           onOpenCaseStudy={() => navigateTo('case-study-lead-quality')} 
           onOpenBreakage={() => navigateTo('case-study-breakage')}
           onOpenECG={() => navigateTo('case-study-ecg')}
