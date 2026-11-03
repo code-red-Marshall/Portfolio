@@ -2,107 +2,73 @@ import React from 'react';
 import { Mail, MapPin, Linkedin, Download, ExternalLink } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  const interests = [
+    'AI Product Management',
+    'Technical Product Management',
+    'Applied AI and workflow automation',
+    'Enterprise SaaS products',
+    'Product strategy and platform integrations'
+  ];
+
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Let's talk</h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+    <section id="contact" className="bg-[#e9ebe4] px-6 py-20 text-[#17221f] lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 grid gap-6 border-t border-[#cbd0c7] pt-8 md:grid-cols-[0.65fr_1.35fr] md:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#718077]">Contact</p>
+            <h2 className="mt-4 text-5xl font-semibold tracking-[-0.06em]">Let’s talk.</h2>
+          </div>
+          <p className="max-w-xl text-base leading-7 text-[#59665f] md:justify-self-end">
             I’m open to conversations about AI and Technical Product Management opportunities, interesting product problems and teams building useful technology.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+        <div className="grid gap-12 border-b border-[#cbd0c7] pb-12 md:grid-cols-[1fr_0.8fr]">
+          <div className="space-y-9">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Get in touch</h3>
-              <div className="space-y-4">
-                <a
-                  href="mailto:bhargavnth07@gmail.com?subject=Let's Connect&body=Hi Bhargav,%0D%0A%0D%0AI'd love to connect and discuss opportunities.%0D%0A%0D%0ABest regards,"
-                  className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors group"
-                >
-                  <div className="bg-slate-700 p-3 rounded-lg group-hover:bg-slate-600 transition-colors">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-sm">bhargavnth07@gmail.com</p>
-                  </div>
+              <h3 className="mb-5 text-xl font-semibold tracking-tight">Get in touch</h3>
+              <div className="space-y-5">
+                <a href="mailto:bhargavnth07@gmail.com?subject=Let's Connect&body=Hi Bhargav,%0D%0A%0D%0AI'd love to connect and discuss opportunities.%0D%0A%0D%0ABest regards," className="group flex items-center gap-4 text-[#59665f] transition-colors hover:text-[#17221f]">
+                  <span className="flex h-11 w-11 items-center justify-center border border-[#cbd0c7] bg-[#f4f2ed] text-[#587263]"><Mail size={19}/></span>
+                  <span><span className="block text-sm font-semibold text-[#17221f]">Email</span><span className="text-sm">bhargavnth07@gmail.com</span></span>
                 </a>
-
-                <div className="flex items-center gap-4 text-slate-300">
-                  <div className="bg-slate-700 p-3 rounded-lg">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Location</p>
-                    <p className="text-sm">India · Open to international opportunities</p>
-                  </div>
+                <div className="flex items-center gap-4 text-[#59665f]">
+                  <span className="flex h-11 w-11 items-center justify-center border border-[#cbd0c7] bg-[#f4f2ed] text-[#587263]"><MapPin size={19}/></span>
+                  <span><span className="block text-sm font-semibold text-[#17221f]">Location</span><span className="text-sm">India · Open to international opportunities</span></span>
                 </div>
-
-                <a
-                  href="https://linkedin.com/in/bhargav-nath"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors group"
-                >
-                  <div className="bg-slate-700 p-3 rounded-lg group-hover:bg-slate-600 transition-colors">
-                    <Linkedin size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">LinkedIn</p>
-                    <p className="text-sm">Connect professionally</p>
-                  </div>
+                <a href="https://linkedin.com/in/bhargav-nath" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-[#59665f] transition-colors hover:text-[#17221f]">
+                  <span className="flex h-11 w-11 items-center justify-center border border-[#cbd0c7] bg-[#f4f2ed] text-[#587263]"><Linkedin size={19}/></span>
+                  <span><span className="block text-sm font-semibold text-[#17221f]">LinkedIn</span><span className="text-sm">Connect professionally</span></span>
                 </a>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <h4 className="text-lg font-semibold">Quick actions</h4>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="/Bhargav_Resume.pdf"
-                  download="Bhargav_Resume.pdf"
-                  className="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition-all duration-200 hover:scale-105"
-                >
-                  <Download size={18} />
-                  Download Resume
+            <div>
+              <h3 className="mb-4 text-xl font-semibold tracking-tight">Quick actions</h3>
+              <div className="flex flex-wrap gap-3">
+                <a href="/Bhargav_Resume.pdf" download="Bhargav_Resume.pdf" className="inline-flex items-center gap-2 bg-[#17221f] px-5 py-3 text-sm font-semibold text-[#f4f2ed] transition-colors hover:bg-[#34463b]">
+                  <Download size={17}/> Download Resume
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/bhargav-nath"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-slate-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-600 transition-all duration-200 hover:scale-105"
-                >
-                  <ExternalLink size={18} />
-                  LinkedIn Profile
+                <a href="https://www.linkedin.com/in/bhargav-nath" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-[#bfc8bd] px-5 py-3 text-sm font-semibold text-[#34463b] transition-colors hover:bg-[#f4f2ed]">
+                  <ExternalLink size={17}/> LinkedIn Profile
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
-            <h3 className="text-xl font-semibold mb-4">Areas of interest</h3>
-            <div className="space-y-3">
-              {[
-                'AI Product Management',
-                'Technical Product Management',
-                'Applied AI and workflow automation',
-                'Enterprise SaaS products',
-                'Product strategy and platform integrations'
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                  <span className="text-slate-300">{item}</span>
-                </div>
+          <div className="border-l border-[#cbd0c7] pl-0 md:pl-10">
+            <h3 className="mb-5 text-xl font-semibold tracking-tight">Areas of interest</h3>
+            <ul className="space-y-4">
+              {interests.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm text-[#59665f]">
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#718777]"/>
+                  {item}
+                </li>
               ))}
-            </div>
-
-            <div className="mt-8 p-4 bg-white/10 rounded-lg">
-              <p className="text-sm text-slate-300">
-                Interested in opportunities across India and Europe.
-              </p>
-            </div>
+            </ul>
+            <p className="mt-8 border-t border-[#cbd0c7] pt-5 text-sm leading-6 text-[#718077]">
+              Interested in opportunities across India and Europe.
+            </p>
           </div>
         </div>
       </div>
