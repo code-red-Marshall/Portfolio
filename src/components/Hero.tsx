@@ -22,10 +22,10 @@ const Hero: React.FC = () => {
                 AI Product Manager <span className="text-slate-400">·</span> Technical Product Manager
               </p>
               <p className="text-2xl lg:text-3xl text-slate-700 font-semibold leading-snug max-w-2xl">
-                Building better products at the intersection of business and technology.
+                Turning complex business problems into useful AI-powered products.
               </p>
               <p className="text-lg text-slate-500 max-w-xl leading-relaxed">
-                I work across AI, enterprise SaaS and technology — understanding business problems, shaping product solutions and working with engineering teams to bring them to life.
+                I’m an AI Product Manager with hands-on experience taking enterprise workflows from problem discovery and UX/UI through prototyping, integrations and production delivery. I work across AI, data, APIs and engineering to turn practical opportunities into products people can use.
               </p>
             </div>
 
