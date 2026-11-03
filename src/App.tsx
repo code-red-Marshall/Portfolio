@@ -129,8 +129,8 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <About />
         <ProjectGallery />
+        <About />
         <CaseStudy 
           onOpenSwitchfly={() => navigateTo('case-study-switchfly')}
           onOpenWhatsApp={() => navigateTo('case-study-whatsapp')}
@@ -149,12 +149,12 @@ function App() {
       </main>
       
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-slate-400">
-            © 2024 Bhargav Nath. Built with purpose, designed for impact.
+      <footer className="bg-[#17221f] px-6 py-10 text-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/15 pt-6 text-left sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-[#c2ccc4]">
+            © 2026 Bhargav Nath
           </p>
-          <p className="text-slate-500 text-sm mt-2">
+          <p className="text-xs text-[#9eada2]">
             "Build what matters. Measure what moves. Learn what lasts."
           </p>
         </div>
