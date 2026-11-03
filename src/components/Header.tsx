@@ -31,11 +31,11 @@ const Header: React.FC = () => {
   };
 
   const navItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Projects', id: 'projects' },
+    { label: 'Work', id: 'projects' },
     { label: 'Case Studies', id: 'case-study' },
-    { label: 'Blog', id: 'blog' },
     { label: 'Experience', id: 'experience' },
+    { label: 'Education', id: 'education' },
+    { label: 'Writing', id: 'blog' },
     { label: 'Contact', id: 'contact' },
   ];
 
