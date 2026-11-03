@@ -7,35 +7,35 @@ const About: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-slate-900">About</h2>
+            <h2 className="text-4xl font-bold text-slate-900">A little about me</h2>
             <div className="space-y-6 text-slate-600 leading-relaxed text-base">
               <p>
-                My work sits at the intersection of product thinking, data, and applied AI. I started in electronics and computational analysis, moved into NLP and data engineering, and now focus on building systems that help teams make faster, better decisions.
+                I’m a product professional with a technical background and a growing focus on AI. My work has taken me from electronics and data analysis into enterprise software, where I enjoy connecting the needs of users and businesses with what technology can make possible.
               </p>
               <p>
-                I’m especially interested in AI features that solve real operational problems, whether that means structuring messy datasets, improving analytics workflows, or translating technical complexity into something useful for end users and business teams.
+                I’m interested in products that make complicated work simpler. That means getting close to the problem, asking the right questions, making thoughtful trade-offs and working with design and engineering teams to deliver something people can actually use.
               </p>
             </div>
           </div>
 
           <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-slate-900">What I do</h2>
+            <h2 className="text-4xl font-bold text-slate-900">Where I focus</h2>
             <div className="grid gap-6">
               {[
                 {
-                  icon: Brain, 
-                  title: 'Workflow Automation',
-                  description: 'Build AI-assisted analytics and workflow tools that reduce manual effort and improve decision-making.'
+                  icon: Brain,
+                  title: 'AI & Intelligent Products',
+                  description: 'Explore practical uses of AI and LLMs, with attention to usefulness, reliability and the experience around the model.'
                 },
                 {
                   icon: Target,
-                  title: 'Product Delivery',
-                  description: 'Work across product, data, and engineering teams to define requirements and ship practical solutions.'
+                  title: 'Product Strategy & Delivery',
+                  description: 'Turn business and user problems into clear requirements, priorities and product experiences — then work with teams to ship them.'
                 },
                 {
                   icon: TrendingUp,
-                  title: 'Technical Implementation',
-                  description: 'Use Python, SQL, LLM integrations, and structured problem-solving to turn raw information into usable systems.'
+                  title: 'Technical Product Thinking',
+                  description: 'Work comfortably across APIs, integrations, data and software architecture to make informed product decisions with engineering.'
                 }
               ].map((item, index) => (
                 <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
