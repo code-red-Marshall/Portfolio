@@ -4,7 +4,8 @@ import ShareButton from './ui/ShareButton';
 import { getCaseStudyUrl } from '../utils/routes';
 
 interface CaseStudyProps {
-  onOpenWhatsApp?: () => void;\n  onOpenSwitchfly?: () => void;
+  onOpenWhatsApp?: () => void;
+  onOpenSwitchfly?: () => void;
   onOpenCaseStudy: () => void;
   onOpenBreakage?: () => void;
   onOpenECG?: () => void;
