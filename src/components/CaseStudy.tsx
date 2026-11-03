@@ -4,7 +4,7 @@ import ShareButton from './ui/ShareButton';
 import { getCaseStudyUrl } from '../utils/routes';
 
 interface CaseStudyProps {
-  onOpenWhatsApp?: () => void;
+  onOpenWhatsApp?: () => void;\n  onOpenSwitchfly?: () => void;
   onOpenCaseStudy: () => void;
   onOpenBreakage?: () => void;
   onOpenECG?: () => void;
@@ -143,6 +143,22 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                   label="Copy Link"
                 />
               </div>
+            </div>
+          </div>
+
+          {/* Switchfly Integration */}
+          <div
+            onClick={onOpenSwitchfly}
+            className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer group flex flex-col w-full"
+          >
+            <div className="h-56 bg-slate-900 overflow-hidden border-b border-slate-100">
+              <img src="/Project 1.webp" alt="Switchfly travel integration" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div className="p-8 flex-1 flex flex-col">
+              <div className="inline-block px-3 py-1 bg-sky-50 text-sky-700 font-semibold rounded-full w-fit mb-4 text-sm border border-sky-100">Enterprise integration</div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-sky-700 transition-colors">Switchfly Integration</h3>
+              <p className="text-slate-600 mb-8 flex-1 leading-relaxed">Expanding an employee rewards platform with travel options through a third-party integration.</p>
+              <div className="flex items-center gap-2 text-sky-700 font-bold text-sm">Read full case study <ArrowRight size={18}/></div>
             </div>
           </div>
 
