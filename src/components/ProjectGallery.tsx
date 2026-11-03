@@ -20,7 +20,7 @@ const ProjectGallery: React.FC = () => {
       ],
       details: 'Built Vantage Circle\'s WhatsApp campaign channel end to end. Started with a full Next.js/Supabase prototype directly integrated with Meta\'s WhatsApp Business Platform featuring template validation, CSV audience detection, 3-step wizard, and signed webhooks. When data governance showed third-party PII exposure was unacceptable for enterprise clients, redesigned and rebuilt the product natively inside the production Play/Scala Campaign Manager—moving the app to where the data lives with zero data exports and database-enforced safety rails.',
       metrics: 'Verified product and delivery metrics to be added.',
-      role: 'Product and technical implementation, including workflow design and integration coordination',
+      role: 'Solo end-to-end builder — product, UX/UI, frontend, backend and production implementation; AI-assisted with Claude Code',
       image: '/whatsapp-campaign-thumbnail.png',
       link: 'https://whatsapp-campaign-manager-eta.vercel.app/',
       category: 'Work'
