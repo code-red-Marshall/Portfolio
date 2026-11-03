@@ -10,10 +10,10 @@ const About: React.FC = () => {
             <h2 className="text-4xl font-bold text-slate-900">A little about me</h2>
             <div className="space-y-6 text-slate-600 leading-relaxed text-base">
               <p>
-                I’m a product professional with a technical background and a growing focus on AI. My work has taken me from electronics and data analysis into enterprise software, where I enjoy connecting the needs of users and businesses with what technology can make possible.
+                I’m an AI Product Manager with an engineering and data background. I work at the intersection of user problems, business priorities and technical execution — shaping product workflows, building prototypes and taking solutions into production.
               </p>
               <p>
-                I’m interested in products that make complicated work simpler. That means getting close to the problem, asking the right questions, making thoughtful trade-offs and working with design and engineering teams to deliver something people can actually use.
+                My approach is hands-on: understand the problem, define the right experience, test assumptions quickly and work through the technical trade-offs required to ship. I’m particularly interested in applied AI, LLM-enabled workflows and enterprise products where reliability and usefulness matter as much as the model itself.
               </p>
             </div>
           </div>
