@@ -28,16 +28,16 @@ const ProjectGallery: React.FC = () => {
     {
       id: '11',
       title: 'Solutions Central',
-      description: 'Self-serve internal platform designed to turn a scattered intake process into a unified dashboard, Confluence project tracker, and Chrome assistant.',
+      description: 'Internal product built for the Solutions Engineering team, connecting request intake, project tracking, knowledge search and in-workflow assistance.',
       tools: ['Next.js', 'Python', 'GitHub API', 'Chrome Extension', 'Confluence API'],
       outcomes: [
         'Designed and built an end-to-end self-serve knowledge hub and Chrome assistant solo',
         'Automated ingestion via Python & Graph API, diffing and committing changes every 15 minutes',
         'Integrated BM25 search index over solution requests, RFPs, and docs with role-scoped auth'
       ],
-      details: 'Designed, built, and shipped Solutions Central end-to-end. The platform programmatically pulls data from MS Forms/SharePoint Excel via a Python Graph API puller, writes them as versioned markdown and JSON files to a GitHub repository, and serves a live Next.js dashboard at request time. Built a Confluence-native project tracker that directly reads/writes pages to prevent drift, alongside a Chrome side-panel assistant for sales team queries featuring Okapi BM25 search indexing, source citations, and invite-code role authentication.',
-      metrics: '289 requests tracked • Solo 0 to 1 Delivery • Real-time BM25 search',
-      role: 'Solutions Engineer (Designed, built, and shipped end-to-end)',
+      details: 'Designed and built Solutions Central for actual internal users in the Solutions Engineering team. The platform connects request intake, project context and knowledge discovery: it pulls information from MS Forms/SharePoint Excel through a Python Graph API integration, maintains versioned Markdown and JSON in GitHub, and presents a Next.js dashboard. I also built a Confluence-native project tracker and a Chrome side-panel assistant with Okapi BM25 search, source citations and invite-code role authentication.',
+      metrics: 'Built for internal use by the Solutions Engineering team',
+      role: 'Solutions Engineer — product design and end-to-end implementation for internal team users',
       image: '/solutions-central-thumbnail.jpg',
       category: 'Work'
     },
