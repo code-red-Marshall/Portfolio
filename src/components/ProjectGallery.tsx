@@ -226,22 +226,22 @@ const ProjectGallery: React.FC = () => {
   const renderProjectCard = (project: Project, compact = false) => (
     <article
       key={project.id}
-      className={`group cursor-pointer border-t border-[#cbd0c7] pt-5 transition-colors hover:border-[#718777] ${compact ? 'opacity-90' : ''} ${project.id === '12' && !compact ? 'md:col-span-2' : ''}`}
+      className={`group cursor-pointer rounded-2xl border border-[#d9ddd4] bg-[#f8f7f2] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#aab8aa] hover:shadow-md ${compact ? 'opacity-90' : ''} ${project.id === '12' && !compact ? 'md:col-span-2' : ''}`}
       onClick={() => openModal(project)}
     >
       {project.image && (
-        <div className={`mx-auto overflow-hidden rounded-2xl bg-[#e3e5dc] ring-1 ring-[#d8dbd3] shadow-sm transition-shadow duration-300 group-hover:shadow-md ${compact ? 'aspect-[16/9] max-w-[420px]' : project.id === '12' ? 'aspect-[16/6] max-h-[330px] max-w-5xl' : 'aspect-[16/9] max-h-[250px] max-w-[560px]'}`}>
+        <div className={`overflow-hidden rounded-xl bg-[#e3e5dc] ring-1 ring-[#d8dbd3] ${compact ? 'aspect-[16/9] max-h-[150px]' : 'aspect-[16/9] max-h-[190px]'}`}>
           <img src={project.image} alt={project.title} loading="lazy" decoding="async"
             className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]" />
         </div>
       )}
-      <div className={compact ? 'pt-4' : 'pt-5'}>
+      <div className={compact ? 'pt-3' : 'pt-4'}>
         <div className="mb-3 flex items-start justify-between gap-4">
           <h3 className={`${compact ? 'text-xl' : 'text-2xl'} font-semibold tracking-[-0.04em] text-[#17221f] transition-colors group-hover:text-[#587263]`}>{project.title}</h3>
           <ExternalLink className="mt-1 shrink-0 text-[#7b887f] transition-colors group-hover:text-[#17221f]" size={16} />
         </div>
-        <p className="mb-4 max-w-2xl text-sm leading-6 text-[#66736c] line-clamp-3">{project.description}</p>
-        <div className="mb-4 flex flex-wrap gap-2">
+        <p className="mb-3 text-[13px] leading-5 text-[#66736c] line-clamp-3">{project.description}</p>
+        <div className="mb-3 flex flex-wrap gap-1.5">
           {project.tools.slice(0, compact ? 2 : 3).map((tool, index) => (
             <span key={index} className="border border-[#d6d9d1] px-3 py-1 text-[11px] font-medium text-[#69766e]">{tool}</span>
           ))}
@@ -274,7 +274,7 @@ const ProjectGallery: React.FC = () => {
 
   return (
     <section id="projects" className="bg-[#f4f2ed] px-6 py-20 text-[#17221f] lg:py-28">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-14 grid gap-6 border-t border-[#d3d5cc] pt-8 md:grid-cols-[0.65fr_1.35fr] md:items-end">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#718077]">Selected work / 2024—26</p>
@@ -293,7 +293,7 @@ const ProjectGallery: React.FC = () => {
             </div>
             <p className="max-w-sm text-sm leading-6 text-[#718077]">Products and integrations delivered in a professional environment.</p>
           </div>
-          <div className="grid gap-x-7 gap-y-12 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-3">
             {workProjects.map(project => renderProjectCard(project))}
           </div>
         </section>
@@ -306,7 +306,7 @@ const ProjectGallery: React.FC = () => {
             </div>
             <p className="max-w-sm text-sm leading-6 text-[#879188]">Selected experiments and academic work. Useful context, with less emphasis than professional delivery.</p>
           </div>
-          <div className="grid gap-x-7 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {secondaryProjects.map(project => renderProjectCard(project, true))}
           </div>
         </section>
