@@ -42,7 +42,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                  alt="WhatsApp Campaign Manager Case Study Thumbnail" 
                  loading="lazy"
                  decoding="async"
-                 className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-500 will-change-transform"
+                 className="w-full h-full object-cover object-center scale-[1.06] group-hover:scale-[1.1] transition-transform duration-500 will-change-transform"
                />
                <div className="absolute top-3 right-3">
                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/90 text-white text-xs font-semibold rounded-full shadow-md backdrop-blur-sm">
