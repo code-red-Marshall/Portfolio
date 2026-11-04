@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, BriefcaseBusiness, CalendarDays, GraduationCap } from 'lucide-react';
+import { Building2, CalendarDays, GraduationCap } from 'lucide-react';
 
 const vantageRoles = [
   {
@@ -140,7 +140,7 @@ const ProfessionalBackground: React.FC = () => {
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="flex items-start gap-3">
                       <div className="mt-0.5 rounded-lg border border-[#d8dbd3] bg-[#e9ebe4] p-2 text-[#587263]">
-                        {index === 2 ? <GraduationCap size={18}/> : <BriefcaseBusiness size={18}/>}
+                        {index === 2 ? <GraduationCap size={18}/> : <Building2 size={18}/>}
                       </div>
                       <div>
                         <h4 className="text-lg font-semibold tracking-[-0.03em] text-[#17221f]">{exp.company}</h4>
