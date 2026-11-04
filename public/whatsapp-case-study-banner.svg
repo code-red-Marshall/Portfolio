@@ -1,89 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-labelledby="t d">
-  <title id="t">Case Study: WhatsApp Campaign Manager</title>
-  <desc id="d">The campaign app sits inside Vantage Circle next to the employee database and sends WhatsApp messages straight to phones. No data is exported.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0B2E21"/>
-      <stop offset="1" stop-color="#10402E"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-    <style>
-      text  { font-family: 'Geist', 'Inter', 'Segoe UI', system-ui, sans-serif; }
-      .kick { font-size: 15px; font-weight: 700; fill: #0B2E21; letter-spacing: 2px; }
-      .title{ font-size: 46px; font-weight: 800; fill: #F2FBF6; letter-spacing: -1px; }
-      .sub  { font-size: 21px; fill: #A7C9BA; }
-      .hl   { fill: #5EE89A; font-weight: 600; }
-      .lbl  { font-size: 14px; font-weight: 700; fill: #5EE89A; letter-spacing: 1.5px; }
-      .cap  { font-size: 13px; font-weight: 600; fill: #DDF3E8; }
-      .no   { font-size: 13px; font-weight: 600; fill: #FF8A8A; }
-    </style>
-  </defs>
-
-  <rect width="1280" height="400" fill="url(#bg)"/>
-  <circle cx="1160" cy="20" r="200" fill="#25D366" opacity="0.07"/>
-
-  <!-- left: text -->
-  <rect x="64" y="92" width="132" height="32" rx="16" fill="#5EE89A"/>
-  <text x="130" y="113" text-anchor="middle" class="kick">CASE STUDY</text>
-  <text x="64" y="190" class="title">WhatsApp</text>
-  <text x="64" y="242" class="title">Campaign Manager</text>
-  <text x="66" y="288" class="sub">Reaching 2M employees on WhatsApp,</text>
-  <text x="66" y="318" class="sub"><tspan class="hl">without exporting any client data.</tspan></text>
-
-  <!-- right: the company boundary with the data and the app inside -->
-  <rect x="610" y="56" width="380" height="288" rx="24" fill="#ffffff" fill-opacity="0.04" stroke="#5EE89A" stroke-opacity="0.7" stroke-width="2" stroke-dasharray="8 8"/>
-  <text x="634" y="88" class="lbl">🔒 VANTAGE CIRCLE</text>
-
-  <!-- database -->
-  <g transform="translate(650 130)">
-    <path d="M0 18 v110 a60 18 0 0 0 120 0 v-110" fill="#1C5A42" stroke="#5EE89A" stroke-width="2"/>
-    <ellipse cx="60" cy="18" rx="60" ry="18" fill="#2A7A58" stroke="#5EE89A" stroke-width="2"/>
-    <path d="M0 56 a60 18 0 0 0 120 0 M0 94 a60 18 0 0 0 120 0" fill="none" stroke="#5EE89A" stroke-opacity="0.6" stroke-width="2"/>
-    <text x="60" y="172" text-anchor="middle" class="cap">Employee data</text>
-  </g>
-
-  <!-- arrow db → app -->
-  <path d="M782 200 H 822" stroke="#5EE89A" stroke-width="3" stroke-linecap="round"/>
-  <path d="M814 192 L824 200 L814 208" fill="none" stroke="#5EE89A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- campaign app -->
-  <g transform="translate(836 140)" filter="url(#shadow)">
-    <rect width="128" height="120" rx="16" fill="#ffffff"/>
-    <circle cx="64" cy="48" r="26" fill="#25D366"/>
-    <path d="M44 70 L48 58 L58 66 Z" fill="#25D366"/>
-    <path d="M52 41 h24 M52 49 h24 M52 57 h14" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
-    <rect x="22" y="88" width="84" height="20" rx="7" fill="#25D366"/>
-    <text x="64" y="102" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#fff">Send</text>
-  </g>
-  <text x="900" y="290" text-anchor="middle" class="cap">Campaign app</text>
-
-  <!-- messages leave, data doesn't -->
-  <g fill="none" stroke="#5EE89A" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round">
-    <path d="M968 200 C 1010 200, 1030 160, 1080 160"/>
-  </g>
-
-  <!-- phone -->
-  <g transform="translate(1084 76)" filter="url(#shadow)">
-    <rect width="110" height="196" rx="18" fill="#061A12" stroke="#2E5C4B"/>
-    <rect x="7" y="7" width="96" height="182" rx="12" fill="#ECE5DD"/>
-    <rect x="7" y="7" width="96" height="28" rx="12" fill="#128C7E"/>
-    <rect x="7" y="22" width="96" height="13" fill="#128C7E"/>
-    <circle cx="22" cy="21" r="6.5" fill="#fff" opacity="0.85"/>
-    <rect x="34" y="18" width="40" height="6" rx="3" fill="#fff" opacity="0.85"/>
-    <rect x="14" y="50" width="80" height="60" rx="9" fill="#fff"/>
-    <rect x="22" y="60" width="60" height="6" rx="3" fill="#B9C9C2"/>
-    <rect x="22" y="73" width="50" height="6" rx="3" fill="#D3DDD8"/>
-    <rect x="22" y="86" width="40" height="6" rx="3" fill="#D3DDD8"/>
-    <path d="M62 100 l3 3 l6 -6 M68 100 l3 3 l6 -6" fill="none" stroke="#34B7F1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-
-  <!-- crossed-out export -->
-  <g transform="translate(1080 300)">
-    <rect width="24" height="30" rx="4" fill="none" stroke="#FF8A8A" stroke-width="2"/>
-    <path d="M6 10 h12 M6 16 h12 M6 22 h8" stroke="#FF8A8A" stroke-width="2" stroke-linecap="round"/>
-    <path d="M-4 -2 L28 32" stroke="#FF8A8A" stroke-width="3" stroke-linecap="round"/>
-    <text x="36" y="21" class="no">No data export</text>
-  </g>
-</svg>
+<title id="t">Case Study: WhatsApp Campaign Manager</title><desc id="d">The campaign app sits inside Vantage Circle next to the employee database and sends WhatsApp messages straight to phones. No data is exported.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B2E21"/><stop offset="1" stop-color="#10402E"/></linearGradient><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/></filter><style>text{font-family:'Geist','Inter','Segoe UI',system-ui,sans-serif}.kick{font-size:15px;font-weight:700;fill:#0B2E21;letter-spacing:2px}.title{font-size:46px;font-weight:800;fill:#F2FBF6;letter-spacing:-1px}.sub{font-size:21px;fill:#A7C9BA}.hl{fill:#5EE89A;font-weight:600}.lbl{font-size:14px;font-weight:700;fill:#5EE89A;letter-spacing:1.5px}.cap{font-size:13px;font-weight:600;fill:#DDF3E8}.no{font-size:13px;font-weight:600;fill:#FF8A8A}</style></defs>
+<rect width="1280" height="400" fill="url(#bg)"/><circle cx="1160" cy="20" r="200" fill="#25D366" opacity="0.07"/>
+<rect x="64" y="92" width="132" height="32" rx="16" fill="#5EE89A"/><text x="130" y="113" text-anchor="middle" class="kick">CASE STUDY</text><text x="64" y="190" class="title">WhatsApp</text><text x="64" y="242" class="title">Campaign Manager</text><text x="66" y="288" class="sub">Reaching 2M employees on WhatsApp,</text><text x="66" y="318" class="sub"><tspan class="hl">without exporting any client data.</tspan></text>
+<rect x="610" y="56" width="380" height="288" rx="24" fill="#fff" fill-opacity="0.04" stroke="#5EE89A" stroke-opacity="0.7" stroke-width="2" stroke-dasharray="8 8"/><text x="634" y="88" class="lbl">🔒 VANTAGE CIRCLE</text>
+<g transform="translate(650 130)"><path d="M0 18 v110 a60 18 0 0 0 120 0 v-110" fill="#1C5A42" stroke="#5EE89A" stroke-width="2"/><ellipse cx="60" cy="18" rx="60" ry="18" fill="#2A7A58" stroke="#5EE89A" stroke-width="2"/><path d="M0 56 a60 18 0 0 0 120 0 M0 94 a60 18 0 0 0 120 0" fill="none" stroke="#5EE89A" stroke-opacity="0.6" stroke-width="2"/><text x="60" y="172" text-anchor="middle" class="cap">Employee data</text></g>
+<path d="M782 200 H822" stroke="#5EE89A" stroke-width="3" stroke-linecap="round"/><path d="M814 192 L824 200 L814 208" fill="none" stroke="#5EE89A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(836 140)" filter="url(#shadow)"><rect width="128" height="120" rx="16" fill="#fff"/><circle cx="64" cy="48" r="26" fill="#25D366"/><path d="M44 70 L48 58 L58 66 Z" fill="#25D366"/><path d="M52 41 h24 M52 49 h24 M52 57 h14" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><rect x="22" y="88" width="84" height="20" rx="7" fill="#25D366"/><text x="64" y="102" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#fff">Send</text></g><text x="900" y="290" text-anchor="middle" class="cap">Campaign app</text>
+<g fill="none" stroke="#5EE89A" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"><path d="M968 200 C1010 200 1030 160 1080 160"/></g>
+<g transform="translate(1084 76)" filter="url(#shadow)"><rect width="110" height="196" rx="18" fill="#061A12" stroke="#2E5C4B"/><rect x="7" y="7" width="96" height="182" rx="12" fill="#ECE5DD"/><rect x="7" y="7" width="96" height="28" rx="12" fill="#128C7E"/><rect x="7" y="22" width="96" height="13" fill="#128C7E"/><circle cx="22" cy="21" r="6.5" fill="#fff" opacity="0.85"/><rect x="34" y="18" width="40" height="6" rx="3" fill="#fff" opacity="0.85"/><rect x="14" y="50" width="80" height="60" rx="9" fill="#fff"/><rect x="22" y="60" width="60" height="6" rx="3" fill="#B9C9C2"/><rect x="22" y="73" width="50" height="6" rx="3" fill="#D3DDD8"/><rect x="22" y="86" width="40" height="6" rx="3" fill="#D3DDD8"/><path d="M62 100 l3 3 l6 -6 M68 100 l3 3 l6 -6" fill="none" stroke="#34B7F1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(1080 300)"><rect width="24" height="30" rx="4" fill="none" stroke="#FF8A8A" stroke-width="2"/><path d="M6 10 h12 M6 16 h12 M6 22 h8" stroke="#FF8A8A" stroke-width="2" stroke-linecap="round"/><path d="M-4 -2 L28 32" stroke="#FF8A8A" stroke-width="3" stroke-linecap="round"/><text x="36" y="21" class="no">No data export</text></g></svg>
