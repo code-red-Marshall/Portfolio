@@ -192,7 +192,7 @@ const WhatsAppCampaignCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
             <div><p className="text-xs uppercase tracking-wider text-[#718077]">Integration</p><p className="mt-1 font-semibold text-[#17221f]">Meta WhatsApp Business Platform</p></div>
           </div>
           <div className="mt-8 overflow-hidden rounded-2xl border border-[#d8dbd3] bg-white">
-            <img src="/whatsapp-campaign-thumbnail.png" alt="WhatsApp Campaign Manager product overview" className="h-auto w-full object-cover" />
+            <img src="/whatsapp-case-study-banner.svg" alt="WhatsApp Campaign Manager case study: campaign workflow within Vantage Circle, connecting employee data to WhatsApp without exporting client data" className="block h-auto w-full object-contain" />
           </div>
         </header>
 
