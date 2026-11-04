@@ -227,7 +227,17 @@ const ProjectGallery: React.FC = () => {
     <article
       key={project.id}
       className={`group cursor-pointer rounded-2xl border border-[#d9ddd4] bg-[#f8f7f2] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#aab8aa] hover:shadow-md ${compact ? 'opacity-90' : ''} ${project.id === '12' && !compact ? 'md:col-span-2' : ''}`}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${project.title}`}
       onClick={() => openModal(project)}
+      onKeyDown={(event) => {
+        if (event.target !== event.currentTarget) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openModal(project);
+        }
+      }}
     >
       {project.image && (
         <div className={`overflow-hidden rounded-xl bg-[#e3e5dc] ring-1 ring-[#d8dbd3] ${project.id === '12' ? 'aspect-[16/5]' : compact ? 'aspect-[16/9] max-h-[150px]' : 'aspect-[16/9] max-h-[190px]'}`}>
