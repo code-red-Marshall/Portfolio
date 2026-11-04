@@ -293,7 +293,7 @@ const ProjectGallery: React.FC = () => {
             </div>
             <p className="max-w-sm text-sm leading-6 text-[#718077]">Products and integrations delivered in a professional environment.</p>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {workProjects.map(project => renderProjectCard(project))}
           </div>
         </section>
