@@ -36,13 +36,13 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
             onClick={onOpenWhatsApp}
             className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer group flex flex-col w-full relative"
           >
-            <div className="h-56 bg-slate-950 overflow-hidden text-center relative transition-transform border-b border-slate-100">
-               <img 
-                 src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Gw5Yl0heenscNlRDkWnQHiIF8r/450c9f8a-70f9-4ace-b295-2b10bc7d01b9.png" 
-                 alt="WhatsApp Campaign Manager Case Study Thumbnail" 
+            <div className="relative aspect-[16/5] w-full overflow-hidden bg-[#0B2E21] text-center border-b border-slate-100">
+               <img
+                 src="/whatsapp-case-study-banner.svg"
+                 alt="WhatsApp Campaign Manager Case Study Thumbnail"
                  loading="lazy"
                  decoding="async"
-                 className="w-full h-full object-cover object-center scale-[1.06] group-hover:scale-[1.1] transition-transform duration-500 will-change-transform"
+                 className="absolute inset-0 h-full w-full object-cover"
                />
                <div className="absolute top-3 right-3">
                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/90 text-white text-xs font-semibold rounded-full shadow-md backdrop-blur-sm">
