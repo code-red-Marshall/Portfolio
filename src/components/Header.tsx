@@ -31,11 +31,11 @@ const Header: React.FC = () => {
   };
 
   const navItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Projects', id: 'projects' },
+    { label: 'Work', id: 'projects' },
     { label: 'Case Studies', id: 'case-study' },
-    { label: 'Blog', id: 'blog' },
     { label: 'Experience', id: 'experience' },
+    { label: 'Education', id: 'education' },
+    { label: 'Writing', id: 'blog' },
     { label: 'Contact', id: 'contact' },
   ];
 
@@ -43,15 +43,15 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-300 ${
         isScrolled
-          ? 'bg-white border-b border-slate-200 shadow-sm'
-          : 'bg-transparent'
+          ? 'bg-[#f4f2ed]/95 border-b border-[#d3d5cc] shadow-sm backdrop-blur-md'
+          : 'bg-[#f4f2ed]/90 backdrop-blur-sm'
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4">
+      <nav aria-label="Main navigation" className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-xl font-bold text-slate-900 hover:text-slate-700 transition-colors"
+            className="text-lg font-semibold tracking-[-0.04em] text-[#17221f] hover:text-[#587263] transition-colors"
           >
             Bhargav Nath
           </button>
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-slate-600 hover:text-slate-900 transition-colors font-medium"
+                className="text-xs uppercase tracking-[0.12em] text-[#66736c] hover:text-[#17221f] transition-colors font-semibold"
               >
                 {item.label}
               </button>
@@ -72,6 +72,9 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
             className="md:hidden p-2 text-gray-600 hover:text-gray-900"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,7 +83,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-lg border">
+          <div id="mobile-navigation" role="region" aria-label="Mobile navigation" className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-lg border">
             {navItems.map((item) => (
               <button
                 key={item.id}

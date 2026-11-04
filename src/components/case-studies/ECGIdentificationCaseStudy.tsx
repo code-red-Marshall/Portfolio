@@ -212,7 +212,7 @@ const ECGIdentificationCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack }
       </article>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12 mt-20">
+      <footer className="bg-[#f4f2ed] text-[#17221f] py-12 mt-20 border-t border-[#d3d5cc]">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <p className="text-slate-400">
             © 2024 Bhargav Nath. Built with purpose, designed for impact.

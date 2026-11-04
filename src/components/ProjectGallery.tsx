@@ -11,33 +11,33 @@ const ProjectGallery: React.FC = () => {
     {
       id: '12',
       title: 'WhatsApp Campaign Manager',
-      description: 'Bringing a new messaging channel to a 2M-employee HR-tech platform without moving any client data.',
-      tools: ['Meta Graph API', 'Next.js', 'Play / Scala 3', 'MySQL', 'Supabase', 'Webhooks (HMAC)', 'Groq (LLM)'],
+      description: 'A WhatsApp campaign workflow built as a native module within the existing enterprise Campaign Manager.',
+      tools: ['Meta WhatsApp Business Platform', 'Play Framework', 'Scala', 'MySQL', 'Webhooks'],
       outcomes: [
-        'Eliminated client PII exports per campaign from 4 copies to zero',
-        'Architected single additive table with database-level double-send guards',
-        'Shipped working Next.js prototype and native Play/Scala production module in 8 weeks'
+        'Designed the production workflow around the platform’s existing data boundaries',
+        'Worked through campaign execution and operational safety requirements',
+        'Used a standalone prototype to explore the workflow before the native production implementation'
       ],
-      details: 'Built Vantage Circle\'s WhatsApp campaign channel end to end. Started with a full Next.js/Supabase prototype directly integrated with Meta\'s WhatsApp Business Platform featuring template validation, CSV audience detection, 3-step wizard, and signed webhooks. When data governance showed third-party PII exposure was unacceptable for enterprise clients, redesigned and rebuilt the product natively inside the production Play/Scala Campaign Manager—moving the app to where the data lives with zero data exports and database-enforced safety rails.',
-      metrics: '0 PII Exports • 8-Week Solo Build • 2M-Employee Reach • Green Quality Rating',
-      role: 'Sole Builder (Product, Design, Engineering, Meta Integration and Rollout)',
-      image: '/whatsapp-campaign-thumbnail.png',
+      details: 'Independently owned the WhatsApp campaign product from prototype through production. Designed the UX/UI and built the frontend, backend and Meta WhatsApp Business Platform integration for a Vercel-hosted Next.js/Supabase prototype, then implemented the production version natively in the existing Play/Scala Campaign Manager. Used Claude Code as an AI-assisted development tool while retaining responsibility for product decisions, implementation, integration and delivery.',
+      metrics: '8 campaigns launched • 110,000+ distinct users in aggregate campaign audiences',
+      role: 'Solo end-to-end builder — product, UX/UI, frontend, backend and production implementation; AI-assisted with Claude Code',
+      image: '/whatsapp-campaign-banner.svg',
       link: 'https://whatsapp-campaign-manager-eta.vercel.app/',
       category: 'Work'
     },
     {
       id: '11',
       title: 'Solutions Central',
-      description: 'Self-serve internal platform designed to turn a scattered intake process into a unified dashboard, Confluence project tracker, and Chrome assistant.',
+      description: 'Internal product built primarily for Solutions Consultants within the Solutions Engineering team, connecting request intake, project tracking, knowledge search and in-workflow assistance.',
       tools: ['Next.js', 'Python', 'GitHub API', 'Chrome Extension', 'Confluence API'],
       outcomes: [
         'Designed and built an end-to-end self-serve knowledge hub and Chrome assistant solo',
         'Automated ingestion via Python & Graph API, diffing and committing changes every 15 minutes',
         'Integrated BM25 search index over solution requests, RFPs, and docs with role-scoped auth'
       ],
-      details: 'Designed, built, and shipped Solutions Central end-to-end. The platform programmatically pulls data from MS Forms/SharePoint Excel via a Python Graph API puller, writes them as versioned markdown and JSON files to a GitHub repository, and serves a live Next.js dashboard at request time. Built a Confluence-native project tracker that directly reads/writes pages to prevent drift, alongside a Chrome side-panel assistant for sales team queries featuring Okapi BM25 search indexing, source citations, and invite-code role authentication.',
-      metrics: '289 requests tracked • Solo 0 to 1 Delivery • Real-time BM25 search',
-      role: 'Solutions Engineer (Designed, built, and shipped end-to-end)',
+      details: 'Designed and built Solutions Central primarily for internal use by Solutions Consultants within the Solutions Engineering team. The platform connects request intake, project context and knowledge discovery: it pulls information from MS Forms/SharePoint Excel through a Python Graph API integration, maintains versioned Markdown and JSON in GitHub, and presents a Next.js dashboard. I also built a Confluence-native project tracker and a Chrome side-panel assistant with Okapi BM25 search, source citations and invite-code role authentication.',
+      metrics: 'Built primarily for Solutions Consultants within Solutions Engineering',
+      role: 'Solutions Engineer — product design and end-to-end implementation for Solutions Consultants',
       image: '/solutions-central-thumbnail.jpg',
       category: 'Work'
     },
@@ -47,15 +47,15 @@ const ProjectGallery: React.FC = () => {
       description: 'Integrated travel tech (hotels, cabs, experiences) into HR SaaS platform',
       tools: ['Postman', 'Miro', 'Google Analytics', 'JIRA', 'Confluence'],
       outcomes: [
-        'Rolled out for 133 global clients across 37 countries',
-        '$50K new revenue in first quarter',
-        '+14% Monthly Active Users post-integration'
+        'Integrated travel inventory into the existing employee rewards experience',
+        'Coordinated API validation, requirements, QA and release preparation',
+        'Supported rollout and post-launch feedback tracking'
       ],
       details:
-        'Led the integration of Switchfly into our HR Tech SaaS platform to enable travel and experience redemptions. Drove end-to-end delivery: requirements, API validation with Switchfly, stakeholder comms, launch planning, and analytics tracking to measure adoption.',
-      metrics: '$50K revenue • 133 clients • +14% MAU',
+        'Coordinated the Switchfly integration into the HR Tech SaaS platform to add travel and experience redemptions. Worked across requirements, API validation with Switchfly, stakeholder communication, QA coordination, launch planning and post-launch feedback.',
+      metrics: 'Adoption and commercial outcomes not yet quantified.',
       role:
-        'Associate Product Manager coordinating engineering, design, and business; managed API integration, QA, and go-live.',
+        'Associate Project Coordinator — coordinating engineering, design and business stakeholders through API integration, QA and go-live.',
       image: '/Project 1.webp',
       category: 'Work'
     },
@@ -65,15 +65,15 @@ const ProjectGallery: React.FC = () => {
       description: 'Swag Store upgrade: merchandise redemption with customizable branding',
       tools: ['Postman', 'Miro', 'JIRA', 'Google Analytics', 'Confluence'],
       outcomes: [
-        'Launched across 30+ global clients with positive feedback',
-        '$4K in first-quarter revenue (best-ever Swag Store performance)',
-        'Boosted global engagement metrics'
+        'Integrated a merchandise redemption partner into the Swag Store experience',
+        'Coordinated requirements, logistics validation, engineering and QA',
+        'Supported launch feedback and adoption tracking'
       ],
       details:
-        'Delivered end-to-end Snappy integration as an e-commerce redemption channel. Scoped requirements, validated logistics parameters, coordinated with engineering during backend renovation, led QA and post-launch feedback tracking.',
-      metrics: '$4K Q1 revenue • 30+ clients • record engagement growth',
+        'Supported delivery of the Snappy integration as an e-commerce redemption channel. Worked on requirements, logistics validation, engineering coordination during the backend changes, QA and post-launch feedback tracking.',
+      metrics: 'Adoption and commercial outcomes not yet quantified.',
       role:
-        'Associate Product Manager driving lifecycle across research, integration, QA, and adoption tracking.',
+        'Associate Project Coordinator — supporting requirements, partner integration, engineering coordination, QA and launch follow-through.',
       image: '/Project 2.webp',
       category: 'Work'
     },
@@ -176,12 +176,12 @@ const ProjectGallery: React.FC = () => {
       description: 'Privacy-first AI analytics platform for automated cohort analysis and QA',
       tools: ['Next.js', 'FastAPI', 'DuckDB', 'Ollama', 'React', 'Tailwind CSS'],
       outcomes: [
-        'Automated analytics saving 4 hours per month',
-        'Sub-100ms dashboard build via embedded DuckDB',
-        '100% on-premise execution ensuring data privacy'
+        'Combined transaction data preparation with cohort analytics and reporting',
+        'Explored natural-language access to analytics using a local LLM',
+        'Designed the workflow to keep analytical calculations grounded in structured data'
       ],
       details: 'Built RedemptionIQ, a multi-layer analytics platform that ingests server dumps and serves an executive dashboard. Included an intent-parsing AI chat interface powered by a local Llama 3 model for secure, natural language analytics queries without raw SQL exposure.',
-      metrics: '4 hrs saved/mo • <100ms load time • 65.8M points analyzed',
+      metrics: 'Performance and usage metrics to be added after verification.',
       role: 'AI & Analytics Developer building the frontend, backend, and deterministic AI pipeline.',
       image: '/breakage-intelligence-final.webp',
       category: 'Work'
@@ -207,11 +207,11 @@ const ProjectGallery: React.FC = () => {
     }
   ];
 
-  const [activeCategory, setActiveCategory] = useState<string>('Work');
-
-  const categories = ['Work', 'Internship', 'Academic', 'Personal'];
-
-  const filteredProjects = projects.filter(project => project.category === activeCategory);
+  const workPriority = ['12', '11', '8', '1', '2'];
+  const workProjects = projects
+    .filter(project => project.category === 'Work')
+    .sort((a, b) => workPriority.indexOf(a.id) - workPriority.indexOf(b.id));
+  const secondaryProjects = projects.filter(project => project.category !== 'Work');
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
@@ -223,111 +223,104 @@ const ProjectGallery: React.FC = () => {
     setSelectedProject(null);
   };
 
-  // No carousel logic; simple grid layout
+  const renderProjectCard = (project: Project, compact = false) => (
+    <article
+      key={project.id}
+      className={`group cursor-pointer rounded-2xl border border-[#d9ddd4] bg-[#f8f7f2] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#aab8aa] hover:shadow-md ${compact ? 'opacity-90' : ''} ${project.id === '12' && !compact ? 'md:col-span-2' : ''}`}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${project.title}`}
+      onClick={() => openModal(project)}
+      onKeyDown={(event) => {
+        if (event.target !== event.currentTarget) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openModal(project);
+        }
+      }}
+    >
+      {project.image && (
+        <div className={`overflow-hidden rounded-xl bg-[#e3e5dc] ring-1 ring-[#d8dbd3] ${project.id === '12' ? 'aspect-[16/5]' : compact ? 'aspect-[16/9] max-h-[150px]' : 'aspect-[16/9] max-h-[190px]'}`}>
+          <img src={project.image} alt={project.title} loading="lazy" decoding="async"
+            className={`h-full w-full ${project.id === '12' ? 'object-contain' : 'object-cover object-top'} transition-transform duration-700 ${project.id === '12' ? '' : 'group-hover:scale-[1.025]'}`} />
+        </div>
+      )}
+      <div className={compact ? 'pt-3' : 'pt-4'}>
+        <div className="mb-3 flex items-start justify-between gap-4">
+          <h3 className={`${compact ? 'text-xl' : 'text-2xl'} font-semibold tracking-[-0.04em] text-[#17221f] transition-colors group-hover:text-[#587263]`}>{project.title}</h3>
+          <ExternalLink className="mt-1 shrink-0 text-[#7b887f] transition-colors group-hover:text-[#17221f]" size={16} />
+        </div>
+        <p className="mb-3 text-[13px] leading-5 text-[#66736c] line-clamp-3">{project.description}</p>
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {project.tools.slice(0, compact ? 2 : 3).map((tool, index) => (
+            <span key={index} className="border border-[#d6d9d1] px-3 py-1 text-[11px] font-medium text-[#69766e]">{tool}</span>
+          ))}
+          {project.tools.length > (compact ? 2 : 3) && (
+            <span className="px-3 py-1 text-[11px] font-medium text-[#7b887f]">+{project.tools.length - (compact ? 2 : 3)} more</span>
+          )}
+        </div>
+        {!compact && (
+          <div className="mt-5 space-y-2 border-t border-[#d8dbd3] pt-4">
+            {project.outcomes.slice(0, 2).map((outcome, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#718777]" />
+                <span className="text-xs leading-5 text-[#66736c]">{outcome}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        {project.link && !project.link.includes('github.com') && (
+          <div className="mt-4 flex items-center justify-between border-t border-[#d8dbd3] pt-3">
+            <span className="text-xs font-medium text-[#7b887f]">Prototype preview</span>
+            <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-1.5 border border-[#c8cec5] px-3 py-1 text-xs font-semibold text-[#365344] transition-colors hover:bg-[#e7ebe4]">
+              Explore <ExternalLink size={12} />
+            </a>
+          </div>
+        )}
+      </div>
+    </article>
+  );
 
   return (
-    <section id="projects" className="py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Projects</h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            A showcase of products and systems I've built, each solving real problems with measurable impact.
+    <section id="projects" className="bg-[#f4f2ed] px-6 py-20 text-[#17221f] lg:py-28">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14 grid gap-6 border-t border-[#d3d5cc] pt-8 md:grid-cols-[0.65fr_1.35fr] md:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#718077]">Selected work / 2024—26</p>
+            <h2 className="mt-4 text-5xl font-semibold tracking-[-0.06em]">Products, not just projects.</h2>
+          </div>
+          <p className="max-w-xl text-base leading-7 text-[#66736c] md:justify-self-end">
+            Professional product work first. Independent experiments and research sit separately, adding technical range without competing with the work delivered in a business environment.
           </p>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-slate-900 text-white shadow-md scale-105'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-[transform,box-shadow] duration-300 cursor-pointer group hover:-translate-y-1 contain-paint"
-              onClick={() => openModal(project)}
-            >
-              {project.image && (
-                <div className="h-48 overflow-hidden rounded-t-xl">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
-                  />
-                </div>
-              )}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-slate-900 group-hover:text-slate-700 transition-colors">
-                    {project.title}
-                  </h3>
-                  <ExternalLink className="text-slate-400 group-hover:text-slate-700 transition-colors flex-shrink-0" size={20} />
-                </div>
-                
-                <p className="text-slate-600 mb-4 line-clamp-3">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tools.slice(0, 3).map((tool, index) => (
-                    <span
-                      key={index}
-                      className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                  {project.tools.length > 3 && (
-                    <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">
-                      +{project.tools.length - 3} more
-                    </span>
-                  )}
-                </div>
-
-                <div className="space-y-1">
-                  {project.outcomes.slice(0, 2).map((outcome, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                      <span className="text-sm text-slate-600">{outcome}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {project.link && !project.link.includes('github.com') && (
-                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs font-medium text-slate-500">Live Application</span>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 px-3 py-1 rounded-md transition-all hover:scale-105 active:scale-95 shadow-sm"
-                    >
-                      <span>Try the app</span>
-                      <ExternalLink size={12} />
-                    </a>
-                  </div>
-                )}
-              </div>
+        <section aria-labelledby="professional-work-heading">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#718077]">01 / Professional experience</p>
+              <h3 id="professional-work-heading" className="mt-2 text-3xl font-semibold tracking-[-0.045em]">Work-related products</h3>
             </div>
-          ))}
-        </div>
-      </div>
+            <p className="max-w-sm text-sm leading-6 text-[#718077]">Products and integrations delivered in a professional environment.</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {workProjects.map(project => renderProjectCard(project))}
+          </div>
+        </section>
 
+        <section aria-labelledby="independent-projects-heading" className="mt-24 border-t border-[#d3d5cc] pt-10">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8a948b]">02 / Beyond the day job</p>
+              <h3 id="independent-projects-heading" className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[#46564d]">Independent, internship & research projects</h3>
+            </div>
+            <p className="max-w-sm text-sm leading-6 text-[#879188]">Selected experiments and academic work. Useful context, with less emphasis than professional delivery.</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {secondaryProjects.map(project => renderProjectCard(project, true))}
+          </div>
+        </section>
+      </div>
       <Modal
         project={selectedProject}
         isOpen={isModalOpen}

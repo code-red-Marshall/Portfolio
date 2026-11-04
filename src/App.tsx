@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
 import ProjectGallery from './components/ProjectGallery';
 import CaseStudy from './components/CaseStudy';
 import LeadQualityCaseStudy from './components/case-studies/LeadQualityCaseStudy';
@@ -10,21 +9,29 @@ import ECGIdentificationCaseStudy from './components/case-studies/ECGIdentificat
 import DishFlowCaseStudy from './components/case-studies/DishFlowCaseStudy';
 import SolutionsCentralCaseStudy from './components/case-studies/SolutionsCentralCaseStudy';
 import WhatsAppCampaignCaseStudy from './components/case-studies/WhatsAppCampaignCaseStudy';
+import SwitchflyCaseStudy from './components/case-studies/SwitchflyCaseStudy';
 import Blog from './components/Blog';
-import AILiteracy from './components/AILiteracy';
-import ProductThinking from './components/ProductThinking';
 import ProfessionalBackground from './components/ProfessionalBackground';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import { AppView, CASE_STUDY_ROUTES, DEFAULT_PAGE_TITLE, resolveViewFromUrl } from './utils/routes';
 
 function App() {
+  const returnScrollY = useRef(0);
+  const restoreHomeScroll = useRef(false);
+  const scrollInstantly = (top: number) => {
+    const root = document.documentElement;
+    const previous = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo({ top, left: 0, behavior: 'auto' });
+    root.style.scrollBehavior = previous;
+  };
   const [activeView, setActiveView] = useState<AppView>(() => {
     return typeof window !== 'undefined' ? resolveViewFromUrl() : 'home';
   });
 
   // Keep page title in sync
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (activeView === 'home') {
       document.title = DEFAULT_PAGE_TITLE;
     } else if (CASE_STUDY_ROUTES[activeView]) {
@@ -36,6 +43,7 @@ function App() {
   useEffect(() => {
     const handlePopState = () => {
       const resolved = resolveViewFromUrl();
+      if (resolved === 'home') restoreHomeScroll.current = true;
       setActiveView(resolved);
     };
 
@@ -45,6 +53,10 @@ function App() {
 
   useEffect(() => {
     if (activeView === 'home') {
+      if (restoreHomeScroll.current) {
+        scrollInstantly(returnScrollY.current);
+        restoreHomeScroll.current = false;
+      }
       // Add intersection observer for animations
       const observerOptions = {
         threshold: 0.1,
@@ -67,33 +79,27 @@ function App() {
         observer.disconnect();
       };
     } else {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
     }
   }, [activeView]);
 
   const navigateTo = (view: AppView) => {
     if (view === 'home') {
-      if (window.location.pathname !== '/') {
-        window.history.pushState({}, '', '/');
-      }
+      if (window.location.pathname !== '/') window.history.pushState({}, '', '/');
+      restoreHomeScroll.current = true;
       setActiveView('home');
-      setTimeout(() => {
-        const caseStudySection = document.getElementById('case-study');
-        if (caseStudySection) {
-          caseStudySection.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }, 50);
     } else {
+      returnScrollY.current = window.scrollY;
       const route = CASE_STUDY_ROUTES[view];
-      if (route && window.location.pathname !== route.path) {
-        window.history.pushState({}, '', route.path);
-      }
+      if (route && window.location.pathname !== route.path) window.history.pushState({}, '', route.path);
       setActiveView(view);
-      window.scrollTo(0, 0);
+      scrollInstantly(0);
     }
   };
+
+  if (activeView === 'case-study-switchfly') {
+    return <SwitchflyCaseStudy onBack={() => navigateTo('home')} />;
+  }
 
   if (activeView === 'case-study-whatsapp') {
     return <WhatsAppCampaignCaseStudy onBack={() => navigateTo('home')} />;
@@ -124,9 +130,9 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <About />
         <ProjectGallery />
         <CaseStudy 
+          onOpenSwitchfly={() => navigateTo('case-study-switchfly')}
           onOpenWhatsApp={() => navigateTo('case-study-whatsapp')}
           onOpenCaseStudy={() => navigateTo('case-study-lead-quality')} 
           onOpenBreakage={() => navigateTo('case-study-breakage')}
@@ -134,21 +140,19 @@ function App() {
           onOpenDishFlow={() => navigateTo('case-study-dishflow')}
           onOpenSolutionsCentral={() => navigateTo('case-study-solutions-central')}
         />
-        <Blog />
-        <AILiteracy />
-        <ProductThinking />
         <ProfessionalBackground />
         <Education />
+        <Blog />
         <Contact />
       </main>
       
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-slate-400">
-            © 2024 Bhargav Nath. Built with purpose, designed for impact.
+      <footer className="bg-[#f4f2ed] px-6 py-10 text-[#17221f]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-[#d3d5cc] pt-6 text-left sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-[#66736c]">
+            © 2026 Bhargav Nath
           </p>
-          <p className="text-slate-500 text-sm mt-2">
+          <p className="text-xs text-[#718077]">
             "Build what matters. Measure what moves. Learn what lasts."
           </p>
         </div>
