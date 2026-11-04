@@ -207,16 +207,11 @@ const ProjectGallery: React.FC = () => {
     }
   ];
 
-  const [activeCategory, setActiveCategory] = useState<string>('Work');
-
-  const categories = ['Work', 'Internship', 'Academic', 'Personal'];
-
   const workPriority = ['12', '11', '8', '1', '2'];
-  const filteredProjects = projects
-    .filter(project => project.category === activeCategory)
-    .sort((a, b) => activeCategory === 'Work'
-      ? workPriority.indexOf(a.id) - workPriority.indexOf(b.id)
-      : 0);
+  const workProjects = projects
+    .filter(project => project.category === 'Work')
+    .sort((a, b) => workPriority.indexOf(a.id) - workPriority.indexOf(b.id));
+  const secondaryProjects = projects.filter(project => project.category !== 'Work');
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
@@ -228,109 +223,94 @@ const ProjectGallery: React.FC = () => {
     setSelectedProject(null);
   };
 
-  // No carousel logic; simple grid layout
+  const renderProjectCard = (project: Project, compact = false) => (
+    <article
+      key={project.id}
+      className={`group cursor-pointer border-t border-[#cbd0c7] pt-5 transition-colors hover:border-[#718777] ${compact ? 'opacity-90' : ''} ${project.id === '12' && !compact ? 'md:col-span-2' : ''}`}
+      onClick={() => openModal(project)}
+    >
+      {project.image && (
+        <div className={`${compact ? 'aspect-[5/2]' : project.id === '12' ? 'aspect-[16/7]' : 'aspect-[5/3]'} overflow-hidden bg-[#e3e5dc]`}>
+          <img src={project.image} alt={project.title} loading="lazy" decoding="async"
+            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]" />
+        </div>
+      )}
+      <div className={compact ? 'pt-4' : 'pt-5'}>
+        <div className="mb-3 flex items-start justify-between gap-4">
+          <h3 className={`${compact ? 'text-xl' : 'text-2xl'} font-semibold tracking-[-0.04em] text-[#17221f] transition-colors group-hover:text-[#587263]`}>{project.title}</h3>
+          <ExternalLink className="mt-1 shrink-0 text-[#7b887f] transition-colors group-hover:text-[#17221f]" size={16} />
+        </div>
+        <p className="mb-4 max-w-2xl text-sm leading-6 text-[#66736c] line-clamp-3">{project.description}</p>
+        <div className="mb-4 flex flex-wrap gap-2">
+          {project.tools.slice(0, compact ? 2 : 3).map((tool, index) => (
+            <span key={index} className="border border-[#d6d9d1] px-3 py-1 text-[11px] font-medium text-[#69766e]">{tool}</span>
+          ))}
+          {project.tools.length > (compact ? 2 : 3) && (
+            <span className="px-3 py-1 text-[11px] font-medium text-[#7b887f]">+{project.tools.length - (compact ? 2 : 3)} more</span>
+          )}
+        </div>
+        {!compact && (
+          <div className="mt-5 space-y-2 border-t border-[#d8dbd3] pt-4">
+            {project.outcomes.slice(0, 2).map((outcome, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#718777]" />
+                <span className="text-xs leading-5 text-[#66736c]">{outcome}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        {project.link && !project.link.includes('github.com') && (
+          <div className="mt-4 flex items-center justify-between border-t border-[#d8dbd3] pt-3">
+            <span className="text-xs font-medium text-[#7b887f]">Prototype preview</span>
+            <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-1.5 border border-[#c8cec5] px-3 py-1 text-xs font-semibold text-[#365344] transition-colors hover:bg-[#e7ebe4]">
+              Explore <ExternalLink size={12} />
+            </a>
+          </div>
+        )}
+      </div>
+    </article>
+  );
 
   return (
     <section id="projects" className="bg-[#f4f2ed] px-6 py-20 text-[#17221f] lg:py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 grid gap-6 border-t border-[#d3d5cc] pt-8 md:grid-cols-[0.65fr_1.35fr] md:items-end">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#718077]">Selected work / 2024—26</p><h2 className="mt-4 text-5xl font-semibold tracking-[-0.06em]">Products, not just projects.</h2></div>
-          <p className="max-w-xl text-base leading-7 text-[#66736c] md:justify-self-end">A selection of products and experiments across enterprise workflows, applied AI and integrations. Open a project to see the problem, decisions and execution behind it.</p>
+        <div className="mb-14 grid gap-6 border-t border-[#d3d5cc] pt-8 md:grid-cols-[0.65fr_1.35fr] md:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#718077]">Selected work / 2024—26</p>
+            <h2 className="mt-4 text-5xl font-semibold tracking-[-0.06em]">Products, not just projects.</h2>
+          </div>
+          <p className="max-w-xl text-base leading-7 text-[#66736c] md:justify-self-end">
+            Professional product work first. Independent experiments and research sit separately, adding technical range without competing with the work delivered in a business environment.
+          </p>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="mb-10 flex flex-wrap gap-2 animate-fade-in">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-[#17221f] text-white'
-                  : 'border border-[#c8cec5] text-[#59665f] hover:border-[#65796c] hover:text-[#17221f]'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid gap-x-7 gap-y-12 md:grid-cols-2">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className={`group cursor-pointer border-t border-[#cbd0c7] pt-5 transition-colors hover:border-[#718777] contain-paint ${project.id === '12' ? 'md:col-span-2' : ''}`}
-              onClick={() => openModal(project)}
-            >
-              {project.image && (
-                <div className={`${project.id === '12' ? 'aspect-[16/7]' : 'aspect-[5/3]'} overflow-hidden bg-[#e3e5dc]`}>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
-                  />
-                </div>
-              )}
-              <div className="pt-5">
-                <div className="mb-3 flex items-start justify-between gap-4">
-                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-[#17221f] group-hover:text-[#587263] transition-colors">
-                    {project.title}
-                  </h3>
-                  <ExternalLink className="mt-1 shrink-0 text-[#7b887f] transition-colors group-hover:text-[#17221f]" size={18} />
-                </div>
-                
-                <p className="mb-5 max-w-2xl text-sm leading-6 text-[#66736c] line-clamp-3">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tools.slice(0, 3).map((tool, index) => (
-                    <span
-                      key={index}
-                      className="border border-[#d6d9d1] px-3 py-1 text-[11px] font-medium text-[#69766e]"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                  {project.tools.length > 3 && (
-                    <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">
-                      +{project.tools.length - 3} more
-                    </span>
-                  )}
-                </div>
-
-                <div className="mt-5 space-y-2 border-t border-[#d8dbd3] pt-4">
-                  {project.outcomes.slice(0, 2).map((outcome, index) => (
-                    <div key={index} className="flex items-start gap-2">
-                      <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#718777]"></div>
-                      <span className="text-xs leading-5 text-[#66736c]">{outcome}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {project.link && !project.link.includes('github.com') && (
-                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs font-medium text-slate-500">Prototype Preview</span>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 px-3 py-1 rounded-md transition-all hover:scale-105 active:scale-95 shadow-sm"
-                    >
-                      <span>Explore prototype</span>
-                      <ExternalLink size={12} />
-                    </a>
-                  </div>
-                )}
-              </div>
+        <section aria-labelledby="professional-work-heading">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#718077]">01 / Professional experience</p>
+              <h3 id="professional-work-heading" className="mt-2 text-3xl font-semibold tracking-[-0.045em]">Work-related products</h3>
             </div>
-          ))}
-        </div>
-      </div>
+            <p className="max-w-sm text-sm leading-6 text-[#718077]">Products and integrations delivered in a professional environment.</p>
+          </div>
+          <div className="grid gap-x-7 gap-y-12 md:grid-cols-2">
+            {workProjects.map(project => renderProjectCard(project))}
+          </div>
+        </section>
 
+        <section aria-labelledby="independent-projects-heading" className="mt-24 border-t border-[#d3d5cc] pt-10">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8a948b]">02 / Beyond the day job</p>
+              <h3 id="independent-projects-heading" className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-[#46564d]">Independent, internship & research projects</h3>
+            </div>
+            <p className="max-w-sm text-sm leading-6 text-[#879188]">Selected experiments and academic work. Useful context, with less emphasis than professional delivery.</p>
+          </div>
+          <div className="grid gap-x-7 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+            {secondaryProjects.map(project => renderProjectCard(project, true))}
+          </div>
+        </section>
+      </div>
       <Modal
         project={selectedProject}
         isOpen={isModalOpen}
