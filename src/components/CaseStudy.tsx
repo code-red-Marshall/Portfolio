@@ -23,20 +23,23 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
   onOpenSolutionsCentral 
 }) => {
   return (
-    <section id="case-study" className="px-6 py-20 bg-slate-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Case Studies</h2>
-          <p className="mt-3 text-slate-600">Selected examples of enterprise product delivery, applied AI and technical problem-solving.</p>
+    <section id="case-study" className="bg-[#f4f2ed] px-6 py-20 text-[#17221f] lg:py-28">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14 grid gap-6 border-t border-[#d3d5cc] pt-8 md:grid-cols-[0.65fr_1.35fr] md:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#718077]">Case studies / selected deep dives</p>
+            <h2 className="mt-4 text-5xl font-semibold tracking-[-0.06em] text-[#17221f]">The thinking behind the work.</h2>
+          </div>
+          <p className="max-w-xl text-base leading-7 text-[#66736c] md:justify-self-end">Detailed examples of enterprise product delivery, applied AI and technical problem-solving.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 w-full">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 w-full">
           {/* Tile 0: WhatsApp Campaign Manager */}
           <div 
             onClick={onOpenWhatsApp}
-            className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer group flex flex-col w-full relative"
+            className="group relative flex cursor-pointer flex-col rounded-2xl border border-[#d9ddd4] bg-[#f8f7f2] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#aab8aa] hover:shadow-md"
           >
-            <div className="relative aspect-[16/5] w-full overflow-hidden bg-[#0B2E21] text-center border-b border-slate-100">
+            <div className="relative aspect-[16/5] w-full overflow-hidden rounded-xl bg-[#0B2E21] ring-1 ring-[#d8dbd3]">
                <img
                  src="/whatsapp-case-study-banner.svg"
                  alt="WhatsApp Campaign Manager Case Study Thumbnail"
@@ -52,7 +55,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                </div>
             </div>
             
-            <div className="p-8 flex-1 flex flex-col">
+            <div className="flex flex-1 flex-col pt-4">
               <div className="flex items-center justify-between gap-2 mb-4">
                 <div className="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 font-semibold rounded-full w-fit text-sm border border-emerald-100">
                   Product · Integrations · 0 → 1
@@ -73,10 +76,10 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                 </a>
               </div>
 
-              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+              <h3 className="text-xl font-semibold tracking-[-0.04em] text-[#17221f] mb-3 group-hover:text-emerald-600 transition-colors">
                 WhatsApp Campaign Manager
               </h3>
-              <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
+              <p className="text-[13px] leading-5 text-[#66736c] mb-3 flex-1">
                 Adding a WhatsApp campaign workflow to an enterprise HR-tech platform, from early prototype to native production module.
               </p>
 
@@ -92,7 +95,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                 </span>
               </div>
 
-              <div className="flex items-center justify-between gap-2 pt-4 border-t border-slate-100 mt-auto">
+              <div className="flex items-center justify-between gap-2 pt-4 border-t border-[#d8dbd3] mt-auto">
                 <div className="flex items-center gap-2 text-emerald-600 font-bold group-hover:gap-3 transition-all text-sm sm:text-base">
                   Read full case study
                   <ArrowRight size={18} />
@@ -111,29 +114,29 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
           {/* Tile 0: Solutions Central */}
           <div 
             onClick={onOpenSolutionsCentral}
-            className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer group flex flex-col w-full"
+            className="group flex cursor-pointer flex-col rounded-2xl border border-[#d9ddd4] bg-[#f8f7f2] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#aab8aa] hover:shadow-md"
           >
-            <div className="h-56 bg-white overflow-hidden text-center relative transition-transform border-b border-slate-100">
+            <div className="aspect-[16/9] max-h-[190px] overflow-hidden rounded-xl bg-[#e3e5dc] ring-1 ring-[#d8dbd3]">
                <img 
                  src="/solutions-central-thumbnail.jpg" 
                  alt="Solutions Central Case Study Thumbnail" 
                  loading="lazy"
                  decoding="async"
-                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
+                 className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
                />
             </div>
             
-            <div className="p-8 flex-1 flex flex-col">
+            <div className="flex flex-1 flex-col pt-4">
               <div className="inline-block px-3 py-1 bg-purple-50 text-purple-700 font-semibold rounded-full w-fit mb-4 text-sm border border-purple-100">
                 Solutions Engineering
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
                 Solutions Central
               </h3>
-              <p className="text-slate-600 mb-8 flex-1 leading-relaxed">
+              <p className="text-[13px] leading-5 text-[#66736c] mb-3 flex-1">
                 An internal product built for the Solutions Engineering team, connecting request intake, project tracking, knowledge search and in-workflow assistance.
               </p>
-              <div className="flex items-center justify-between gap-2 pt-4 border-t border-slate-100 mt-auto">
+              <div className="flex items-center justify-between gap-2 pt-3 border-t border-[#d8dbd3] mt-auto">
                 <div className="flex items-center gap-2 text-purple-600 font-bold group-hover:gap-3 transition-all text-sm sm:text-base">
                   Read full case study
                   <ArrowRight size={18} />
@@ -153,11 +156,11 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
             onClick={onOpenBreakage}
             className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer group flex flex-col w-full"
           >
-            <div className="h-56 bg-white overflow-hidden text-center relative transition-transform border-b border-slate-100">
+            <div className="aspect-[16/9] max-h-[190px] overflow-hidden rounded-xl bg-[#e3e5dc] ring-1 ring-[#d8dbd3]">
                <img 
                  src="/breakage-intelligence-thumbnail.webp" 
                  alt="Breakage Intelligence Lab Thumbnail" 
-                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                 className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
                />
             </div>
             
@@ -168,7 +171,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
               <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
                 Breakage Intelligence Lab
               </h3>
-              <p className="text-slate-600 mb-8 flex-1 leading-relaxed">
+              <p className="text-[13px] leading-5 text-[#66736c] mb-3 flex-1">
                 Building an embedded, privacy-first AI analytics platform (RedemptionIQ) using FastAPI, DuckDB, and local LLMs to replace manual workflows.
               </p>
               <div className="flex items-center justify-between gap-2 pt-4 border-t border-slate-100 mt-auto">
@@ -192,8 +195,8 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
             onClick={onOpenSwitchfly}
             className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer group flex flex-col w-full"
           >
-            <div className="h-56 bg-slate-900 overflow-hidden border-b border-slate-100">
-              <img src="/Project 1.webp" alt="Switchfly travel integration" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            <div className="aspect-[16/9] max-h-[190px] overflow-hidden rounded-xl bg-[#e3e5dc] ring-1 ring-[#d8dbd3]">
+              <img src="/Project 1.webp" alt="Switchfly travel integration" loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"/>
             </div>
             <div className="p-8 flex-1 flex flex-col">
               <div className="inline-block px-3 py-1 bg-sky-50 text-sky-700 font-semibold rounded-full w-fit mb-4 text-sm border border-sky-100">Enterprise integration</div>
@@ -214,7 +217,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                  alt="DishFlow Inventory Intelligence Platform Thumbnail" 
                  loading="lazy"
                  decoding="async"
-                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
+                 className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
                />
             </div>
             
