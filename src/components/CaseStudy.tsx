@@ -38,11 +38,11 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
           >
             <div className="h-56 bg-slate-950 overflow-hidden text-center relative transition-transform border-b border-slate-100">
                <img 
-                 src="/whatsapp-campaign-thumbnail.png" 
+                 src="/whatsapp-case-study-banner.svg" 
                  alt="WhatsApp Campaign Manager Case Study Thumbnail" 
                  loading="lazy"
                  decoding="async"
-                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
+                 className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-500 will-change-transform"
                />
                <div className="absolute top-3 right-3">
                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/90 text-white text-xs font-semibold rounded-full shadow-md backdrop-blur-sm">
