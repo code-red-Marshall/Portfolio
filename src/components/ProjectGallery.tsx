@@ -21,7 +21,7 @@ const ProjectGallery: React.FC = () => {
       details: 'Independently owned the WhatsApp campaign product from prototype through production. Designed the UX/UI and built the frontend, backend and Meta WhatsApp Business Platform integration for a Vercel-hosted Next.js/Supabase prototype, then implemented the production version natively in the existing Play/Scala Campaign Manager. Used Claude Code as an AI-assisted development tool while retaining responsibility for product decisions, implementation, integration and delivery.',
       metrics: '8 campaigns launched • 110,000+ distinct users in aggregate campaign audiences',
       role: 'Solo end-to-end builder — product, UX/UI, frontend, backend and production implementation; AI-assisted with Claude Code',
-      image: '/whatsapp-campaign-thumbnail.png',
+      image: '/whatsapp-campaign-banner.svg',
       link: 'https://whatsapp-campaign-manager-eta.vercel.app/',
       category: 'Work'
     },
