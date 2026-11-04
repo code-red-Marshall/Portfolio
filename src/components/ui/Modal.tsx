@@ -53,7 +53,7 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
       <div className="bg-[#f4f2ed] text-[#17221f] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#d3d5cc] shadow-[0_24px_80px_rgba(23,34,31,0.16)]">
         <div className="sticky top-0 bg-[#f4f2ed] border-b border-[#d3d5cc] p-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-slate-900">{project.title}</h2>
+            <h2 id="project-dialog-title" className="text-2xl font-bold text-slate-900">{project.title}</h2>
             <button
               onClick={onClose}
               className="p-2 text-[#718077] hover:text-[#17221f] hover:bg-[#e9ebe4] rounded-lg transition-colors"
