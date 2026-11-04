@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
             <div>
               <h3 className="mb-4 text-xl font-semibold tracking-tight">Quick actions</h3>
               <div className="flex flex-wrap gap-3">
-                <a href="/Bhargav_Resume.pdf" download="Bhargav_Resume.pdf" className="inline-flex items-center gap-2 bg-[#17221f] px-5 py-3 text-sm font-semibold text-[#f4f2ed] transition-colors hover:bg-[#34463b]">
+                <a href="/Bhargav_Nath_Resume_ai_PM.pdf" download="Bhargav_Nath_Resume_ai_PM.pdf" className="inline-flex items-center gap-2 bg-[#17221f] px-5 py-3 text-sm font-semibold text-[#f4f2ed] transition-colors hover:bg-[#34463b]">
                   <Download size={17}/> Download Resume
                 </a>
                 <a href="https://www.linkedin.com/in/bhargav-nath" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-[#bfc8bd] px-5 py-3 text-sm font-semibold text-[#34463b] transition-colors hover:bg-[#f4f2ed]">
