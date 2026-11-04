@@ -12,7 +12,12 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
   useEffect(() => {
     if (!isOpen) return;
-    const handleKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };\n    document.addEventListener("keydown", handleKeyDown);\n    const scrollY = window.scrollY;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    const scrollY = window.scrollY;
     const root = document.documentElement;
     const previousScrollBehavior = root.style.scrollBehavior;
     const previousBodyPosition = document.body.style.position;
@@ -39,61 +44,44 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
       document.body.style.overflow = previousBodyOverflow;
       window.scrollTo({ top: scrollY, left: 0, behavior: 'auto' });
       root.style.scrollBehavior = previousScrollBehavior;
+      document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   if (!isOpen || !project) return null;
 
   const content = (
-    <div
-      role="dialog"
-      aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#17221f]/18 backdrop-blur-[2px]"
-    >
+    <div role="dialog" aria-modal="true" aria-labelledby="project-dialog-title"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#17221f]/18 backdrop-blur-[2px]">
       <div className="bg-[#f4f2ed] text-[#17221f] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#d3d5cc] shadow-[0_24px_80px_rgba(23,34,31,0.16)]">
         <div className="sticky top-0 bg-[#f4f2ed] border-b border-[#d3d5cc] p-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
             <h2 id="project-dialog-title" className="text-2xl font-bold text-slate-900">{project.title}</h2>
-            <button
-              onClick={onClose}
-              className="p-2 text-[#718077] hover:text-[#17221f] hover:bg-[#e9ebe4] rounded-lg transition-colors"
-            >
+            <button onClick={onClose} aria-label="Close project details" autoFocus
+              className="p-2 text-[#718077] hover:text-[#17221f] hover:bg-[#e9ebe4] rounded-lg transition-colors">
               <X size={24} />
             </button>
           </div>
         </div>
-
         {project.image && (
           <div className="w-full h-56 overflow-hidden rounded-t-2xl">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
+            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
           </div>
         )}
         <div className="p-6 space-y-6">
           <p className="text-slate-600 leading-relaxed">{project.details}</p>
-
           <div>
             <h3 className="font-semibold text-slate-900 mb-3">My Role</h3>
             <p className="text-slate-600">{project.role}</p>
           </div>
-
           <div>
             <h3 className="font-semibold text-slate-900 mb-3">Tools & Technologies</h3>
             <div className="flex flex-wrap gap-2">
               {project.tools.map((tool, index) => (
-                <span
-                  key={index}
-                  className="bg-[#e9ebe4] text-[#46564c] px-3 py-1 rounded-full text-sm font-medium"
-                >
-                  {tool}
-                </span>
+                <span key={index} className="bg-[#e9ebe4] text-[#46564c] px-3 py-1 rounded-full text-sm font-medium">{tool}</span>
               ))}
             </div>
           </div>
-
           <div>
             <h3 className="font-semibold text-slate-900 mb-3">Key Outcomes</h3>
             <ul className="space-y-2">
@@ -105,7 +93,6 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
               ))}
             </ul>
           </div>
-
           {project.metrics && (
             <div className="bg-[#e8eee7] p-4 rounded-lg">
               <h3 className="font-semibold text-emerald-800 mb-2">Impact Metrics</h3>
@@ -114,16 +101,8 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
           )}
           {project.link && (
             <div className="pt-2">
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 font-semibold px-5 py-2.5 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 text-sm ${
-                  project.link.includes('github.com')
-                    ? 'bg-slate-800 hover:bg-slate-700 text-white'
-                    : 'bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white'
-                }`}
-              >
+              <a href={project.link} target="_blank" rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 font-semibold px-5 py-2.5 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 text-sm ${project.link.includes('github.com') ? 'bg-slate-800 hover:bg-slate-700 text-white' : 'bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white'}`}>
                 <span>{project.link.includes('github.com') ? 'View on GitHub' : 'Try the App'}</span>
                 <ExternalLink size={16} />
               </a>
