@@ -12,7 +12,7 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ project, isOpen, onClose }) => {
   useEffect(() => {
     if (!isOpen) return;
-    const scrollY = window.scrollY;
+    const handleKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };\n    document.addEventListener("keydown", handleKeyDown);\n    const scrollY = window.scrollY;
     const root = document.documentElement;
     const previousScrollBehavior = root.style.scrollBehavior;
     const previousBodyPosition = document.body.style.position;
