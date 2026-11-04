@@ -71,6 +71,19 @@ const earlierExperience = [
       'Developed research experience in analytical problem solving'
     ],
     type: 'Research'
+  },
+  {
+    company: 'Prasar Bharati — All India Radio',
+    role: 'Graduate Engineer Apprentice · Digitalization & Data Management',
+    period: 'May 2021 — Oct 2021',
+    description: 'Supported digitalisation and data-management initiatives at the All India Radio station in Tezpur, Assam.',
+    achievements: [
+      'Led the shift from paper-based office records to digital communication and relational database workflows, and supported the introduction of biometric attendance',
+      'Used SQL to analyse broadcast-electronics sensor data, with reported improvements of 25% in data accuracy and 30% fewer discrepancies',
+      'Maintained Excel-based inventory records and developed a Power BI dashboard to analyse Doordarshan land-auction data for Prasar Bharati decision-making',
+      'Conducted knowledge-sharing sessions on transmitter systems, databases and Excel for colleagues'
+    ],
+    type: 'Public sector'
   }
 ];
 
@@ -80,7 +93,7 @@ const ProfessionalBackground: React.FC = () => {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 border-t border-[#d3d5cc] pt-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#718077]">Career / 2022—Now</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#718077]">Career / 2021—Now</p>
             <h2 className="mt-4 text-5xl font-semibold leading-[1.04] tracking-[-0.06em]">From engineering roots to product delivery.</h2>
             <p className="mt-6 max-w-md text-base leading-7 text-[#66736c]">
               A career shaped by engineering, data and AI — now focused on turning complex business problems into useful enterprise products.
