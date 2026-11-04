@@ -230,7 +230,7 @@ const ProjectGallery: React.FC = () => {
       onClick={() => openModal(project)}
     >
       {project.image && (
-        <div className={`${compact ? 'aspect-[5/2]' : project.id === '12' ? 'aspect-[16/7]' : 'aspect-[5/3]'} overflow-hidden bg-[#e3e5dc]`}>
+        <div className={`mx-auto overflow-hidden rounded-2xl bg-[#e3e5dc] ring-1 ring-[#d8dbd3] shadow-sm transition-shadow duration-300 group-hover:shadow-md ${compact ? 'aspect-[16/9] max-w-[420px]' : project.id === '12' ? 'aspect-[16/6] max-h-[330px] max-w-5xl' : 'aspect-[16/9] max-h-[250px] max-w-[560px]'}`}>
           <img src={project.image} alt={project.title} loading="lazy" decoding="async"
             className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]" />
         </div>
