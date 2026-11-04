@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Award, BookOpen, GraduationCap } from 'lucide-react';
+import { Award, BookOpen, GraduationCap } from 'lucide-react';
 
 const Education: React.FC = () => {
   return (
