@@ -34,6 +34,16 @@ const SwitchflyCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <div><p className="text-xs uppercase tracking-wider text-[#718077]">Integration partner</p><p className="mt-1 font-semibold text-[#17221f]">Switchfly</p></div>
             <div><p className="text-xs uppercase tracking-wider text-[#718077]">Product scope</p><p className="mt-1 font-semibold text-[#17221f]">Hotels · Cars · Activities</p></div>
           </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-[#d8dbd3] bg-white p-5">
+              <p className="text-3xl font-bold tracking-tight text-[#17221f]">$14K+</p>
+              <p className="mt-1 text-sm text-[#66736c]">Revenue impact from the travel experience integration.</p>
+            </div>
+            <div className="rounded-xl border border-[#d8dbd3] bg-white p-5">
+              <p className="text-3xl font-bold tracking-tight text-[#17221f]">+17%</p>
+              <p className="mt-1 text-sm text-[#66736c]">Redemption adoption for the travel experience.</p>
+            </div>
+          </div>
         </header>
 
         <section className="mb-16">
