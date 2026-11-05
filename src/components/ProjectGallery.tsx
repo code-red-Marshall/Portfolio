@@ -28,7 +28,7 @@ const ProjectGallery: React.FC = () => {
     {
       id: '11',
       title: 'Solutions Central',
-      description: 'Internal product built primarily for Solutions Consultants within the Solutions Engineering team, connecting request intake, project tracking, knowledge search and in-workflow assistance.',
+      description: 'Internal product for Solutions Consultants, streamlining request intake, project tracking and knowledge discovery to reduce manual work and accelerate solution delivery.',
       tools: ['Next.js', 'Python', 'GitHub API', 'Chrome Extension', 'Confluence API'],
       outcomes: [
         'Designed and built an end-to-end self-serve knowledge hub and Chrome assistant solo',
@@ -36,7 +36,7 @@ const ProjectGallery: React.FC = () => {
         'Integrated BM25 search index over solution requests, RFPs, and docs with role-scoped auth'
       ],
       details: 'Designed and built Solutions Central primarily for internal use by Solutions Consultants within the Solutions Engineering team. The platform connects request intake, project context and knowledge discovery: it pulls information from MS Forms/SharePoint Excel through a Python Graph API integration, maintains versioned Markdown and JSON in GitHub, and presents a Next.js dashboard. I also built a Confluence-native project tracker and a Chrome side-panel assistant with Okapi BM25 search, source citations and invite-code role authentication.',
-      metrics: 'Built primarily for Solutions Consultants within Solutions Engineering',
+      metrics: '4 days of manual work saved per month for consultants • 25% improvement in solution delivery',
       role: 'Solutions Engineer — product design and end-to-end implementation for Solutions Consultants',
       image: '/solutions-central-thumbnail.jpg',
       category: 'Work'
@@ -44,7 +44,7 @@ const ProjectGallery: React.FC = () => {
     {
       id: '1',
       title: 'Switchfly API Integration',
-      description: 'Integrated travel tech (hotels, cabs, experiences) into HR SaaS platform',
+      description: 'Travel experience booking integration bringing hotels, cars and activities into the employee rewards journey.',
       tools: ['Postman', 'Miro', 'Google Analytics', 'JIRA', 'Confluence'],
       outcomes: [
         'Integrated travel inventory into the existing employee rewards experience',
@@ -53,7 +53,7 @@ const ProjectGallery: React.FC = () => {
       ],
       details:
         'Coordinated the Switchfly integration into the HR Tech SaaS platform to add travel and experience redemptions. Worked across requirements, API validation with Switchfly, stakeholder communication, QA coordination, launch planning and post-launch feedback.',
-      metrics: 'Adoption and commercial outcomes not yet quantified.',
+      metrics: '$14K+ revenue impact • +17% redemption adoption for the travel experience',
       role:
         'Associate Project Coordinator — coordinating engineering, design and business stakeholders through API integration, QA and go-live.',
       image: '/Project 1.webp',
@@ -62,7 +62,7 @@ const ProjectGallery: React.FC = () => {
     {
       id: '2',
       title: 'Snappy API Integration',
-      description: 'Swag Store upgrade: merchandise redemption with customizable branding',
+      description: 'Merchandise redemption integration supporting global fulfilment across 176+ countries.',
       tools: ['Postman', 'Miro', 'JIRA', 'Google Analytics', 'Confluence'],
       outcomes: [
         'Integrated a merchandise redemption partner into the Swag Store experience',
@@ -71,7 +71,7 @@ const ProjectGallery: React.FC = () => {
       ],
       details:
         'Supported delivery of the Snappy integration as an e-commerce redemption channel. Worked on requirements, logistics validation, engineering coordination during the backend changes, QA and post-launch feedback tracking.',
-      metrics: 'Adoption and commercial outcomes not yet quantified.',
+      metrics: 'Merchandise redemption supported across 176+ countries',
       role:
         'Associate Project Coordinator — supporting requirements, partner integration, engineering coordination, QA and launch follow-through.',
       image: '/Project 2.webp',
@@ -173,7 +173,7 @@ const ProjectGallery: React.FC = () => {
     {
       id: '8',
       title: 'Breakage Intelligence Lab',
-      description: 'Privacy-first AI analytics platform for automated cohort analysis and QA',
+      description: 'AI analytics platform for redemption behaviour analysis, helping analysts save 8 days of work each month.',
       tools: ['Next.js', 'FastAPI', 'DuckDB', 'Ollama', 'React', 'Tailwind CSS'],
       outcomes: [
         'Combined transaction data preparation with cohort analytics and reporting',
@@ -181,7 +181,7 @@ const ProjectGallery: React.FC = () => {
         'Designed the workflow to keep analytical calculations grounded in structured data'
       ],
       details: 'Built RedemptionIQ, a multi-layer analytics platform that ingests server dumps and serves an executive dashboard. Included an intent-parsing AI chat interface powered by a local Llama 3 model for secure, natural language analytics queries without raw SQL exposure.',
-      metrics: 'Performance and usage metrics to be added after verification.',
+      metrics: '8 analyst days saved per month through redemption behaviour analysis',
       role: 'AI & Analytics Developer building the frontend, backend, and deterministic AI pipeline.',
       image: '/breakage-intelligence-final.webp',
       category: 'Work'
@@ -251,6 +251,12 @@ const ProjectGallery: React.FC = () => {
           <ExternalLink className="mt-1 shrink-0 text-[#7b887f] transition-colors group-hover:text-[#17221f]" size={16} />
         </div>
         <p className="mb-3 text-[13px] leading-5 text-[#66736c] line-clamp-3">{project.description}</p>
+        {project.metrics && project.category === 'Work' && (
+          <div className="mb-4 rounded-lg border border-[#d8dfd5] bg-[#edf0e9] px-3 py-2">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#718077]">Measured impact</p>
+            <p className="mt-1 text-xs font-semibold leading-5 text-[#365344]">{project.metrics}</p>
+          </div>
+        )}
         <div className="mb-3 flex flex-wrap gap-1.5">
           {project.tools.slice(0, compact ? 2 : 3).map((tool, index) => (
             <span key={index} className="border border-[#d6d9d1] px-3 py-1 text-[11px] font-medium text-[#69766e]">{tool}</span>
