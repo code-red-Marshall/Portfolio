@@ -38,10 +38,27 @@ const Hero: React.FC = () => {
             </a>
           </div>
           <div className="mt-8 border-t border-[#d3d5cc] pt-5">
-            <p className="text-sm font-semibold tracking-[-0.01em] text-[#35443c]">
-              110K+ users in campaign audiences <span className="mx-2 text-[#a6aea6]">·</span> 8 production campaigns <span className="mx-2 text-[#a6aea6]">·</span> Prototype → production, solo
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#7b867e]">
+              Selected product impact
             </p>
-            <p className="mt-3 text-sm text-[#68736c]">Guwahati, India (IST) <span className="mx-2 text-[#a6aea6]">·</span> Open to remote (EU/UK overlap) and relocation</p>
+            <div className="grid grid-cols-3 gap-3 sm:gap-5">
+              <div>
+                <p className="text-2xl font-semibold tracking-[-0.05em] text-[#17221f] sm:text-3xl">$14K+</p>
+                <p className="mt-1 text-xs font-medium leading-5 text-[#35443c]">Revenue impact</p>
+                <p className="text-[11px] leading-4 text-[#7b867e]">Switchfly</p>
+              </div>
+              <div className="border-l border-[#d3d5cc] pl-3 sm:pl-5">
+                <p className="text-2xl font-semibold tracking-[-0.05em] text-[#17221f] sm:text-3xl">+17%</p>
+                <p className="mt-1 text-xs font-medium leading-5 text-[#35443c]">Redemption adoption</p>
+                <p className="text-[11px] leading-4 text-[#7b867e]">Switchfly experience</p>
+              </div>
+              <div className="border-l border-[#d3d5cc] pl-3 sm:pl-5">
+                <p className="text-2xl font-semibold tracking-[-0.05em] text-[#17221f] sm:text-3xl">110K+</p>
+                <p className="mt-1 text-xs font-medium leading-5 text-[#35443c]">Audience users</p>
+                <p className="text-[11px] leading-4 text-[#7b867e]">8 WhatsApp campaigns</p>
+              </div>
+            </div>
+            <p className="mt-5 text-sm text-[#68736c]">Guwahati, India (IST) <span className="mx-2 text-[#a6aea6]">·</span> Open to remote (EU/UK overlap) and relocation</p>
           </div>
         </div>
 
