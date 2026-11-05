@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
               <div>
                 <p className="text-2xl font-semibold tracking-[-0.05em] text-[#17221f] sm:text-3xl">$14K+</p>
                 <p className="mt-1 text-xs font-medium leading-5 text-[#35443c]">Revenue impact</p>
-                <p className="text-[11px] leading-4 text-[#7b867e]">Switchfly integration</p>
+                <p className="text-[11px] leading-4 text-[#7b867e]">Travel experience booking</p>
               </div>
               <div className="border-l border-[#d3d5cc] pl-3 sm:pl-5">
                 <p className="text-2xl font-semibold tracking-[-0.05em] text-[#17221f] sm:text-3xl">110K+</p>
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
               <div className="border-l border-[#d3d5cc] pl-3 sm:pl-5">
                 <p className="text-2xl font-semibold tracking-[-0.05em] text-[#17221f] sm:text-3xl">176+</p>
                 <p className="mt-1 text-xs font-medium leading-5 text-[#35443c]">Countries supported</p>
-                <p className="text-[11px] leading-4 text-[#7b867e]">Snappy integration</p>
+                <p className="text-[11px] leading-4 text-[#7b867e]">Global merchandise redemption</p>
               </div>
             </div>
             <p className="mt-5 text-sm text-[#68736c]">Guwahati, India (IST) <span className="mx-2 text-[#a6aea6]">·</span> Open to remote (EU/UK overlap) and relocation</p>
