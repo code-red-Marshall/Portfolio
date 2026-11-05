@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Linkedin } from 'lucide-react';
+import { ArrowRight, Download, Github } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const scrollToProjects = () => {
@@ -11,31 +11,37 @@ const Hero: React.FC = () => {
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20">
         <div className="order-2 lg:order-1">
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#718077]">
-            AI Product Manager <span className="mx-2 text-[#a6aea6]">/</span> Technical Product
+            Solutions Engineer <span className="mx-2 text-[#a6aea6]">·</span> AI Product Builder
           </p>
-          <h1 className="text-5xl font-semibold leading-[1.02] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
-            Hi, I’m<br />
-            <span className="text-[#587263]">Bhargav Nath.</span>
+          <h1 className="max-w-3xl text-5xl font-semibold leading-[1.02] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
+            I take products<br />
+            from idea to<br />
+            <span className="text-[#587263]">production —</span>
+            <br />
+            building with Claude.
           </h1>
-          <p className="mt-8 max-w-xl text-xl leading-relaxed tracking-[-0.02em] text-[#35443c] sm:text-2xl">
-            I turn complex business problems into useful digital and AI-powered products.
+          <p className="mt-6 text-sm font-medium text-[#35443c] sm:text-base">
+            Bhargav Nath <span className="mx-2 text-[#a6aea6]">·</span> Solutions Engineer at Vantage Circle (enterprise HR tech)
           </p>
-          <p className="mt-5 max-w-lg text-base leading-7 text-[#68736c]">
-            I work across product discovery, UX, data, AI and engineering—shaping workflows, prototyping ideas and helping take solutions into production.
+          <p className="mt-6 max-w-xl text-base leading-7 text-[#35443c] sm:text-lg">
+            I use Claude across the whole product loop: framing the problem, writing the spec, prototyping in days, then shipping into real production codebases. Most recently I built a WhatsApp campaign module solo — from a Next.js prototype to a native Play/Scala module now running client campaigns.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <button onClick={scrollToProjects} className="inline-flex items-center gap-3 bg-[#17221f] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#40594b]">
-              Explore my work <ArrowRight size={17} />
+              See how I build <ArrowRight size={17} />
             </button>
-            <a href="https://www.linkedin.com/in/bhargav-nath" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-[#c9cec6] px-5 py-3.5 text-sm font-semibold text-[#35443c] transition-colors hover:border-[#718777] hover:bg-white/60">
-              <Linkedin size={16} /> LinkedIn
+            <a href="/Bhargav_Nath_Resume_ai_PM.pdf" download="Bhargav_Nath_Resume_ai_PM.pdf" className="inline-flex items-center gap-2 border border-[#c9cec6] px-5 py-3.5 text-sm font-semibold text-[#35443c] transition-colors hover:border-[#718777] hover:bg-white/60">
+              <Download size={16} /> Resume
+            </a>
+            <a href="https://github.com/code-red-Marshall/Portfolio" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-[#c9cec6] px-5 py-3.5 text-sm font-semibold text-[#35443c] transition-colors hover:border-[#718777] hover:bg-white/60">
+              <Github size={16} /> GitHub
             </a>
           </div>
-          <div className="mt-12 border-t border-[#d3d5cc] pt-5">
-            <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#7b867e]">
-              Product strategy · Applied AI · Enterprise SaaS
+          <div className="mt-8 border-t border-[#d3d5cc] pt-5">
+            <p className="text-sm font-semibold tracking-[-0.01em] text-[#35443c]">
+              110K+ users in campaign audiences <span className="mx-2 text-[#a6aea6]">·</span> 8 production campaigns <span className="mx-2 text-[#a6aea6]">·</span> Prototype → production, solo
             </p>
-            <p className="mt-2 text-sm text-[#68736c]">India · Open to international opportunities</p>
+            <p className="mt-3 text-sm text-[#68736c]">Guwahati, India (IST) <span className="mx-2 text-[#a6aea6]">·</span> Open to remote (EU/UK overlap) and relocation</p>
           </div>
         </div>
 
