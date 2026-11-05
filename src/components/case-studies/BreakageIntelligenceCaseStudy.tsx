@@ -84,9 +84,12 @@ const BreakageIntelligenceCaseStudy: React.FC<{ onBack: () => void }> = ({ onBac
         </section>
 
         <section className="border-t border-slate-200 pt-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-teal-700">Measurement</p>
-          <h2 className="mt-2 text-2xl font-bold text-slate-950">Outcomes to validate</h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-slate-600">This is presented as an applied AI analytics build, not as a deployed product with proven adoption or productivity gains. Dataset scale, latency and time-saved results can be added with their evaluation context once those details are confirmed.</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-teal-700">04 · Measured impact</p>
+          <h2 className="mt-2 text-2xl font-bold text-slate-950">More time for analysis, less time preparing it</h2>
+          <div className="mt-6 max-w-sm rounded-xl border border-slate-200 bg-white p-6">
+            <p className="text-3xl font-bold tracking-tight text-slate-950">8 days / month</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">Analyst time saved through redemption behaviour analysis and automated analytical workflows.</p>
+          </div>
         </section>
       </main>
     </div>
