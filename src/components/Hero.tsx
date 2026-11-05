@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
             <a href="/Bhargav_Nath_Resume_ai_PM.pdf" download="Bhargav_Nath_Resume_ai_PM.pdf" className="inline-flex items-center gap-2 border border-[#c9cec6] px-5 py-3.5 text-sm font-semibold text-[#35443c] transition-colors hover:border-[#718777] hover:bg-white/60">
               <Download size={16} /> Resume
             </a>
-            <a href="https://github.com/code-red-Marshall/Portfolio" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-[#c9cec6] px-5 py-3.5 text-sm font-semibold text-[#35443c] transition-colors hover:border-[#718777] hover:bg-white/60">
+            <a href="https://github.com/code-red-Marshall/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-[#c9cec6] px-5 py-3.5 text-sm font-semibold text-[#35443c] transition-colors hover:border-[#718777] hover:bg-white/60">
               <Github size={16} /> GitHub
             </a>
           </div>
