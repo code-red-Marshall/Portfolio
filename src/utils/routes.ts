@@ -69,7 +69,7 @@ export const CASE_STUDY_ROUTES: Record<CaseStudyView, CaseStudyRouteConfig> = {
   }
 };
 
-export const DEFAULT_PAGE_TITLE = 'Bhargav Nath | AI & Technical Product Manager';
+export const DEFAULT_PAGE_TITLE = 'Bhargav Nath | Solutions Engineer & AI Product Builder';
 
 /**
  * Resolves current path or search/hash to an AppView.
