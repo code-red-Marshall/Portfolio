@@ -2,10 +2,6 @@ import React from 'react';
 import { ArrowRight, Download, Github } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section id="hero" className="bg-[#f4f2ed] px-6 pb-10 pt-24 text-[#17221f] sm:pt-28 lg:min-h-[calc(100svh-5rem)] lg:pb-8 lg:pt-28">
       <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
