@@ -40,8 +40,8 @@ const Hero: React.FC = () => {
             <div className="grid grid-cols-3 gap-3 sm:gap-5">
               <div>
                 <p className="text-xl font-semibold tracking-[-0.05em] text-[#17221f] sm:text-2xl">$14K+</p>
-                <p className="mt-1 text-[11px] font-medium leading-4 text-[#35443c] sm:text-xs">Revenue impact</p>
-                <p className="text-[10px] leading-4 text-[#7b867e] sm:text-[11px]">Travel experience booking</p>
+                <p className="mt-1 text-[11px] font-medium leading-4 text-[#35443c] sm:text-xs">Redemption value</p>
+                <p className="text-[10px] leading-4 text-[#7b867e] sm:text-[11px]">Points + cash · first 5 months</p>
               </div>
               <div className="border-l border-[#d3d5cc] pl-3 sm:pl-5">
                 <p className="text-xl font-semibold tracking-[-0.05em] text-[#17221f] sm:text-2xl">110K+</p>
