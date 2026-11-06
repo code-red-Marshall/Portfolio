@@ -36,7 +36,7 @@ const ProjectGallery: React.FC = () => {
         'Integrated BM25 search index over solution requests, RFPs, and docs with role-scoped auth'
       ],
       details: 'Designed and built Solutions Central primarily for internal use by Solutions Consultants within the Solutions Engineering team. The platform connects request intake, project context and knowledge discovery: it pulls information from MS Forms/SharePoint Excel through a Python Graph API integration, maintains versioned Markdown and JSON in GitHub, and presents a Next.js dashboard. I also built a Confluence-native project tracker and a Chrome side-panel assistant with Okapi BM25 search, source citations and invite-code role authentication.',
-      metrics: '4 days of manual work saved per month for consultants • 25% improvement in solution delivery',
+      metrics: '4 days of manual work saved per month for consultants',
       role: 'Solutions Engineer — product design and end-to-end implementation for Solutions Consultants',
       image: '/solutions-central-thumbnail.jpg',
       category: 'Work'
@@ -251,6 +251,11 @@ const ProjectGallery: React.FC = () => {
           <ExternalLink className="mt-1 shrink-0 text-[#7b887f] transition-colors group-hover:text-[#17221f]" size={16} />
         </div>
         <p className="mb-3 text-[13px] leading-5 text-[#66736c] line-clamp-3">{project.description}</p>
+        {project.id === '12' && (
+          <p className="mb-3 border-l-2 border-[#718777] pl-3 text-xs leading-5 text-[#59665f]">
+            <span className="font-semibold text-[#365344]">Build approach:</span> Claude Code-assisted — Next.js/Supabase prototype to native Play/Scala production module.
+          </p>
+        )}
         {project.metrics && project.category === 'Work' && (
           <div className="mb-4 rounded-lg border border-[#d8dfd5] bg-[#edf0e9] px-3 py-2">
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#718077]">Measured impact</p>
