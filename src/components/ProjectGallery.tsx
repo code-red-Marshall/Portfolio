@@ -36,7 +36,7 @@ const ProjectGallery: React.FC = () => {
         'Integrated BM25 search index over solution requests, RFPs, and docs with role-scoped auth'
       ],
       details: 'Designed and built Solutions Central primarily for internal use by Solutions Consultants within the Solutions Engineering team. The platform connects request intake, project context and knowledge discovery: it pulls information from MS Forms/SharePoint Excel through a Python Graph API integration, maintains versioned Markdown and JSON in GitHub, and presents a Next.js dashboard. I also built a Confluence-native project tracker and a Chrome side-panel assistant with Okapi BM25 search, source citations and invite-code role authentication.',
-      metrics: '4 days of manual work saved per month for consultants',
+      metrics: '25% faster request closure in the first 3 months post-production • 4 days of manual work saved per month for consultants',
       role: 'Solutions Engineer — product design and end-to-end implementation for Solutions Consultants',
       image: '/solutions-central-thumbnail.jpg',
       category: 'Work'
@@ -53,7 +53,7 @@ const ProjectGallery: React.FC = () => {
       ],
       details:
         'Coordinated the Switchfly integration into the HR Tech SaaS platform to add travel and experience redemptions. Worked across requirements, API validation with Switchfly, stakeholder communication, QA coordination, launch planning and post-launch feedback.',
-      metrics: '$14K+ revenue impact • +17% redemption adoption for the travel experience',
+      metrics: '$14K+ in combined points + cash redemptions in the first 5 months across enterprise clients • +17% travel redemption adoption',
       role:
         'Associate Project Coordinator — coordinating engineering, design and business stakeholders through API integration, QA and go-live.',
       image: '/Project 1.webp',
