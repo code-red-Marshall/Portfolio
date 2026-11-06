@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
         <div className="order-1 mx-auto w-full max-w-md lg:order-2 lg:max-w-none">
           <div className="overflow-hidden bg-[#e4e5df] lg:max-h-[560px]">
             <img
-              src="https://i.postimg.cc/021ZLmb2/505802200-17866137195403794-942808867213714615-n.jpg"
+              src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Gw5Yl0heenscNlRDkWnQHiIF8r/a6f00f74-d99c-4473-8ba0-7d7286f95fc9.png"
               alt="Portrait of Bhargav Nath"
               className="aspect-[4/5] w-full object-cover object-center lg:aspect-auto lg:max-h-[560px]"
             />
