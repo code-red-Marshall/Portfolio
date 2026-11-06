@@ -119,14 +119,10 @@ const SolutionsCentralCaseStudy: React.FC<{ onBack: () => void }> = ({ onBack })
         <section className="border-t border-[#d8dbd3] pt-10">
           <p className="text-sm font-semibold uppercase tracking-widest text-violet-700">05 · Measured impact</p>
           <h2 className="mt-2 text-2xl font-bold text-[#17221f]">Less manual coordination, faster solution delivery</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4">
             <div className="rounded-xl border border-[#d8dbd3] bg-white p-6">
               <p className="text-3xl font-bold tracking-tight text-[#17221f]">4 days / month</p>
               <p className="mt-2 text-sm leading-relaxed text-[#66736c]">Manual work saved for Solutions Consultants through connected intake, tracking and knowledge workflows.</p>
-            </div>
-            <div className="rounded-xl border border-[#d8dbd3] bg-white p-6">
-              <p className="text-3xl font-bold tracking-tight text-[#17221f]">25%</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#66736c]">Improvement in solution delivery.</p>
             </div>
           </div>
         </section>
